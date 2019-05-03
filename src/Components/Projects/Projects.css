@@ -1,0 +1,46 @@
+.Projects .heading p {
+    height: 28px;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #42505c;
+}
+
+.Projects {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.Projects .create p {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    text-align: right;
+    color: #79828b;
+    margin-top: 50px;
+}
+
+.create .add {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.projectlist {
+    padding-left: 30px;
+    margin-top: 30px;
+}
+
+.projectlist .projectcard {
+    height: 418px;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
