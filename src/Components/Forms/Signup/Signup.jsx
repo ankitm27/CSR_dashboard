@@ -14,7 +14,7 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="col-md-12 signupform">
+            <div className="col-md-11 signupform">
                 <div className="row">
                     <div className="col-md-12 heading">
                         <h1>Welcome to <span> {this.state.Title} </span></h1>

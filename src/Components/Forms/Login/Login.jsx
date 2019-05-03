@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './Login.css';
 
+import { connect } from "react-redux";
+import actions from "../../../Store/Actions/Index";
+import { withRouter } from "react-router";
+
 import { Button, Form, InputGroup } from 'react-bootstrap';
 
 class Login extends Component {
@@ -11,7 +15,23 @@ class Login extends Component {
             Subheading: 'Welcome to ImpactScout ',
         };
     }
+    state = {
+        email: "",
+        password: "",
+    }
 
+    onSubmit = (evt) => {
+        evt.preventDefault();
+        console.dir(this.state.email, this.state.password)
+        if (this.state.email === "" || this.state.password === "") {
+            document.getElementById("emailerror").innerHTML = "Email Required";
+        }
+        else {
+            document.getElementById("emailerror").innerHTML = "";
+            this.props.verifyUser({ email: this.state.email, password: this.state.password })
+            return;
+        }
+    }
     render() {
         return (
             <div className="col-md-12 loginform">
@@ -21,13 +41,16 @@ class Login extends Component {
                         <p>Filling your detail to get Access</p>
                     </div>
                     <div className="col-md-12 text-left mbform">
-                        <Form>
+                        <Form onSubmit={this.onSubmit}>
                             <div className="row">
 
                                 <div className="col-md-12 ">
                                     <Form.Group controlId="formBasicEmail">
-                                        <Form.Control type="email" placeholder="Email" />
+                                        <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={(evt) => {
+                                            this.setState({ email: evt.target.value })
+                                        }} />
                                     </Form.Group>
+
                                 </div>
                                 <div className="col-md-12">
                                     <InputGroup>
@@ -35,12 +58,20 @@ class Login extends Component {
                                             type="password"
                                             placeholder="Password"
                                             aria-describedby="inputGroupPrepend"
-                                            required />
+                                            required value={this.state.password} onChange={(evt) => {
+                                                this.setState({ password: evt.target.value })
+                                            }} />
                                         <InputGroup.Prepend>
                                             <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-eye" aria-hidden="true"></i></InputGroup.Text>
                                         </InputGroup.Prepend>
                                     </InputGroup>
                                 </div>
+
+                                <div className="col-md-12">
+                                    <p id="emailerror" className="text-danger"></p>
+                                </div>
+
+
                                 <div className="col-md-6 mb50">
                                     <p className="forgot"><a>Forgot Password?</a></p>
                                 </div>
@@ -59,4 +90,14 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+    auth: state.auth,
+})
+const mapDispatchToProps = dispatch => ({
+    verifyUser: (v) => dispatch(actions.verifyUser(v)),
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+
+
+
