@@ -3,10 +3,11 @@ import axios from 'axios';
 
 const VERIFY_USER = createAction("VERIFY_USER");
 const REGISTER_USER = createAction("REGISTER_USER");
+const backend_URL = "http://10.5.51.195:3000/";
 
 export const verifyUser = values => dispatch => {
     return axios.post(
-        'http://13.232.210.179/api/admin/login/', {
+        backend_URL +  'api/admin/login/', {
             email: values.email,
             password: values.password
         }
@@ -35,7 +36,7 @@ export const verifyUser = values => dispatch => {
 
 export const registerUser = values => dispatch => {
     return axios.post(
-        'http://13.232.210.179/api/admin/register/', {
+        backend_URL + 'api/admin/register/', {
             firstname: values.firstname,
             lastname: values.lastname,
             email: values.email,
