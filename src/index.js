@@ -11,6 +11,7 @@ import Reducers from "./Store/Reducers";
 import Home from './Components/Home/home';
 import Signup from '../src/Components/Signup/Signup';
 import Login from '../src/Components/Login/Login';
+import Dashboard from '../src/Components/Dashboard/Dashboard';
 
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
@@ -34,6 +35,7 @@ const routing = (
                 <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
+                <Route path="/home" component={Dashboard} />
             </div>
         </Router>
     </Provider>

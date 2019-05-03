@@ -8,9 +8,9 @@ import Dashboard from '../Dashboard/Dashboard';
 function Main() {
     return (
         <div className="Home">
-            {/* <Login />
-            <Signup /> */}
-            <Dashboard />
+            <Login />
+            {/* <Signup />
+            <Dashboard /> */}
         </div>
     );
 }
