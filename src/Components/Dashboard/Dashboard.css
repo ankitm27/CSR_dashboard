@@ -1,0 +1,26 @@
+.Dashboard {
+    background-color: #f6f9fd;
+}
+
+.Dashboard .topbar {
+    height: 240px;
+    opacity: 0.92;
+    background-image: linear-gradient(to bottom, #1f9cf8, #03045c);
+}
+
+.mbtotal {
+    margin-top: -100px;
+}
+
+.graph,
+.pie {
+    padding: 50px;
+}
+
+.mbgraph,
+.mbgpie {
+    height: 407px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+}

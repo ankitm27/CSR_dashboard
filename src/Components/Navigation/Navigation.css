@@ -1,0 +1,16 @@
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    opacity: 0.15;
+    border-radius: 17px;
+    background-color: #ffffff;
+    color: black
+}
+
+.search {
+    background-color: transparent !important;
+    opacity: 0.26;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.85);
+
+}
