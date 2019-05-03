@@ -8,13 +8,7 @@ import Signup from '../src/Components/Signup/Signup';
 import Login from '../src/Components/Login/Login';
 
 import * as serviceWorker from './serviceWorker';
-import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import { createStore, applyMiddleware, compose } from "redux";
-
-
-
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 const routing = (
     <Router>
@@ -25,8 +19,6 @@ const routing = (
         </div>
     </Router>
 )
-
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

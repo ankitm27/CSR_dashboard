@@ -7,7 +7,7 @@
 }
 
 .heading {
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: left;
 }
 
@@ -54,7 +54,9 @@
     box-shadow: none !important;
 }
 
-::placeholder {
+::placeholder,
+select option,
+.form-check-label {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 14px;
     font-weight: normal;
@@ -63,6 +65,32 @@
     line-height: normal;
     letter-spacing: normal;
     color: #686868;
+}
+
+select {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 14px !important;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #686868 !important;
+    padding-left: 0px !important;
+    border-radius: 0px !important;
+}
+
+.form-check-label {
+    margin-top: 15px;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    width: 21.1px;
+    height: 20px;
+    border-radius: 2px;
+    border: solid 2px #2b7ed1;
+    margin-top: 17px;
 }
 
 .input-group-text {
