@@ -12,6 +12,7 @@ import Home from './Components/Home/home';
 import Signup from '../src/Components/Signup/Signup';
 import Login from '../src/Components/Login/Login';
 import Dashboard from '../src/Components/Dashboard/Dashboard';
+import ProjectDetail from '../src/Components/ProjectDetails/ProjectDetails';
 
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
@@ -36,6 +37,7 @@ const routing = (
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/home" component={Dashboard} />
+                <Route path="/detail" component={ProjectDetail} />
             </div>
         </Router>
     </Provider>

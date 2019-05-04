@@ -1,0 +1,58 @@
+.ProjectDetail .topbar {
+    height: 120px;
+    opacity: 0.92;
+    background-image: linear-gradient(to bottom, #1f9cf8, #03045c);
+}
+
+.ProjectDetail .tabs {
+
+    border: solid 1px #97979745;
+}
+
+.nav-tabs {
+    border: none;
+}
+
+
+.nav-tabs .nav-link:hover {
+    border: none;
+}
+
+.nav-tabs .nav-link {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: #303030;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    font-size: 16px;
+    border: none;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    color: #2b7ed1;
+    border-bottom: 3px solid #2b7ed1;
+}
+
+.back {
+    width: 90px;
+    height: 32px;
+    border-radius: 4px;
+    background-color: #e6e9ed;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    color: #686868;
+    border: 1px solid #e6e9ed;
+    margin-top: 5px;
+}

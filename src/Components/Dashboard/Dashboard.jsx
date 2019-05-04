@@ -11,7 +11,8 @@ class Dashboard extends Component {
         this.state = {
             TotalFunding: '$2878.90',
             TotalProjects: '6',
-            TotalGood: 'Good',
+            Rank: 'Good',
+            GoalAchived: '60%',
             TotalAverage: '16%',
             TotalPoor: '4%',
             OverAllSteets: '80%',
@@ -30,7 +31,6 @@ class Dashboard extends Component {
                         <div className="col-md-8 graph">
                             <div className="row mbgraph">
                                 <div className="col-md-4 funding">
-
                                     <div className="row">
                                         <div className="col-md-12">
                                             <p>Overall Funding</p>
@@ -40,14 +40,27 @@ class Dashboard extends Component {
                                             <p>Total Project</p>
                                             <h1>{this.state.TotalProjects}</h1>
                                         </div>
+                                        <div className="col-md-11  text-left goalachived1">
+                                            <p> {this.state.GoalAchived}  Goal Achieved </p>
+                                        </div>
                                     </div>
+                                </div>
+                                <div className="col-md-8 graph">
 
                                 </div>
-                                <div className="col-md-8 graph"></div>
                             </div>
                         </div>
                         <div className="col-md-4 pie">
                             <div className="row mbgpie">
+                                <div className="col-md-12 result">
+                                    <p>Result</p>
+                                </div>
+                                <div className="col-md-12 result">
+                                    <h1>  <img src={require('../../assets/images/rank.png')} width="30" /> {this.state.Rank}  </h1>
+                                </div>
+                                <div className="col-md-12 pie">
+
+                                </div>
                             </div>
                         </div>
                     </div>
