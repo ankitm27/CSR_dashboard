@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Navigation.css';
 import { Navbar, Brand, Collapse, Nav, NavDropdown, Item } from 'react-bootstrap';
+import { Button, Form, InputGroup } from 'react-bootstrap';
 
 
 class Navigation extends Component {
@@ -28,7 +29,15 @@ class Navigation extends Component {
                             </Nav>
 
                             <Nav>
-                                <input type="search" className="search" />
+                                <InputGroup>
+                                    <input
+                                        type="serch"
+                                        placeholder="Search Projects"
+                                        className="search" />
+                                    <InputGroup.Prepend>
+                                        <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-search" aria-hidden="true"></i></InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                </InputGroup>
                                 <Nav.Link eventKey={2} href="#memes">
                                     <img src={require('../../assets/images/filter.png')} />
                                 </Nav.Link>

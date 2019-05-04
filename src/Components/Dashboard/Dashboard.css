@@ -46,3 +46,54 @@
     letter-spacing: 0.8px;
     color: #42505c;
 }
+
+.goalachived1 {
+    height: 32px;
+    width: 85% !important;
+    /* opacity: 0.08; */
+    border-radius: 16px;
+    background-color: #2154a626;
+    margin-left: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    position: absolute;
+    bottom: 0;
+}
+
+.goalachived1 p {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    color: #2b7ed1 !important;
+}
+
+
+.mbgpie .result p {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.07;
+    letter-spacing: normal;
+    color: #79828b;
+    text-align: left
+}
+
+.mbgpie .result h1 {
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #42505c;
+}
