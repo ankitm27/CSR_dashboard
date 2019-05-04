@@ -4,20 +4,41 @@ import Navbar from '../Navbar/Navbar';
 import Navigation from '../Navigation/Navigation';
 import Projects from '../Projects/Projects';
 
+import { connect } from "react-redux";
+import actions from "../../Store/Actions/Index";
+import { withRouter } from "react-router";
 
 class Dashboard extends Component {
     constructor() {
         super();
         this.state = {
-            TotalFunding: '$2878.90',
-            TotalProjects: '6',
-            Rank: 'Good',
-            GoalAchived: '60%',
-            TotalAverage: '16%',
-            TotalPoor: '4%',
-            OverAllSteets: '80%',
-        };
+            TotalFunding: null,
+            TotalProjects: null,
+            GoalAchived: null,
+            TotalGood:null,
+            TotalAverage: null,
+            TotalPoor: null,
+            TotalStatus:null,
+            Programs:null
+        }; 
     }
+    
+    async componentDidMount() {
+        await this.props.dashboardData();
+        console.log("this.props",this.props.projects.programs);
+        this.setState({TotalFunding:this.props.projects.totalFunding});
+        this.setState({TotalProjects:this.props.projects.totalProgram});
+        this.setState({GoalAchived:this.props.projects.goalAchievedAvg});
+        this.setState({TotalGood:this.props.projects.overallGood});
+        this.setState({TotalAverage:this.props.projects.overallAverage});
+        this.setState({TotalPoor:this.props.projects.overallBad});
+        this.setState({TotalStatus:this.props.projects.overallStatus});
+        this.setState({Programs:this.props.projects.programs});
+        // console.log("this state",this.props.projects.programs[0].average);
+    }
+    
+    
+
     render() {
         return (
             <div className="row Dashboard">
@@ -56,7 +77,7 @@ class Dashboard extends Component {
                                     <p>Result</p>
                                 </div>
                                 <div className="col-md-12 result">
-                                    <h1>  <img src={require('../../assets/images/rank.png')} width="30" /> {this.state.Rank}  </h1>
+                                    <h1>  <img src={require('../../assets/images/rank.png')} width="30" /> {this.state.TotalStatus}  </h1>
                                 </div>
                                 <div className="col-md-12 pie">
 
@@ -66,12 +87,30 @@ class Dashboard extends Component {
                     </div>
                 </div>
 
-                <div className="col-md-10 offset-md-1 mbProject">
-                    <Projects />
-                </div>
+                
+                {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (
+                    <div className="col-md-10 offset-md-1 mbProject">
+                        <Projects programs={Program}/>
+                    </div> 
+                ))}
             </div>
         );
     }
 }
 
-export default Dashboard;
+function mapStateToProps(state) {
+    // console.log("state11",state);
+    return {
+        projects:state.Projects
+    }    
+}
+
+const mapDispatchToProps = dispatch => ({
+    dashboardData: (v) => dispatch(actions.dashboardData(v)),
+});
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
+
+
+// export default Dashboard;

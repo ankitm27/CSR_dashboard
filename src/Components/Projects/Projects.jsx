@@ -1,34 +1,46 @@
 import React, { Component } from 'react';
 import './Projects.css';
 
-import { connect } from "react-redux";
-import actions from "../../Store/Actions/Index";
-import { withRouter } from "react-router";
+// import { connect } from "react-redux";
+// import actions from "../../Store/Actions/Index";
+// import { withRouter } from "react-router";
 
 
 class Projects extends Component {
     constructor() {
         super();
         this.state = {
-            Title: 'Projects',
-            Button: 'Create New Project',
-            ProjectName: 'Project 1',
-            Status: 'Open',
-            LastUpdatedAt: '5 hours ago',
-            Description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+            Title: null,
+            Button: null,
+            ProjectName: null,
+            Status: null,
+            LastUpdatedAt: null,
+            Description: null,
             Goal: 'Clean water and sustainability ',
             Average: '70%',
             Result: 'Good',
             DaysLeft: '8 Days left',
             Funding: '$1200'
         };
+        // console.log("this.props",this.props);
+         
     }
-    componentDidMount() {
-        console.log("this props",this.props);
-        this.props.dashboardData();
-    }
+
+    
+
     render() {
-        return (
+        if(this.props  != null && this.props.programs != null){
+            this.setState({ProjectName:this.props.programs.title});
+            this.setState({Status:this.props.programs.status});
+            this.setState({LastUpdatedAt:this.props.programs.updatedAt});
+            this.setState({Description:this.props.programs.description});
+            this.setState({Goal:this.props.programs.Goal});
+            this.setState({average:this.props.programs.goalAchieved});
+            this.setState({Result:"Good"});
+            this.setState({DaysLeft:"8 days left"});
+            this.setState({Funding:this.props.programs.funding});
+        } 
+            return (
             <div className="row Projects">
                 <div className="col-md-6 text-left heading">
                     <p>{this.state.Title}</p>
@@ -83,15 +95,5 @@ class Projects extends Component {
 }
 
 
-const mapStateToProps = state => ({
-    projects: state.projects,
-});
 
-const mapDispatchToProps = dispatch => ({
-    dashboardData: (v) => dispatch(actions.dashboardData(v)),
-});
-
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Projects));
-
-// export default Projects;
+export default Projects;
