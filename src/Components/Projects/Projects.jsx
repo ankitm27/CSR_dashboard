@@ -22,25 +22,7 @@ class Projects extends Component {
                 <div className="col-md-4 projectlist">
                     <div className="row projectcard"></div>
                 </div>
-                <div className="col-md-4 projectlist">
-                    <div className="row projectcard">
-                    </div>
-                </div>
-                <div className="col-md-4 projectlist">
-                    <div className="row projectcard">
-                    </div>
-                </div>
-                <div className="col-md-4 projectlist">
-                    <div className="row projectcard"></div>
-                </div>
-                <div className="col-md-4 projectlist">
-                    <div className="row projectcard">
-                    </div>
-                </div>
-                <div className="col-md-4 projectlist">
-                    <div className="row projectcard">
-                    </div>
-                </div>
+
             </div>
         );
     }
