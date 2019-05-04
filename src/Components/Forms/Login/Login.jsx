@@ -38,7 +38,7 @@ class Login extends Component {
                 <div className="row">
                     <div className="col-md-12 heading">
                         <h1>Welcome to <span> {this.state.Title} </span></h1>
-                        <p>Filling your detail to get Access</p>
+                        <p>Filling your details to get Access</p>
                     </div>
                     <div className="col-md-12 text-left mbform">
                         <Form onSubmit={this.onSubmit}>
@@ -71,7 +71,7 @@ class Login extends Component {
                                     <p id="emailerror" className="text-danger"></p>
                                 </div>
 
-
+                                
                                 <div className="col-md-6 mb50">
                                     <p className="forgot"><a>Forgot Password?</a></p>
                                 </div>
