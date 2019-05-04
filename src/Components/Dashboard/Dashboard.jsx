@@ -90,7 +90,7 @@ class Dashboard extends Component {
                 
                 {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (
                     <div className="col-md-10 offset-md-1 mbProject">
-                        <Projects programs={Program}/>
+                        <Projects />
                     </div> 
                 ))}
             </div>
