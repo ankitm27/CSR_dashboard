@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './ProjectDetails.css';
 import Navbar from '../Navbar/Navbar';
+import Tab1 from '../Details/Details';
+import Tab2 from '../ProjectResult/ProjectResult';
 
 import { Tab, Tabs } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
@@ -29,19 +31,16 @@ class ProjectDetails extends Component {
                                     <Button variant="secondary" className="back"><i className="	fa fa-angle-left"></i> Back</Button>
                                 </div>
                                 <div className="col-md-11">
-                                    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                                    <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                                         <Tab eventKey="home" title={this.state.tab1}>
-
+                                            <Tab1 />
                                         </Tab>
                                         <Tab eventKey="profile" title={this.state.tab2}>
-
+                                            <Tab2 />
                                         </Tab>
                                     </Tabs>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>

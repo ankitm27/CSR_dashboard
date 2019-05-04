@@ -1,0 +1,27 @@
+.tabcontent td span {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #686868;
+}
+
+.tabcontent td {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #686868;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #2b7ed114;
+}
+
+.tabcontent1 tr {
+    border: solid 1px #97979733;
+}
