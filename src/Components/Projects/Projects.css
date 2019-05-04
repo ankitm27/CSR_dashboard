@@ -14,27 +14,7 @@
     padding-right: 30px;
 }
 
-.Projects .create p {
-    font-size: 16px;
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 0.94;
-    letter-spacing: normal;
-    text-align: right;
-    color: #79828b;
-    margin-top: 50px;
-}
 
-.create .add {
-    background-color: transparent !important;
-    border: none !important;
-}
-
-.projectlist {
-    padding-left: 30px;
-    margin-top: 30px;
-}
 
 .projectlist .projectcard {
     height: 418px;
@@ -145,7 +125,7 @@
 
 .goalachived p span {
     float: right;
-    margin-top:3px;
+    margin-top: 3px;
 }
 
 hr {

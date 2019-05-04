@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Projects.css';
 
-// import { connect } from "react-redux";
-// import actions from "../../Store/Actions/Index";
-// import { withRouter } from "react-router";
+import { connect } from "react-redux";
+import actions from "../../Store/Actions/Index";
+import { withRouter } from "react-router";
 
 
 class Projects extends Component {
@@ -22,32 +22,24 @@ class Projects extends Component {
             DaysLeft: '8 Days left',
             Funding: '$1200'
         };
-        // console.log("this.props",this.props);
-         
+        // alert("this.props", this.props.programs);
+
+        // this.setState({ ProjectName: this.props.Programs.title });
+        // this.setState({ Status: this.props.Programs.status });
+        // this.setState({ LastUpdatedAt: this.props.Programs.updatedAt });
+        // this.setState({ Description: this.props.Programs.description });
+        // this.setState({ Goal: this.props.Programs.Goal });
+        // this.setState({ average: this.props.Programs.goalAchieved });
+        // this.setState({ Result: "Good" });
+        // this.setState({ DaysLeft: "8 days left" });
+        // this.setState({ Funding: this.props.Programs.funding });
+
     }
 
-    
-
     render() {
-        if(this.props  != null && this.props.programs != null){
-            this.setState({ProjectName:this.props.programs.title});
-            this.setState({Status:this.props.programs.status});
-            this.setState({LastUpdatedAt:this.props.programs.updatedAt});
-            this.setState({Description:this.props.programs.description});
-            this.setState({Goal:this.props.programs.Goal});
-            this.setState({average:this.props.programs.goalAchieved});
-            this.setState({Result:"Good"});
-            this.setState({DaysLeft:"8 days left"});
-            this.setState({Funding:this.props.programs.funding});
-        } 
-            return (
+
+        return (
             <div className="row Projects">
-                <div className="col-md-6 text-left heading">
-                    <p>{this.state.Title}</p>
-                </div>
-                <div className="col-md-6 text-right create">
-                    <p><a>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" /></button></a></p>
-                </div>
 
                 <div className="col-md-4 projectlist">
                     <div className="row projectcard">
@@ -89,8 +81,11 @@ class Projects extends Component {
                         </div>
                     </div>
                 </div>
+
             </div>
+
         );
+
     }
 }
 
