@@ -43,4 +43,165 @@
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
     background-color: #ffffff;
     margin-bottom: 30px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.projectcard .left h1 {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #42505c;
+}
+
+.projectcard .left p {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #79828b;
+}
+
+.btn-status {
+    height: 32px;
+    border-radius: 8px;
+    background-color: #01c02b3d;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: 1.3px;
+    color: #01c02b;
+}
+
+.btn-status:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.btn-status i {
+    color: #01c02b;
+}
+
+.description p {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.58;
+    letter-spacing: normal;
+    color: #42505c;
+}
+
+.goal p {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #42505c;
+}
+
+.goal p span {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #79828b;
+}
+
+.goalachived {
+    height: 32px;
+    width: 85% !important;
+    /* opacity: 0.08; */
+    border-radius: 16px;
+    background-color: #2154a626;
+    margin-left: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2154a6;
+}
+
+.goalachived p span {
+    float: right;
+}
+
+hr {
+    width: 90%;
+    border: solid 1px #e6ebf03b;
+}
+
+.result p {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    color: #303030;
+}
+
+.result p span {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #79828b;
+    float: right;
+}
+
+.progress {
+    height: 6px;
+    border-radius: 2px;
+}
+
+.btn-daysleft:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.btn-daysleft {
+    height: 23px;
+    /* opacity: 0.1; */
+    border-radius: 2px;
+    background-color: #68686842;
+    font-size: 11.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    color: #686868;
+}
+
+
+.funding p {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    color: #303030;
+    margin-top: 5px;
+    text-align: right
 }
