@@ -88,7 +88,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    verifyUser: (v) => dispatch(actions.verifyUser(v)),
+    dashboardData: (v) => dispatch(actions.dashboardData(v)),
 });
 
 
