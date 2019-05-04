@@ -139,8 +139,13 @@
     color: #2154a6;
 }
 
+.goalachived p {
+    margin-top: 3px;
+}
+
 .goalachived p span {
     float: right;
+    margin-top:3px;
 }
 
 hr {

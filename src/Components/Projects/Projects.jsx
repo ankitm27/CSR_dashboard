@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './Projects.css';
 
+import { connect } from "react-redux";
+import actions from "../../Store/Actions/Index";
+import { withRouter } from "react-router";
+
+
 class Projects extends Component {
     constructor() {
         super();
@@ -17,6 +22,10 @@ class Projects extends Component {
             DaysLeft: '8 Days left',
             Funding: '$1200'
         };
+    }
+    componentDidMount() {
+        console.log("this props",this.props);
+        this.props.dashboardData();
     }
     render() {
         return (
@@ -53,9 +62,9 @@ class Projects extends Component {
                         </div>
                         <div className="col-md-12">
                             <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style={{ width: '15%' }} aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div class="progress-bar bg-danger" role="progressbar" style={{ width: '50%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div class="progress-bar bg-warning" role="progressbar" style={{ width: '20%' }} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-success" role="progressbar" style={{ width: '40%' }} aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar bg-danger" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <hr></hr>
@@ -68,22 +77,21 @@ class Projects extends Component {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         );
     }
 }
 
-export default Projects;
+
+const mapStateToProps = state => ({
+    projects: state.projects,
+});
+
+const mapDispatchToProps = dispatch => ({
+    verifyUser: (v) => dispatch(actions.verifyUser(v)),
+});
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Projects));
+
+// export default Projects;
