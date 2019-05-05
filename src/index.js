@@ -13,7 +13,11 @@ import Signup from '../src/Components/Signup/Signup';
 import Login from '../src/Components/Login/Login';
 import Dashboard from '../src/Components/Dashboard/Dashboard';
 import ProjectDetail from '../src/Components/ProjectDetails/ProjectDetails';
-import CreateProject from '../src/Components/CreateProject/CreateProject';
+import CreateProject from '../src/Components/CreateProject/Step1/CreateProject';
+import step2 from '../src/Components/CreateProject/Step2/CreateProject';
+import step3 from '../src/Components/CreateProject/Step3/CreateProject';
+import step4 from '../src/Components/CreateProject/Step4/CreateProject';
+import step5 from '../src/Components/CreateProject/Step5/CreateProject';
 
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
@@ -40,6 +44,12 @@ const routing = (
                 <Route path="/home" component={Dashboard} />
                 <Route path="/detail" component={ProjectDetail} />
                 <Route path="/createproject" component={CreateProject} />
+
+                <Route path="/step2" component={step2} />
+                <Route path="/step3" component={step3} />
+                <Route path="/step4" component={step4} />
+                <Route path="/step5" component={step5} />
+
             </div>
         </Router>
     </Provider>
