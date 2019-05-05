@@ -11,7 +11,7 @@ export const dashboardData = values => dispatch => {
     return axios.get(
         backend_URL +  'api/dashboard/', {
             headers:{
-                Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFua2l0Lm1hbGhvdHJhQGdtYWlsLmNvbSIsImlhdCI6MTU1Njk0ODc3MSwiZXhwIjoxNTU3MDM1MTcxfQ.g-Ux84QuCZ7QAVeYRfMtdK2Q4RjyqMyb68PQsGyfCSU"
+                Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoZWNrQGdtYWlsLmNvbSIsImlhdCI6MTU1NzA0NTg0MiwiZXhwIjoxNTg4NTgxODQyfQ.5UVoOQA40KoffyomiPp9W__DB2CowvvG2FDPsl-mwzU"
             }
         }
     ).then((res) => {
