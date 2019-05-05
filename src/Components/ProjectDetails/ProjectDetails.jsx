@@ -16,6 +16,10 @@ class ProjectDetails extends Component {
             tab2: 'Project Result'
         };
     }
+
+    
+
+
     render() {
         return (
             <div className="row ProjectDetail">
@@ -48,5 +52,19 @@ class ProjectDetails extends Component {
         );
     }
 }
+
+// function mapStateToProps(state) {
+//     return {
+//         projectDetails: state.ProjectDetails
+//     }
+// }
+
+// const mapDispatchToProps = dispatch => ({
+//     projectDetails: (v) => dispatch(actions.projectDetails(v)),
+// });
+
+
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetails));
+
 
 export default ProjectDetails;

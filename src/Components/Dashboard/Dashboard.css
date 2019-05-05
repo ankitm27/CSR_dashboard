@@ -17,6 +17,34 @@
     padding: 50px;
 }
 
+.mbtitile .heading p {
+    font-size: 22px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #42505c;
+    padding-left: 30px;
+}
+
+.mbtitile .create p {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    text-align: right;
+    color: #79828b;
+    margin-top: 50px;
+}
+
+.create .add {
+    background-color: transparent !important;
+    border: none !important;
+}
+
 .mbgraph,
 .mbgpie {
     height: 407px;

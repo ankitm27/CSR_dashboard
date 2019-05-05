@@ -2,32 +2,57 @@ import React, { Component } from 'react';
 import './Details.css';
 import Button from 'react-bootstrap/Button'
 
+import { connect } from "react-redux";
+import actions from "../../Store/Actions/Index";
+import { withRouter } from "react-router";
 
 
 class Detail extends Component {
     constructor() {
         super();
         this.state = {
-            ProjectName: 'Mukesh Bhardwaj',
-            ProjectDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet..Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet.',
-            ProjectTarget: 'Clean water and sustainability ',
-            ProjectSuccess: '80%',
-            TotalFund: '$12000',
-            Villages: '12',
-            PerUnitFund: '$1000',
-            ProjectManger: '$1000',
-            EmailID: 'sven_mann@ursula.net',
-            Location: 'Delhi',
-            Phone: '9999000021',
-            ExecuterCompany: 'NGO NAME',
-            ExecuterManager: 'Mukesh Bhardwaj',
-            ExecuterEmail: 'bhardwaj.mukesh91@gmail.com',
-            ExecuterLocation: 'Delhi',
-            ExecuterNumber: '9999000021',
-            Daysleft: '4 Days left'
-
+            ProjectName: null,
+            ProjectDescription: null,
+            ProjectTarget: null,
+            ProjectSuccess: null,
+            TotalFund: null,
+            Villages: null,
+            PerUnitFund: null,
+            ProjectManger: null,
+            EmailID: null,
+            Location: null,
+            Phone: null,
+            ExecuterCompany: null,
+            ExecuterManager: null,
+            ExecuterEmail: null,
+            ExecuterLocation: null,
+            ExecuterNumber: null,
+            Daysleft: null
         };
     }
+
+    async componentDidMount() {
+        await this.props.projectDetails();
+        console.log("this.props", this.props.project);
+        this.setState({ ProjectName: this.props.project.title });
+        this.setState({ProjectDescription:this.props.project.description})
+        this.setState({ ProjectTarget: this.props.project.goal });
+        this.setState({ ProjectSuccess: this.props.project.goalAchieved });
+        this.setState({ Villages: this.props.project.totalAreaCovered });
+        this.setState({ PerUnitFund: this.props.project.fundingPerBeneficiary });
+        this.setState({ ProjectManager: this.props.project.supervisor.managerName });
+        this.setState({ EmailID: this.props.project.supervisor.email });
+        this.setState({ Location: this.props.project.supervisor.location});
+        this.setState({ Phone: this.props.project.supervisor.mobile });
+        this.setState({ ExecuterManager: this.props.project.ngo.managerName });
+        this.setState({ ExecuterCompany: this.props.project.ngo.ngoName });
+        this.setState({ ExecuterLocation: this.props.project.ngo.managerName });
+        this.setState({ ExecuterNumber: this.props.project.ngo.mobile });
+        this.setState({ Daysleft: this.props.project.endDate });
+        this.setState({ TotalFund: this.props.project.funding});
+    }
+
+
     render() {
         return (
             <div className="row Details">
@@ -114,7 +139,7 @@ class Detail extends Component {
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Project Manager</p>
-                                            <h1>{this.state.ExecuterManager}</h1>
+                                            <h1>{this.state.ProjectManager}</h1>
                                         </div>
                                     </div>
 
@@ -145,7 +170,7 @@ class Detail extends Component {
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Mobile No.</p>
-                                            <h1>{this.state.ExecuterNumber}</h1>
+                                            <h1>{this.state.Phone}</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -214,4 +239,20 @@ class Detail extends Component {
     }
 }
 
-export default Detail;
+function mapStateToProps(state) {
+    console.log("state",state);
+    return {
+        project: state.Projects
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    projectDetails: (v) => dispatch(actions.projectDetails(v)),
+});
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Detail));
+
+
+
+// export default Detail;

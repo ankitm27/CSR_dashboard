@@ -11,6 +11,12 @@ const ProjectReducers = handleActions({
         // console.log("action",action);
         return { ...state, mailSent: true, ...action.payload };
     },
+
+    PROJECT_DETAIL: (state, action) => {
+        console.log("state11",state);
+        console.log("action",action);
+        return { state:state, mailSent: true, ...action.payload };
+    },
 }, INITIAL_STATE);
 
 export default ProjectReducers;

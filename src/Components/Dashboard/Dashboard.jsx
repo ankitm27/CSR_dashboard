@@ -15,29 +15,31 @@ class Dashboard extends Component {
             TotalFunding: null,
             TotalProjects: null,
             GoalAchived: null,
-            TotalGood:null,
+            TotalGood: null,
             TotalAverage: null,
             TotalPoor: null,
-            TotalStatus:null,
-            Programs:null
-        }; 
+            TotalStatus: null,
+            Programs: null,
+            Title: 'Projects',
+            Button: 'Create New Project'
+        };
     }
-    
+
     async componentDidMount() {
         await this.props.dashboardData();
-        console.log("this.props",this.props.projects.programs);
-        this.setState({TotalFunding:this.props.projects.totalFunding});
-        this.setState({TotalProjects:this.props.projects.totalProgram});
-        this.setState({GoalAchived:this.props.projects.goalAchievedAvg});
-        this.setState({TotalGood:this.props.projects.overallGood});
-        this.setState({TotalAverage:this.props.projects.overallAverage});
-        this.setState({TotalPoor:this.props.projects.overallBad});
-        this.setState({TotalStatus:this.props.projects.overallStatus});
-        this.setState({Programs:this.props.projects.programs});
+        console.log("this.props", this.props.projects.programs);
+        this.setState({ TotalFunding: this.props.projects.totalFunding });
+        this.setState({ TotalProjects: this.props.projects.totalProgram });
+        this.setState({ GoalAchived: this.props.projects.goalAchievedAvg });
+        this.setState({ TotalGood: this.props.projects.overallGood });
+        this.setState({ TotalAverage: this.props.projects.overallAverage });
+        this.setState({ TotalPoor: this.props.projects.overallBad });
+        this.setState({ TotalStatus: this.props.projects.overallStatus });
+        this.setState({ Programs: this.props.projects.programs });
         // console.log("this state",this.props.projects.programs[0].average);
     }
-    
-    
+
+
 
     render() {
         return (
@@ -87,22 +89,38 @@ class Dashboard extends Component {
                     </div>
                 </div>
 
-                
-                {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (
-                    <div className="col-md-10 offset-md-1 mbProject">
-                        <Projects />
-                    </div> 
-                ))}
+                <div className="col-md-10 offset-md-1 mbtitile">
+                    <div className="row">
+                        <div className="col-md-6 text-left heading">
+                            <p>{this.state.Title}</p>
+                        </div>
+                        <div className="col-md-6 text-right create">
+                            <p><a>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" /></button></a></p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div className="col-md-10 offset-md-1">
+                    <div className="row">
+                        {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (
+                            <div className="col-md-4 projectlist">
+                                <Projects programs={Program} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+
             </div>
         );
     }
 }
 
 function mapStateToProps(state) {
-    // console.log("state11",state);
     return {
-        projects:state.Projects
-    }    
+        projects: state.Projects
+    }
 }
 
 const mapDispatchToProps = dispatch => ({
