@@ -4,6 +4,8 @@ import Navbar from '../../Navbar/Navbar';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+// import {Link} from "react-router";
+
 
 class CreateProject extends Component {
     constructor() {
@@ -91,8 +93,9 @@ class CreateProject extends Component {
                                             </div>
 
                                             <div className="col-md-12 text-right">
-                                                <Button variant="primary" type="submit" className="submit">
-                                                    Next
+                                                <Button variant="primary" type="submit" className="submit" >
+                                                    {/* <Link to={"/step2"}>Next</Link> */}
+                                                 NEXT
                                                  </Button>
                                             </div>
                                         </div>
