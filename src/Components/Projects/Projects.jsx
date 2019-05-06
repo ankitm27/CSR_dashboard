@@ -16,11 +16,11 @@ class Projects extends Component {
             Status: null,
             LastUpdatedAt: null,
             Description: null,
-            Goal: 'Clean water and sustainability ',
-            Average: '70%',
-            Result: 'Good',
-            DaysLeft: '8 Days left',
-            Funding: '$1200'
+            Goal: null,
+            Average: null,
+            Result: null,
+            DaysLeft: null,
+            Funding: null
         };
         // alert("this.props", this.props.programs);
 
@@ -37,32 +37,32 @@ class Projects extends Component {
     }
 
     render() {
-
+        const { programs } = this.props;
         return (
             <div className="row Projects">
 
                 <div className="col-md-4 projectlist">
                     <div className="row projectcard">
                         <div className="col-md-6 left">
-                            <h1>{this.state.ProjectName}</h1>
-                            <p>{this.state.LastUpdatedAt}</p>
+                            <h1>{programs.title}</h1>
+                            <p>{programs.updatedAt}</p>
                         </div>
                         <div className="col-md-6 right text-right">
-                            <button type="button" class="btn btn-status"> <i className="fa  fa-circle"></i> {this.state.Status}</button>
+                            <button type="button" class="btn btn-status"> <i className="fa  fa-circle"></i> {programs.Status}</button>
                         </div>
                         <div className="col-md-12  text-left description">
-                            <p>{this.state.Description}</p>
+                            <p>{programs.description}</p>
                         </div>
                         <div className="col-md-12  text-left goal">
-                            <p>Goal : <span>{this.state.Goal}</span></p>
+                            <p>Goal : <span>{programs.goal}</span></p>
                         </div>
                         <div className="col-md-11  text-left goalachived">
-                            <p>Goal Achieved <span className="text-right"> {this.state.Average}</span></p>
+                            <p>Goal Achieved <span className="text-right"> {programs.goalAchieved}</span></p>
                         </div>
                         <hr></hr>
 
                         <div className="col-md-12  text-left result">
-                            <p>Result <span className="text-right"> {this.state.Result}</span></p>
+                            <p>Result <span className="text-right"> {programs.Result}</span></p>
                         </div>
                         <div className="col-md-12">
                             <div class="progress">
@@ -74,10 +74,10 @@ class Projects extends Component {
                         <hr></hr>
 
                         <div className="col-md-6">
-                            <button type="button" class="btn btn-daysleft"> <i className="fa fa-clock-o"></i> {this.state.DaysLeft}</button>
+                            <button type="button" class="btn btn-daysleft"> <i className="fa fa-clock-o"></i> {programs.endDate}</button>
                         </div>
                         <div className="col-md-6  text-left funding">
-                            <p>Funding: {this.state.Funding}</p>
+                            <p>Funding: {programs.funding}</p>
                         </div>
                     </div>
                 </div>
