@@ -38,15 +38,17 @@ class CreateProject extends Component {
         console.log("evt",evt);
         console.log("this state",this.state);
         this.props.history.push({
-            pathName:'/step2',
+            pathname:'/step2',
             state:{
-                projectName:this.state.projectName,
-                about:this.state.about,
-                target:this.state.target,
-                totalFund:this.state.totalFund,
-                totalUnit:this.state.totalUnit,
-                startDate:this.state.startDate
-            }             
+                step1:{
+                    projectName:this.state.projectName,
+                    about:this.state.about,
+                    target:this.state.target,
+                    totalFund:this.state.totalFund,
+                    totalUnit:this.state.totalUnit,
+                    startDate:this.state.startDate
+                }
+            }      
         });
         
        
