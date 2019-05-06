@@ -16,7 +16,13 @@ class CreateProject extends Component {
             Step3: 'Add Project Owner Information',
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
-            startDate: new Date()
+            startDate: new Date(),
+            projectName:null,
+            about:null,
+            target:null,
+            totalFund:null,
+            totalUnit:null,
+            startDate:null
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -25,6 +31,25 @@ class CreateProject extends Component {
         this.setState({
             startDate: date
         });
+    }
+
+    onSubmit = (evt) => {
+        evt.preventDefault();
+        console.log("evt",evt);
+        console.log("this state",this.state);
+        this.props.history.push({
+            pathName:'/step2',
+            state:{
+                projectName:this.state.projectName,
+                about:this.state.about,
+                target:this.state.target,
+                totalFund:this.state.totalFund,
+                totalUnit:this.state.totalUnit,
+                startDate:this.state.startDate
+            }             
+        });
+        
+       
     }
 
     render() {
@@ -43,22 +68,28 @@ class CreateProject extends Component {
                                 </div>
 
                                 <div className="col-md-12 projectform">
-                                    <Form>
+                                    <Form onSubmit={this.onSubmit}>
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <Form.Group controlId="formBasicName">
-                                                    <Form.Control type="text" placeholder="Name" />
+                                                    <Form.Control type="text" placeholder="Name" value={this.state.projectName} onChange={(evt) => {
+                                                        this.setState({ projectName: evt.target.value })
+                                                    }} />
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-12">
                                                 <Form.Group controlId="formBasicProject">
-                                                    <Form.Control type="text" placeholder="About Project" />
+                                                    <Form.Control type="text" placeholder="About Project" value={this.state.about} onChange={(evt) => {
+                                                        this.setState({ about: evt.target.value })
+                                                    }} />
                                                 </Form.Group>
                                             </div>
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Project Target" />
+                                                    <Form.Control type="text" placeholder="Project Target" value={this.state.target} onChange={(evt) => {
+                                                        this.setState({ target: evt.target.value })
+                                                    }} />
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-6">
@@ -68,7 +99,9 @@ class CreateProject extends Component {
                                                     </InputGroup.Prepend>
                                                     <Form.Control
                                                         type="text"
-                                                        placeholder="Total Fund" />
+                                                        placeholder="Total Fund" value={this.state.totalFund} onChange={(evt) => {
+                                                            this.setState({ totalFund: evt.target.value })
+                                                        }} />
                                                 </InputGroup>
                                             </div>
 
@@ -76,7 +109,9 @@ class CreateProject extends Component {
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Add Total Unit" />
+                                                    <Form.Control type="text" placeholder="Add Total Unit" value={this.state.totalUnit} onChange={(evt) => {
+                                                        this.setState({ totalUnit: evt.target.value })
+                                                    }} />
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-6">
@@ -94,9 +129,8 @@ class CreateProject extends Component {
 
                                             <div className="col-md-12 text-right">
                                                 <Button variant="primary" type="submit" className="submit" >
-                                                    {/* <Link to={"/step2"}>Next</Link> */}
-                                                 NEXT
-                                                 </Button>
+                                                    NEXT
+                                                </Button>
                                             </div>
                                         </div>
                                     </Form>

@@ -14,7 +14,9 @@ class CreateProject extends Component {
             Step3: 'Add Project Owner Information',
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
-            startDate: new Date()
+            startDate: new Date(),
+            componentName:null,
+            rule:null
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -24,6 +26,15 @@ class CreateProject extends Component {
             startDate: date
         });
     }
+
+    onSubmit = (evt) => {
+        evt.preventDefault();
+        console.log("evt",evt);
+        console.log("this state",this.state);
+        console.log("this props location state",this.props.location.state);
+        // this.props.history.push('/step3');
+    }
+
 
     render() {
         return (
@@ -41,29 +52,33 @@ class CreateProject extends Component {
                                 </div>
 
                                 <div className="col-md-12 projectform">
-                                    <Form>
+                                    <Form onSubmit={this.onSubmit}>
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <Form.Group controlId="formBasicName">
-                                                    <Form.Control as="select">
+                                                    <Form.Control as="select" value={this.state.componentName} onChange={(evt) => {
+                                                        this.setState({ componentName: evt.target.value })
+                                                    }}>
                                                         <option>Select Component Name</option>
-                                                        <option>...</option>
+                                                        <option>Image</option>
                                                     </Form.Control>
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-12">
-                                                <Form.Control as="select">
+                                                <Form.Control as="select" value={this.state.rule} onChange={(evt) => {
+                                                    this.setState({ rule: evt.target.value })
+                                                }}>
                                                     <option>Select Rule</option>
-                                                    <option>...</option>
+                                                    <option>Two beneficary should not have same image</option>
                                                 </Form.Control>
                                             </div>
 
 
 
 
-                                            <div className="col-md-6 text-left back1">
+                                            {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
-                                            </div>
+                                            </div> */}
                                             <div className="col-md-6 text-right">
                                                 <Button variant="primary" type="submit" className="submit">
                                                     Next
