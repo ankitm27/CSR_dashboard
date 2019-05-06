@@ -43,31 +43,31 @@ class CreateProject extends Component {
                                 <div className="col-md-12 projectform">
                                     <Form>
                                         <div className="row">
-                                            <div className="col-md-12">
+                                            <div className="col-md-6">
                                                 <Form.Group controlId="formBasicName">
-                                                    <Form.Control type="text" placeholder="Name" />
+                                                    <Form.Control type="text" placeholder="NGO Name" />
                                                 </Form.Group>
                                             </div>
-                                            <div className="col-md-12">
+                                            <div className="col-md-6">
+                                                <Form.Group controlId="formBasicName">
+                                                    <Form.Control type="text" placeholder="Location" />
+                                                </Form.Group>
+                                            </div>
+                                            <div className="col-md-6">
                                                 <Form.Group controlId="formBasicProject">
-                                                    <Form.Control type="text" placeholder="About Project" />
+                                                    <Form.Control type="text" placeholder="Manager Name" />
                                                 </Form.Group>
                                             </div>
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Project Target" />
+                                                    <Form.Control type="email" placeholder="Email" />
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-6">
-                                                <InputGroup>
-                                                    <InputGroup.Prepend>
-                                                        <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-                                                    </InputGroup.Prepend>
-                                                    <Form.Control
-                                                        type="text"
-                                                        placeholder="Total Fund" />
-                                                </InputGroup>
+                                                <Form.Group controlId="formBasicTarget">
+                                                    <Form.Control type="number" placeholder="Mobile Number" />
+                                                </Form.Group>
                                             </div>
 
 
@@ -77,24 +77,30 @@ class CreateProject extends Component {
                                                     <Form.Control type="text" placeholder="Add Total Unit" />
                                                 </Form.Group>
                                             </div>
-                                            <div className="col-md-6">
-                                                <InputGroup>
 
-                                                    <Form.Control
-                                                        type="text"
-                                                        placeholder="Set Project Date" />
-                                                    <InputGroup.Prepend>
-                                                        <InputGroup.Text id="inputGroupPrepend" selected={this.state.startDate}
-                                                            onChange={this.handleChange} >  <i className="fa fa-calendar" aria-hidden="true"></i> </InputGroup.Text>
-                                                    </InputGroup.Prepend>
-                                                </InputGroup>
+
+
+                                            <div className="col-md-6">
+                                                <Form.Control as="select">
+                                                    <option>Country</option>
+                                                    <option>...</option>
+                                                </Form.Control>
                                             </div>
 
-                                            <div className="col-md-12 text-right">
+
+                                            <div className="col-md-6">
+
+                                            </div>
+
+                                            <div className="col-md-6 text-left back1">
+                                                <a>Back</a>
+                                            </div>
+                                            <div className="col-md-6 text-right">
                                                 <Button variant="primary" type="submit" className="submit">
                                                     Next
                                                  </Button>
                                             </div>
+
                                         </div>
                                     </Form>
                                 </div>
@@ -105,10 +111,10 @@ class CreateProject extends Component {
 
                 <div className="col-md-5 right ">
                     <div className="row section">
-                        <div className="col-md-12 projectsection active">
+                        <div className="col-md-12 projectsection ">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber active">1</h1>
+                                    <h1 className="stepnumber check"><i className="fa fa-check" /></h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step1}</h1>
@@ -121,7 +127,7 @@ class CreateProject extends Component {
                         <div className="col-md-12 projectsection">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber">2</h1>
+                                    <h1 className="stepnumber check"><i className="fa fa-check" /></h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step2}</h1>
@@ -133,7 +139,7 @@ class CreateProject extends Component {
                         <div className="col-md-12 projectsection">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber">3</h1>
+                                    <h1 className="stepnumber check"><i className="fa fa-check" /></h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step3}</h1>
@@ -142,10 +148,10 @@ class CreateProject extends Component {
                             </div>
                         </div>
 
-                        <div className="col-md-12 projectsection">
+                        <div className="col-md-12 projectsection active">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber">4</h1>
+                                    <h1 className="stepnumber active">4</h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step4}</h1>
