@@ -26,10 +26,10 @@ class ModalContent extends Component {
                         <div className="col-md-12">
                             <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                                 <Tab eventKey="home" title={this.state.tab1}>
-                                    <Tab1 userId={this.props.selectedUser} />
+                                    <Tab1 userDetailes={this.props.userDetailes} />
                                 </Tab>
                                 <Tab eventKey="profile" title={this.state.tab2}>
-                                    <Tab2 userId={this.props.selectedUser} />
+                                    <Tab2 userDetailes = {this.props.userDetailes} />
                                 </Tab>
                             </Tabs>
                         </div>

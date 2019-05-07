@@ -27,7 +27,7 @@ export const projectDetails = values => dispatch => {
     console.log("check");
     // console.log("values",values);
     let values = {
-        _id:"5ccd275ecec8121511860942",
+        _id:"5cd1cf5ce292e15fff263bdf",
     }
     console.log("values",values);
     return axios.get(

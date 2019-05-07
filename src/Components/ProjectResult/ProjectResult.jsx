@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
-
+const _ = require('lodash'); 
 
 class ProjectResults extends Component {
     constructor(props, context) {
@@ -27,7 +27,8 @@ class ProjectResults extends Component {
             totalRules: null,
             unfollowedRules: null,
             risk: null,
-            Action:"View Details"
+            Action:"View Details",
+            _id:null
         }];
         
         this.handleShow = this.handleShow.bind(this);
@@ -41,6 +42,9 @@ class ProjectResults extends Component {
         this.setState({ show: true });
         console.log("data",data);
         this.setState({selectedUser:data});
+        const userDetailes = _.find(this.data,{name:data});
+        console.log("rules",userDetailes);
+        this.setState({userDetailes:userDetailes});
     }
 
     async componentDidMount() {
@@ -97,7 +101,7 @@ class ProjectResults extends Component {
                                     <td>{dataObj.totalRules}</td>
                                     <td>{dataObj.unfollowedRules}</td>
                                     <td><button className="btn btn-risk">{dataObj.risk}</button></td>
-                                    <td><a className="action" onClick={() => this.handleShow(dataObj.name)}  >View Details</a></td>       
+                                    <td><a className="action" onClick={() => this.handleShow(dataObj.name)}>View Details</a></td>       
                                 </tr>
                             )}  
                         </tbody>
@@ -108,7 +112,7 @@ class ProjectResults extends Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose}  size="lg">
                     <Modal.Header closeButton>
-                        <ModalContent selectedUser={this.state.selectedUser}/>
+                        <ModalContent selectedUser={this.state.selectedUser} userDetailes={this.state.userDetailes} />
                     </Modal.Header>
                     <Modal.Body>  </Modal.Body>
 
