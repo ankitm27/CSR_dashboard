@@ -27,7 +27,6 @@ class Dashboard extends Component {
 
     async componentDidMount() {
         await this.props.dashboardData();
-        console.log("this.props", this.props.projects.programs);
         this.setState({ TotalFunding: this.props.projects.totalFunding });
         this.setState({ TotalProjects: this.props.projects.totalProgram });
         this.setState({ GoalAchived: this.props.projects.goalAchievedAvg });
@@ -36,7 +35,6 @@ class Dashboard extends Component {
         this.setState({ TotalPoor: this.props.projects.overallBad });
         this.setState({ TotalStatus: this.props.projects.overallStatus });
         this.setState({ Programs: this.props.projects.programs });
-        // console.log("this state",this.props.projects.programs[0].average);
     }
 
 
@@ -129,6 +127,3 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
-
-
-// export default Dashboard;
