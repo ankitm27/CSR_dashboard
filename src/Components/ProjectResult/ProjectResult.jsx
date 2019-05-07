@@ -14,42 +14,42 @@ class ProjectResults extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-        //     Beneficiary: 'Eliza Willis',
-        //     Date: '05 Sep 2019',
-        //     TatalDetail: '20',
-        //     UnverfiedDetail: '19',
-        //     TotalRules: '20',
-        //     UnfollowedRules: '19',
-        //     Risk: 'High',
-        //     Action: 'View  Details',
             show: false,
+            // Action: 'View  Details',
+            selectedUser:null
         };
+        
         this.data = [{
-            Beneficiary: null,
-            Date: null,
-            TatalDetail: null,
-            UnverfiedDetail: null,
-            TotalRules: null,
-            UnfollowedRules: null,
-            Risk: null,
-            Action: null,
-            show: null,
-        }]
+            name: null,
+            date: null,
+            totalDetail: null,
+            unverifiedDetail: null,
+            totalRules: null,
+            unfollowedRules: null,
+            risk: null,
+            Action:"View Details"
+        }];
+        
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
     }
     handleClose() {
         this.setState({ show: false });
     }
-    handleShow() {
+    handleShow(data) {
+        console.log("check");
         this.setState({ show: true });
+        console.log("data",data);
+        this.setState({selectedUser:data});
     }
 
     async componentDidMount() {
         await this.props.projectDetails({_id:this.props.location.state._id});
-        console.log("this. props",this.props);    
+        // console.log("this. props",this.props.project.beneficiaries);    
         // this.data = this.props.project.users;
-        console.log("this.data");
+        // console.log("this.data");
+        this.data = this.props.project.beneficiaries;
+        // console.log("this data",this.data);
     }
 
     render() {
@@ -90,14 +90,14 @@ class ProjectResults extends Component {
                         <tbody>
                             {this.data.map(dataObj =>
                                 <tr>
-                                    <td>{dataObj.Beneficiary}</td>
-                                    <td>{dataObj.Date}</td>
-                                    <td>{dataObj.TatalDetail}</td>
-                                    <td>{dataObj.UnverfiedDetail}</td>
-                                    <td>{dataObj.TotalRules}</td>
-                                    <td>{dataObj.UnfollowedRules}</td>
-                                    <td><button className="btn btn-risk">{dataObj.Risk}</button></td>
-                                    <td><a className="action" onClick={this.handleShow}>{dataObj.Action}</a></td>       
+                                    <td>{dataObj.name}</td>
+                                    <td>{dataObj.date}</td>
+                                    <td>{dataObj.totalDetail}</td>
+                                    <td>{dataObj.unverifiedDetail}</td>
+                                    <td>{dataObj.totalRules}</td>
+                                    <td>{dataObj.unfollowedRules}</td>
+                                    <td><button className="btn btn-risk">{dataObj.risk}</button></td>
+                                    <td><a className="action" onClick={() => this.handleShow(dataObj.name)}  >View Details</a></td>       
                                 </tr>
                             )}  
                         </tbody>
@@ -108,7 +108,7 @@ class ProjectResults extends Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose}  size="lg">
                     <Modal.Header closeButton>
-                        <ModalContent />
+                        <ModalContent selectedUser={this.state.selectedUser}/>
                     </Modal.Header>
                     <Modal.Body>  </Modal.Body>
 

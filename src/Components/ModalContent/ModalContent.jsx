@@ -17,6 +17,7 @@ class ModalContent extends Component {
     }
 
     render() {
+        console.log("this props",this.props);
         return (
             <div className="row ModalContents">
                 <div className="col-md-12 tabs">
@@ -25,10 +26,10 @@ class ModalContent extends Component {
                         <div className="col-md-12">
                             <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                                 <Tab eventKey="home" title={this.state.tab1}>
-                                    <Tab1 />
+                                    <Tab1 userId={this.props.selectedUser} />
                                 </Tab>
                                 <Tab eventKey="profile" title={this.state.tab2}>
-                                    <Tab2 />
+                                    <Tab2 userId={this.props.selectedUser} />
                                 </Tab>
                             </Tabs>
                         </div>
