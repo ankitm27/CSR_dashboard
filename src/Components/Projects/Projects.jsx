@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
-var DateDiff = require('date-diff');
+const DateDiff = require('date-diff');
 
 class Projects extends Component {
     constructor() {

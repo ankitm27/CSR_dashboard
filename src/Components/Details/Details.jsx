@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
+const DateDiff = require('date-diff');
+
 
 class Detail extends Component {
     constructor() {
@@ -36,6 +38,9 @@ class Detail extends Component {
         console.log("this props",this.props);
         console.log("this props projects",this.props.project);
         const project = this.props.project;
+        const date1 = new Date(); 
+        const date2 = new Date(project.endDate); 
+        const daysLeft = parseInt(new DateDiff(date2, date1).days());
         this.setState({ ProjectName: project.title ? project.title : "" });
         this.setState({ProjectDescription:project.description ? project.description : ""})
         this.setState({ ProjectTarget: project.goal ? project.goal : "" });
@@ -50,7 +55,7 @@ class Detail extends Component {
         this.setState({ ExecuterCompany: project.ngo && project.ngo.ngoName ? project.ngo.ngoName : null });
         this.setState({ ExecuterLocation: project.ngo && project.ngo.managerName ? project.ngo.managerName : null });
         this.setState({ ExecuterNumber: project.ngo && project.ngo.mobile ? project.ngo.mobile : null });
-        this.setState({ Daysleft: project.endDate ? project.endDate : null });
+        this.setState({ Daysleft: daysLeft ? daysLeft + "days left" : null });
         this.setState({ TotalFund: project.funding ? project.funding : null});
     }
 
