@@ -34,6 +34,11 @@ class Detail extends Component {
     }
 
     async componentDidMount() {
+        if(!localStorage.getItem("token")){
+            this.props.history.push({
+                pathname:'/login',
+            });
+        }
         await this.props.projectDetails({_id:this.props.location.state._id});
         console.log("this props",this.props);
         console.log("this props projects",this.props.project);

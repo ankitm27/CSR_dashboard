@@ -52,7 +52,7 @@ class Projects extends Component {
                             <p>{lastUpdatedAt} days ago</p>
                         </div>
                         <div className="col-md-6 right text-right">
-                            <button type="button" class="btn btn-status"> <i className="fa  fa-circle"></i> {programs.status}</button>
+                            <button type="button" className="btn btn-status"> <i className="fa  fa-circle"></i> {programs.status}</button>
                         </div>
                         <div className="col-md-12  text-left description">
                             <p>{programs.description}</p>
@@ -69,16 +69,16 @@ class Projects extends Component {
                             <p>Result <span className="text-right"> {programs.Result}</span></p>
                         </div>
                         <div className="col-md-12">
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style={{ width: '40%' }} aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div class="progress-bar bg-warning" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div class="progress-bar bg-danger" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div className="progress">
+                                <div className="progress-bar bg-success" role="progressbar" style={{ width: '40%' }} aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-warning" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-danger" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <hr></hr>
 
                         <div className="col-md-6">
-                            <button type="button" class="btn btn-daysleft"> <i className="fa fa-clock-o"></i> {daysLeft} days left</button>
+                            <button type="button" className="btn btn-daysleft"> <i className="fa fa-clock-o"></i> {daysLeft} days left</button>
                         </div>
                         <div className="col-md-6  text-left funding">
                             <p>Funding: {programs.funding}</p>

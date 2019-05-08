@@ -26,6 +26,12 @@ class Dashboard extends Component {
     }
 
     async componentDidMount() {
+        if(!localStorage.getItem("token")){
+            this.props.history.push({
+                pathname:'/login',
+            });
+        }
+
         await this.props.dashboardData();
         this.setState({ TotalFunding: this.props.projects.totalFunding });
         this.setState({ TotalProjects: this.props.projects.totalProgram });
@@ -108,8 +114,6 @@ class Dashboard extends Component {
                         ))}
                     </div>
                 </div>
-
-
             </div>
         );
     }

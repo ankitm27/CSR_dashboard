@@ -20,16 +20,28 @@ class Login extends Component {
         password: "",
     }
 
-    onSubmit = (evt) => {
+    onSubmit = async(evt) => {
         evt.preventDefault();
-        console.dir(this.state.email, this.state.password)
+        // console.dir(this.state.email, this.state.password)
         if (this.state.email === "" || this.state.password === "") {
             document.getElementById("emailerror").innerHTML = "Email Required";
         }
         else {
             document.getElementById("emailerror").innerHTML = "";
-            this.props.verifyUser({ email: this.state.email, password: this.state.password })
-            return;
+            await this.props.verifyUser({ email: this.state.email, password: this.state.password })
+            // return;
+            console.log("this state",this.state);
+            console.log("this.props",this.props);
+            if(this.props.auth.token){
+                this.props.history.push({
+                    pathname:'/',
+                    state:{
+                        token:this.props.auth.token,
+                        userId:"1234",
+                        userName:"check"
+                    }      
+                });
+            }
         }
     }
     render() {

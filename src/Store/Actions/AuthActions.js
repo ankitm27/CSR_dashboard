@@ -18,7 +18,7 @@ export const verifyUser = values => dispatch => {
         // if (localStorage.getItem("token") === null) {
         console.log("local storage",localStorage.getItem("token"));
         localStorage.setItem("token", res.data.data.token);
-        dispatch(VERIFY_USER())
+        dispatch(VERIFY_USER(res.data.data))
         // }
         // else {
         //     window.localStorage.removeItem('token');
@@ -26,11 +26,10 @@ export const verifyUser = values => dispatch => {
         //     // dispatch(VERIFY_EMAIL({ id: res.data.data._id }))
         //     dispatch(VERIFY_USER())
         // }
-    })
-        .catch(error => {
+    }).catch(error => {
             document.getElementById("emailerror").innerHTML = error.response.data.error;
             return Promise.reject();
-        });
+    });
 }
 
 

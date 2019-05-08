@@ -50,8 +50,14 @@ class CreateProject extends Component {
                 }
             }      
         });
-        
-       
+    }
+
+    async componentDidMount(){
+        if(!localStorage.getItem("token")){
+            this.props.history.push({
+                pathname:'/login',
+            });
+        }
     }
 
     render() {
