@@ -48,7 +48,7 @@ class Projects extends Component {
                             <p>{programs.updatedAt}</p>
                         </div>
                         <div className="col-md-6 right text-right">
-                            <button type="button" class="btn btn-status"> <i className="fa  fa-circle"></i> {programs.Status}</button>
+                            <button type="button" class="btn btn-status"> <i className="fa  fa-circle"></i> {programs.status}</button>
                         </div>
                         <div className="col-md-12  text-left description">
                             <p>{programs.description}</p>
