@@ -9,5 +9,11 @@ const AuthReducer = handleActions({
         console.log(action);
         return { ...state, mailSent: true, ...action.payload };
     },
+
+    REGISTER_USER : (state, action) => {
+        console.log("action",action);
+        return { ...state, mailSent: true, ...action.payload };
+    }
 }, INITIAL_STATE);
+
 export default AuthReducer;

@@ -16,7 +16,6 @@ class Tab1content extends Component {
     }
 
     render() {
-        console.log("this props1111",this.props);
         return (
             <div className="row tabcontent">
                 <div className="col-md-12">

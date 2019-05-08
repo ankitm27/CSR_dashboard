@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const VERIFY_USER = createAction("VERIFY_USER");
 const REGISTER_USER = createAction("REGISTER_USER");
+
 const backend_URL = "http://13.232.210.179/";
 
 export const verifyUser = values => dispatch => {
@@ -13,17 +14,18 @@ export const verifyUser = values => dispatch => {
         }
     ).then((res) => {
         console.log(res.data);
-        console.log(res.data.data._id);
-        if (localStorage.getItem("token") === null) {
-            localStorage.setItem("token", res.data.token);
-            dispatch(VERIFY_USER())
-        }
-        else {
-            window.localStorage.removeItem('token');
-            localStorage.setItem("token", res.data.token);
-            // dispatch(VERIFY_EMAIL({ id: res.data.data._id }))
-            dispatch(VERIFY_USER())
-        }
+        console.log(res.data.data.token);
+        // if (localStorage.getItem("token") === null) {
+        console.log("local storage",localStorage.getItem("token"));
+        localStorage.setItem("token", res.data.data.token);
+        dispatch(VERIFY_USER())
+        // }
+        // else {
+        //     window.localStorage.removeItem('token');
+        //     localStorage.setItem("token", res.data.token);
+        //     // dispatch(VERIFY_EMAIL({ id: res.data.data._id }))
+        //     dispatch(VERIFY_USER())
+        // }
     })
         .catch(error => {
             document.getElementById("emailerror").innerHTML = error.response.data.error;
@@ -37,8 +39,8 @@ export const verifyUser = values => dispatch => {
 export const registerUser = values => dispatch => {
     return axios.post(
         backend_URL + 'api/admin/register/', {
-            firstname: values.firstname,
-            lastname: values.lastname,
+            firstName: values.firstname,
+            lastName: values.lastname,
             email: values.email,
             mobile: values.mobile,
             password: values.password,
@@ -47,19 +49,9 @@ export const registerUser = values => dispatch => {
         }
     ).then((res) => {
         console.log(res.data);
-        console.log(res.data.data._id);
-        if (localStorage.getItem("token") === null) {
-            localStorage.setItem("token", res.data.token);
-            dispatch(REGISTER_USER())
-        }
-        else {
-            window.localStorage.removeItem('token');
-            localStorage.setItem("token", res.data.token);
-            // dispatch(VERIFY_EMAIL({ id: res.data.data._id }))
-            dispatch(REGISTER_USER())
-        }
-    })
-        .catch(error => {
+        // console.log(res.data.data._id);
+        dispatch(REGISTER_USER({success:true}))
+    }).catch(error => {
             document.getElementById("emailerror").innerHTML = error.response.data.error;
             return Promise.reject();
         });

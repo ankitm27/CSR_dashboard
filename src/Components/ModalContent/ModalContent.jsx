@@ -17,7 +17,6 @@ class ModalContent extends Component {
     }
 
     render() {
-        console.log("this props",this.props);
         return (
             <div className="row ModalContents">
                 <div className="col-md-12 tabs">

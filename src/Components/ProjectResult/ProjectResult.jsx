@@ -38,22 +38,15 @@ class ProjectResults extends Component {
         this.setState({ show: false });
     }
     handleShow(data) {
-        console.log("check");
         this.setState({ show: true });
-        console.log("data",data);
         this.setState({selectedUser:data});
         const userDetailes = _.find(this.data,{name:data});
-        console.log("rules",userDetailes);
         this.setState({userDetailes:userDetailes});
     }
 
     async componentDidMount() {
         await this.props.projectDetails({_id:this.props.location.state._id});
-        // console.log("this. props",this.props.project.beneficiaries);    
-        // this.data = this.props.project.users;
-        // console.log("this.data");
         this.data = this.props.project.beneficiaries;
-        // console.log("this data",this.data);
     }
 
     render() {
@@ -122,8 +115,6 @@ class ProjectResults extends Component {
         );
     }
 }
-
-// export default ProjectResults;
 
 function mapStateToProps(state) {
     console.log("state",state);
