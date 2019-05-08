@@ -17,6 +17,14 @@ class ProjectDetails extends Component {
         };
     }
 
+    componentDidMount() {
+        if(!this.props.location.state || !this.props.location.state._id){
+            this.props.history.push({
+                pathname:'/',
+            });
+        }
+    }
+
     
 
 

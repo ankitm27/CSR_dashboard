@@ -22,10 +22,10 @@ class Navigation extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
-                                <Nav.Link href="#features">{this.state.Menu1}</Nav.Link>
-                                <Nav.Link href="#pricing">{this.state.Menu2}</Nav.Link>
-                                <Nav.Link href="#features">{this.state.Menu3}</Nav.Link>
-                                <Nav.Link href="#pricing">{this.state.Menu4}</Nav.Link>
+                                <Nav.Link>{this.state.Menu1}</Nav.Link>
+                                <Nav.Link>{this.state.Menu2}</Nav.Link>
+                                <Nav.Link>{this.state.Menu3}</Nav.Link>
+                                <Nav.Link>{this.state.Menu4}</Nav.Link>
                             </Nav>
 
                             <Nav>
@@ -38,9 +38,9 @@ class Navigation extends Component {
                                         <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-search" aria-hidden="true"></i></InputGroup.Text>
                                     </InputGroup.Prepend>
                                 </InputGroup>
-                                <Nav.Link eventKey={2} href="#memes">
+                                {/* <Nav.Link eventKey={2} href="#memes">
                                     <img src={require('../../assets/images/filter.png')} />
-                                </Nav.Link>
+                                </Nav.Link> */}
                             </Nav>
 
                         </Navbar.Collapse>

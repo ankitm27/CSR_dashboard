@@ -4,32 +4,56 @@ import Table from 'react-bootstrap/Table';
 import ModalContent from '../ModalContent/ModalContent';
 import { Modal, Button, Header } from 'react-bootstrap';
 
+import { connect } from "react-redux";
+import actions from "../../Store/Actions/Index";
+import { withRouter } from "react-router";
 
-
+const _ = require('lodash'); 
 
 class ProjectResults extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            Beneficiary: 'Eliza Willis',
-            Date: '05 Sep 2019',
-            TatalDetail: '20',
-            UnverfiedDetail: '19',
-            TotalRules: '20',
-            UnfollowedRules: '19',
-            Risk: 'High',
-            Action: 'View  Details',
             show: false,
+            selectedUser:null
         };
+        
+        this.data = [{
+            name: null,
+            date: null,
+            totalDetail: null,
+            unverifiedDetail: null,
+            totalRules: null,
+            unfollowedRules: null,
+            risk: null,
+            Action:"View Details",
+            _id:null
+        }];
+        
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
     }
     handleClose() {
         this.setState({ show: false });
     }
-    handleShow() {
+    handleShow(data) {
         this.setState({ show: true });
+        this.setState({selectedUser:data});
+        const userDetailes = _.find(this.data,{name:data});
+        this.setState({userDetailes:userDetailes});
     }
+
+    async componentDidMount() {
+        if(this.props.location.state && this.props.location.state._id){
+            await this.props.projectDetails({_id:this.props.location.state._id});
+            this.data = this.props.project.beneficiaries;
+        }else{
+            this.props.history.push({
+                pathname:'/',
+            });
+        }
+    }
+
     render() {
         return (
             <div className="row ProjectResult">
@@ -66,28 +90,18 @@ class ProjectResults extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{this.state.Beneficiary}</td>
-                                <td>{this.state.Date}</td>
-                                <td>{this.state.TatalDetail}</td>
-                                <td>{this.state.UnverfiedDetail}</td>
-                                <td>{this.state.TotalRules}</td>
-                                <td>{this.state.UnfollowedRules}</td>
-                                <td><button className="btn btn-risk">{this.state.Risk}</button></td>
-                                <td><a className="action" onClick={this.handleShow}>{this.state.Action}</a></td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>{this.state.Beneficiary}</td>
-                                <td>{this.state.Date}</td>
-                                <td>{this.state.TatalDetail}</td>
-                                <td>{this.state.UnverfiedDetail}</td>
-                                <td>{this.state.TotalRules}</td>
-                                <td>{this.state.UnfollowedRules}</td>
-                                <td><button className="btn btn-risk">{this.state.Risk}</button></td>
-                                <td><a className="action">{this.state.Action}</a></td>
-                            </tr>
+                            {this.data.map(dataObj =>
+                                <tr key={dataObj.name}>
+                                    <td>{dataObj.name}</td>
+                                    <td>{dataObj.date}</td>
+                                    <td>{dataObj.totalDetail}</td>
+                                    <td>{dataObj.unverifiedDetail}</td>
+                                    <td>{dataObj.totalRules}</td>
+                                    <td>{dataObj.unfollowedRules}</td>
+                                    <td><button className="btn btn-risk">{dataObj.risk}</button></td>
+                                    <td><a className="action" onClick={() => this.handleShow(dataObj.name)}>View Details</a></td>       
+                                </tr>
+                            )}  
                         </tbody>
                     </Table>
 
@@ -96,7 +110,7 @@ class ProjectResults extends Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose}  size="lg">
                     <Modal.Header closeButton>
-                        <ModalContent />
+                        <ModalContent selectedUser={this.state.selectedUser} userDetailes={this.state.userDetailes} />
                     </Modal.Header>
                     <Modal.Body>  </Modal.Body>
 
@@ -107,4 +121,15 @@ class ProjectResults extends Component {
     }
 }
 
-export default ProjectResults;
+function mapStateToProps(state) {
+    return {
+        project: state.Projects
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    projectDetails: (v) => dispatch(actions.projectDetails(v)),
+});
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectResults));

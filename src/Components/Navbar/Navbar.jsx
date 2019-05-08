@@ -3,21 +3,41 @@ import './Navbar.css';
 import { Navbar, Brand, Collapse, Nav, NavDropdown, Item } from 'react-bootstrap';
 
 
+import { connect } from "react-redux";
+import actions from "../../Store/Actions/Index";
+import { withRouter } from "react-router";
+
+
+
+
 class Navbar1 extends Component {
     constructor() {
         super();
         this.state = {
             Title: 'Impact',
             SubTitle: 'Scout',
-            UserName: 'Mukesh',
+            userName:null
         };
     }
+
+    componentDidMount () {
+        // console.log("this props",this.props);
+        this.setState({userName: this.props.auth && this.props.auth.userName ? this.props.auth.userName : "USER" });
+    }
+
+    onSubmit = (evt) => {
+        evt.preventDefault();
+        this.props.history.push({
+            pathname:'/',
+        });
+    }
+
     render() {
         return (
             <div className="row Navbar">
                 <div className="col-md-10 offset-md-1 mbtopbar">
                     <Navbar collapseOnSelect expand="lg">
-                        <Navbar.Brand href="#home"><i className="fa  fa-circle"></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
+                        <Navbar.Brand onClick={this.onSubmit}><i className="fa fa-circle mr-auto brandName" ></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
@@ -32,13 +52,13 @@ class Navbar1 extends Component {
                                 </NavDropdown> */}
                             </Nav>
                             <Nav>
-                                <Nav.Link href="#deets"><i className="fa fa-bell"></i></Nav.Link>
-                                <NavDropdown title={this.state.UserName} id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <Nav.Link><i className="fa fa-bell"></i></Nav.Link>
+                                <NavDropdown title={this.state.userName} id="collasible-nav-dropdown">
+                                    <NavDropdown.Item>Action</NavDropdown.Item>
+                                    <NavDropdown.Item>Another action</NavDropdown.Item>
+                                    <NavDropdown.Item>Something</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                    <NavDropdown.Item>Separated link</NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>
@@ -49,4 +69,10 @@ class Navbar1 extends Component {
     }
 }
 
-export default Navbar1;
+// export default Navbar1;
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+})
+
+export default withRouter(connect(mapStateToProps)(Navbar1));

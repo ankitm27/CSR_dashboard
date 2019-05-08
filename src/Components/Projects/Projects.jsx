@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
+const DateDiff = require('date-diff');
 
 class Projects extends Component {
     constructor() {
@@ -22,33 +23,36 @@ class Projects extends Component {
             DaysLeft: null,
             Funding: null
         };
-        // alert("this.props", this.props.programs);
+    }
 
-        // this.setState({ ProjectName: this.props.Programs.title });
-        // this.setState({ Status: this.props.Programs.status });
-        // this.setState({ LastUpdatedAt: this.props.Programs.updatedAt });
-        // this.setState({ Description: this.props.Programs.description });
-        // this.setState({ Goal: this.props.Programs.Goal });
-        // this.setState({ average: this.props.Programs.goalAchieved });
-        // this.setState({ Result: "Good" });
-        // this.setState({ DaysLeft: "8 days left" });
-        // this.setState({ Funding: this.props.Programs.funding });
-
+    onSubmit = (evt) => {
+        evt.preventDefault();
+        this.props.history.push({
+            pathname: '/detail',
+            state: {
+                _id: this.props.programs._id
+            }
+        });
     }
 
     render() {
         const { programs } = this.props;
+        const date1 = new Date();
+        const date2 = new Date(programs.updatedAt);
+        const lastUpdatedAt = parseInt(new DateDiff(date1, date2).days());
+        const date3 = new Date(programs.endDate);
+        const daysLeft = parseInt(new DateDiff(date3, date1).days());
         return (
             <div className="row Projects">
 
                 <div className="col-md-4 projectlist">
                     <div className="row projectcard">
                         <div className="col-md-6 left">
-                            <h1>{programs.title}</h1>
-                            <p>{programs.updatedAt}</p>
+                            <h1 onClick={this.onSubmit}>{programs.title}</h1>
+                            <p>{lastUpdatedAt} days ago</p>
                         </div>
                         <div className="col-md-6 right text-right">
-                            <button type="button" class="btn btn-status"> <i className="fa  fa-circle"></i> {programs.status}</button>
+                            <button type="button" className="btn btn-status"> <i className="fa  fa-circle"></i> {programs.status}</button>
                         </div>
                         <div className="col-md-12  text-left description">
                             <p>{programs.description}</p>
@@ -65,16 +69,16 @@ class Projects extends Component {
                             <p>Result <span className="text-right"> {programs.Result}</span></p>
                         </div>
                         <div className="col-md-12">
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style={{ width: '40%' }} aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div class="progress-bar bg-warning" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                <div class="progress-bar bg-danger" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div className="progress">
+                                <div className="progress-bar bg-success" role="progressbar" style={{ width: '40%' }} aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-warning" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-danger" role="progressbar" style={{ width: '30%' }} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <hr></hr>
 
                         <div className="col-md-6">
-                            <button type="button" class="btn btn-daysleft"> <i className="fa fa-clock-o"></i> {programs.endDate}</button>
+                            <button type="button" className="btn btn-daysleft"> <i className="fa fa-clock-o"></i> {daysLeft} days left</button>
                         </div>
                         <div className="col-md-6  text-left funding">
                             <p>Funding: {programs.funding}</p>
@@ -89,6 +93,4 @@ class Projects extends Component {
     }
 }
 
-
-
-export default Projects;
+export default withRouter(Projects);

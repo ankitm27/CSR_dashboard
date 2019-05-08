@@ -4,7 +4,6 @@ import Navbar from '../../Navbar/Navbar';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import {Link} from "react-router";
 
 
 class CreateProject extends Component {
@@ -35,21 +34,27 @@ class CreateProject extends Component {
 
     onSubmit = (evt) => {
         evt.preventDefault();
-        console.log("evt",evt);
-        console.log("this state",this.state);
         this.props.history.push({
-            pathName:'/step2',
+            pathname:'/step2',
             state:{
-                projectName:this.state.projectName,
-                about:this.state.about,
-                target:this.state.target,
-                totalFund:this.state.totalFund,
-                totalUnit:this.state.totalUnit,
-                startDate:this.state.startDate
-            }             
+                step1:{
+                    projectName:this.state.projectName,
+                    about:this.state.about,
+                    target:this.state.target,
+                    totalFund:this.state.totalFund,
+                    totalUnit:this.state.totalUnit,
+                    startDate:this.state.startDate
+                }
+            }      
         });
-        
-       
+    }
+
+    async componentDidMount(){
+        if(!localStorage.getItem("token")){
+            this.props.history.push({
+                pathname:'/login',
+            });
+        }
     }
 
     render() {
