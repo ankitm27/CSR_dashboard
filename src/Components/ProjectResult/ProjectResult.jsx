@@ -45,8 +45,14 @@ class ProjectResults extends Component {
     }
 
     async componentDidMount() {
-        await this.props.projectDetails({_id:this.props.location.state._id});
-        this.data = this.props.project.beneficiaries;
+        if(this.props.location.state && this.props.location.state._id){
+            await this.props.projectDetails({_id:this.props.location.state._id});
+            this.data = this.props.project.beneficiaries;
+        }else{
+            this.props.history.push({
+                pathname:'/',
+            });
+        }
     }
 
     render() {
@@ -117,7 +123,7 @@ class ProjectResults extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log("state",state);
+    // console.log("state",state);
     return {
         project: state.Projects
     }

@@ -38,7 +38,7 @@ class Navbar1 extends Component {
             <div className="row Navbar">
                 <div className="col-md-10 offset-md-1 mbtopbar">
                     <Navbar collapseOnSelect expand="lg">
-                        <Navbar.Brand onClick={this.onSubmit}><i className="fa  fa-circle"></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
+                        <Navbar.Brand onClick={this.onSubmit}><i className="fa fa-circle mr-auto"></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
@@ -53,13 +53,13 @@ class Navbar1 extends Component {
                                 </NavDropdown> */}
                             </Nav>
                             <Nav>
-                                <Nav.Link href="#deets"><i className="fa fa-bell"></i></Nav.Link>
+                                <Nav.Link><i className="fa fa-bell"></i></Nav.Link>
                                 <NavDropdown title={this.state.userName} id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                    <NavDropdown.Item>Action</NavDropdown.Item>
+                                    <NavDropdown.Item>Another action</NavDropdown.Item>
+                                    <NavDropdown.Item>Something</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                    <NavDropdown.Item>Separated link</NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>

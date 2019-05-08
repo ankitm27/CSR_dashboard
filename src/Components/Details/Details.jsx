@@ -39,29 +39,34 @@ class Detail extends Component {
                 pathname:'/login',
             });
         }
-        await this.props.projectDetails({_id:this.props.location.state._id});
-        console.log("this props",this.props);
-        console.log("this props projects",this.props.project);
-        const project = this.props.project;
-        const date1 = new Date(); 
-        const date2 = new Date(project.endDate); 
-        const daysLeft = parseInt(new DateDiff(date2, date1).days());
-        this.setState({ ProjectName: project.title ? project.title : "" });
-        this.setState({ProjectDescription:project.description ? project.description : ""})
-        this.setState({ ProjectTarget: project.goal ? project.goal : "" });
-        this.setState({ ProjectSuccess: project.goalAchieved ? project.goalAchieved : "" });
-        this.setState({ Villages: project.totalAreaCovered ? project.totalAreaCovered : ""});
-        this.setState({ PerUnitFund: project.fundingPerBeneficiary ? project.fundingPerBeneficiary : "" });
-        this.setState({ ProjectManager: project.supervisor && project.supervisor.managerName ? project.supervisor.managerName : "" });
-        this.setState({ EmailID: project.supervisor && project.supervisor.email ? project.supervisor.email : "" });
-        this.setState({ Location: project.supervisor && project.supervisor.location ? project.supervisor.location : ""});
-        this.setState({ Phone: project.supervisor && project.supervisor.mobile ? project.supervisor.mobile : "" });
-        this.setState({ ExecuterManager: project.ngo && project.ngo.managerName ? project.ngo.managerName : null });
-        this.setState({ ExecuterCompany: project.ngo && project.ngo.ngoName ? project.ngo.ngoName : null });
-        this.setState({ ExecuterLocation: project.ngo && project.ngo.managerName ? project.ngo.managerName : null });
-        this.setState({ ExecuterNumber: project.ngo && project.ngo.mobile ? project.ngo.mobile : null });
-        this.setState({ Daysleft: daysLeft ? daysLeft + "days left" : null });
-        this.setState({ TotalFund: project.funding ? project.funding : null});
+        if(this.props.location.state && this.props.location.state._id){
+            // console.log("checj");
+            await this.props.projectDetails({_id:this.props.location.state._id});
+            const project = this.props.project;
+            const date1 = new Date(); 
+            const date2 = new Date(project.endDate); 
+            const daysLeft = parseInt(new DateDiff(date2, date1).days());
+            this.setState({ ProjectName: project.title ? project.title : "" });
+            this.setState({ProjectDescription:project.description ? project.description : ""})
+            this.setState({ ProjectTarget: project.goal ? project.goal : "" });
+            this.setState({ ProjectSuccess: project.goalAchieved ? project.goalAchieved : "" });
+            this.setState({ Villages: project.totalAreaCovered ? project.totalAreaCovered : ""});
+            this.setState({ PerUnitFund: project.fundingPerBeneficiary ? project.fundingPerBeneficiary : "" });
+            this.setState({ ProjectManager: project.supervisor && project.supervisor.managerName ? project.supervisor.managerName : "" });
+            this.setState({ EmailID: project.supervisor && project.supervisor.email ? project.supervisor.email : "" });
+            this.setState({ Location: project.supervisor && project.supervisor.location ? project.supervisor.location : ""});
+            this.setState({ Phone: project.supervisor && project.supervisor.mobile ? project.supervisor.mobile : "" });
+            this.setState({ ExecuterManager: project.ngo && project.ngo.managerName ? project.ngo.managerName : null });
+            this.setState({ ExecuterCompany: project.ngo && project.ngo.ngoName ? project.ngo.ngoName : null });
+            this.setState({ ExecuterLocation: project.ngo && project.ngo.managerName ? project.ngo.managerName : null });
+            this.setState({ ExecuterNumber: project.ngo && project.ngo.mobile ? project.ngo.mobile : null });
+            this.setState({ Daysleft: daysLeft ? daysLeft + "days left" : null });
+            this.setState({ TotalFund: project.funding ? project.funding : null});
+        }else{
+            this.props.history.push({
+                pathname:'/',
+            });
+        }
     }
 
 
@@ -252,7 +257,7 @@ class Detail extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log("state",state);
+    // console.log("state",state);
     return {
         project: state.Projects
     }
