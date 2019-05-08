@@ -24,52 +24,16 @@ class Tab1content extends Component {
     }
 
     render() {
+        console.log("this props",this.props);
         return (
             <div className="row tabcontent1">
                 <div className="col-md-12">
                     <Table striped size="lg">
                         <tbody>
+                            
+                            <h1 className="headingRules">hello</h1>
                             <tr>
                                 <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-danger">Rule 1</td>
-                                <td className="text-danger"></td>
-                                <td className="text-danger"></td>
-                            </tr>
-                            <tr>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-danger">Rule 1</td>
-                                <td className="text-danger"></td>
-                                <td className="text-danger"></td>
-                            </tr>
-                            <tr>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-danger">Rule 1</td>
-                                <td className="text-danger"></td>
-                                <td className="text-danger"></td>
-                            </tr>
-                            <tr>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-danger">Rule 1</td>
-                                <td className="text-danger">Rule 1</td>
-                                <td className="text-danger"></td>
-
-                            </tr>
-                            <tr>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-success">Rule 1</td>
-                                <td className="text-danger">Rule 1</td>
-                                <td className="text-danger">Rule 1</td>
-                                <td className="text-danger"></td>
-
                             </tr>
                         </tbody>
                     </Table>
