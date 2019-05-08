@@ -43,14 +43,22 @@ class Dashboard extends Component {
         this.setState({ Programs: this.props.projects.programs });
     }
 
+    onClick = () => {
+        // console.log("check");
+        this.props.history.push({
+            pathname:'/createproject',
+        });
+
+    }
+
 
 
     render() {
-        console.log("this props",this.props);
+        // console.log("this props",this.props);
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
-                    <Navbar />
+                    <Navbar/>
                     <Navigation />
                 </div>
 
@@ -100,7 +108,7 @@ class Dashboard extends Component {
                             <p>{this.state.Title}</p>
                         </div>
                         <div className="col-md-6 text-right create">
-                            <p><a>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" /></button></a></p>
+                            <p><a onClick={this.onClick}>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" /></button></a></p>
                         </div>
 
                     </div>
