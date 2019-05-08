@@ -3,7 +3,8 @@ import './Dashboard.css';
 import Navbar from '../Navbar/Navbar';
 import Navigation from '../Navigation/Navigation';
 import Projects from '../Projects/Projects';
-
+import Graph from '../ColumChart/Colum';
+import Pie from '../PieChart/PieChart';
 import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
@@ -26,9 +27,9 @@ class Dashboard extends Component {
     }
 
     async componentDidMount() {
-        if(!localStorage.getItem("token")){
+        if (!localStorage.getItem("token")) {
             this.props.history.push({
-                pathname:'/login',
+                pathname: '/login',
             });
         }
 
@@ -45,7 +46,7 @@ class Dashboard extends Component {
 
     onClick = () => {
         this.props.history.push({
-            pathname:'/createproject',
+            pathname: '/createproject',
         });
 
     }
@@ -56,7 +57,7 @@ class Dashboard extends Component {
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
-                    <Navbar/>
+                    <Navbar />
                     <Navigation />
                 </div>
 
@@ -64,7 +65,7 @@ class Dashboard extends Component {
                     <div className="row">
                         <div className="col-md-8 graph">
                             <div className="row mbgraph">
-                                <div className="col-md-4 funding">
+                                <div className="col-md-3 funding">
                                     <div className="row">
                                         <div className="col-md-12">
                                             <p>Overall Funding</p>
@@ -79,8 +80,8 @@ class Dashboard extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-md-8 graph">
-
+                                <div className="col-md-9 graph">
+                                    <Graph />
                                 </div>
                             </div>
                         </div>
@@ -93,7 +94,7 @@ class Dashboard extends Component {
                                     <h1>  <img src={require('../../assets/images/rank.png')} width="30" /> {this.state.TotalStatus}  </h1>
                                 </div>
                                 <div className="col-md-12 pie">
-
+                                    <Pie />
                                 </div>
                             </div>
                         </div>
