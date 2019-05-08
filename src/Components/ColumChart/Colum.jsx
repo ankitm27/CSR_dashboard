@@ -20,60 +20,17 @@ const dataSource = {
         setadaptiveymin: "1",
         theme: "ocean"
     },
-    data: [
-        {
-            label: "2005",
-            value: "89.45"
-        },
-        {
-            label: "2006",
-            value: "89.87"
-        },
-        {
-            label: "2007",
-            value: "89.64"
-        },
-        {
-            label: "2008",
-            value: "90.13"
-        },
-        {
-            label: "2009",
-            value: "90.67"
-        },
-        {
-            label: "2010",
-            value: "90.54"
-        },
-        {
-            label: "2011",
-            value: "90.75"
-        },
-        {
-            label: "2012",
-            value: "90.8"
-        },
-        {
-            label: "2013",
-            value: "91.16"
-        },
-        {
-            label: "2014",
-            value: "91.37"
-        },
-        {
-            label: "2015",
-            value: "91.66"
-        },
-        {
-            label: "2016",
-            value: "91.8"
-        }
-    ]
+    data: []
 };
 
 class Main extends React.Component {
     render() {
+        console.log("this props",this.props);
+        this.props.projects && this.props.projects.forEach((data) => {
+            console.log("data",data);
+            dataSource.data.push({label:data.title,value:data.goalAchieved});
+        })
+        console.log("data source",dataSource);
         return (
             <ReactFusioncharts
                 type="line"
@@ -83,6 +40,7 @@ class Main extends React.Component {
                 dataSource={dataSource}
             />
         );
+        
     }
 }
 

@@ -19,7 +19,7 @@ class ProjectResults extends Component {
         };
         
         this.data = [{
-            name: null,
+            name: {data:null},
             date: null,
             totalDetail: null,
             unverifiedDetail: null,
@@ -39,7 +39,7 @@ class ProjectResults extends Component {
     handleShow(data) {
         this.setState({ show: true });
         this.setState({selectedUser:data});
-        const userDetailes = _.find(this.data,{name:data});
+        const userDetailes = _.find(this.data,{_id:data});
         this.setState({userDetailes:userDetailes});
     }
 
@@ -47,6 +47,10 @@ class ProjectResults extends Component {
         if(this.props.location.state && this.props.location.state._id){
             await this.props.projectDetails({_id:this.props.location.state._id});
             this.data = this.props.project.beneficiaries;
+            console.log("this.data",this.data);
+            this.setState({
+                data:this.props.project.beneficiaries
+            });
         }else{
             this.props.history.push({
                 pathname:'/',
@@ -91,15 +95,15 @@ class ProjectResults extends Component {
                         </thead>
                         <tbody>
                             {this.data.map(dataObj =>
-                                <tr key={dataObj.name}>
-                                    <td>{dataObj.name}</td>
+                                <tr key={dataObj._id}>
+                                    <td>{dataObj.name.data}</td>
                                     <td>{dataObj.date}</td>
                                     <td>{dataObj.totalDetail}</td>
                                     <td>{dataObj.unverifiedDetail}</td>
                                     <td>{dataObj.totalRules}</td>
                                     <td>{dataObj.unfollowedRules}</td>
                                     <td><button className="btn btn-risk">{dataObj.risk}</button></td>
-                                    <td><a className="action" onClick={() => this.handleShow(dataObj.name)}>View Details</a></td>       
+                                    <td><a className="action" onClick={() => this.handleShow(dataObj._id)}>View Details</a></td>       
                                 </tr>
                             )}  
                         </tbody>

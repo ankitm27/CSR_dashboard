@@ -34,6 +34,7 @@ class Dashboard extends Component {
         }
 
         await this.props.dashboardData();
+        console.log("this props projects",this.props.projects);
         this.setState({ TotalFunding: this.props.projects.totalFunding });
         this.setState({ TotalProjects: this.props.projects.totalProgram });
         this.setState({ GoalAchived: this.props.projects.goalAchievedAvg });
@@ -42,6 +43,7 @@ class Dashboard extends Component {
         this.setState({ TotalPoor: this.props.projects.overallBad });
         this.setState({ TotalStatus: this.props.projects.overallStatus });
         this.setState({ Programs: this.props.projects.programs });
+        
     }
 
     onClick = () => {
@@ -81,7 +83,7 @@ class Dashboard extends Component {
                                     </div>
                                 </div>
                                 <div className="col-md-9 graph">
-                                    <Graph />
+                                    <Graph projects={this.state.Programs} />
                                 </div>
                             </div>
                         </div>
