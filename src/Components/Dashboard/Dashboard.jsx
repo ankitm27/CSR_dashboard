@@ -46,6 +46,7 @@ class Dashboard extends Component {
 
 
     render() {
+        console.log("this props",this.props);
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
@@ -108,7 +109,7 @@ class Dashboard extends Component {
                 <div className="col-md-10 offset-md-1">
                     <div className="row">
                         {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (
-                            <div className="col-md-4 projectlist">
+                            <div key={Program._id} className="col-md-4 projectlist">
                                 <Projects programs={Program} />
                             </div>
                         ))}
