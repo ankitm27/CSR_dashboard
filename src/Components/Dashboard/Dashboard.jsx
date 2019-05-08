@@ -34,7 +34,7 @@ class Dashboard extends Component {
         }
 
         await this.props.dashboardData();
-        console.log("this props projects",this.props.projects);
+        // console.log("this props projects",this.props.projects);
         this.setState({ TotalFunding: this.props.projects.totalFunding });
         this.setState({ TotalProjects: this.props.projects.totalProgram });
         this.setState({ GoalAchived: this.props.projects.goalAchievedAvg });
@@ -96,7 +96,7 @@ class Dashboard extends Component {
                                     <h1>  <img src={require('../../assets/images/rank.png')} width="30" /> {this.state.TotalStatus}  </h1>
                                 </div>
                                 <div className="col-md-12 pie">
-                                    <Pie />
+                                    <Pie totalGood={this.state.TotalGood} totalAverage={this.state.TotalAverage} totalPoor={this.state.TotalPoor} />
                                 </div>
                             </div>
                         </div>

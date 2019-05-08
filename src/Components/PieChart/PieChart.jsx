@@ -20,28 +20,19 @@ const dataSource = {
         usedataplotcolorforlabels: "",
         theme: "ocean"
     },
-    data: [
-        {
-            label: "Apache",
-            value: "32647479"
-        },
-        {
-            label: "Microsoft",
-            value: "22100932"
-        },
-        {
-            label: "Zeus",
-            value: "14376"
-        },
-        {
-            label: "Other",
-            value: "18674221"
-        }
-    ]
+    data: []
 };
 
 class Pie extends React.Component {
     render() {
+        // console.log("this props",this.props);
+        if(this.props.totalGood && this.props.totalAverage && this.props.totalPoor){
+            dataSource.data = [];
+            dataSource.data.push({lable:"TotalGood",value:this.props.totalGood});
+            dataSource.data.push({lable:"TotalAverage",value:this.props.totalAverage});
+            dataSource.data.push({lable:"TotalPoor",value:this.props.totalPoor});
+        }
+        // console.log("data sources",dataSource);
         return (
             <ReactFusioncharts
                 type="pie2d"

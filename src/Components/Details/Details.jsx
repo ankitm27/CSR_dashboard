@@ -243,13 +243,9 @@ class Detail extends Component {
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
-
-
             </div>
         );
     }

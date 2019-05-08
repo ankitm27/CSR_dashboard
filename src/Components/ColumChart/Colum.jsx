@@ -25,12 +25,9 @@ const dataSource = {
 
 class Main extends React.Component {
     render() {
-        console.log("this props",this.props);
         this.props.projects && this.props.projects.forEach((data) => {
-            console.log("data",data);
             dataSource.data.push({label:data.title,value:data.goalAchieved});
         })
-        console.log("data source",dataSource);
         return (
             <ReactFusioncharts
                 type="line"
