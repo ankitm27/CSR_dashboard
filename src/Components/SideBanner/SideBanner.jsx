@@ -19,7 +19,7 @@ class SideBanner extends Component {
                 <div className="col-md-6 left">
                     <h1><span>{this.state.Title}</span> {this.state.Heading}</h1>
                     <p className="mb50">{this.state.Subheading}</p>
-                    <Button variant="outline-primary" className="signup">SignUp</Button>
+                    <a href="/signup"><Button variant="outline-primary" className="signup">SignUp</Button></a>
                 </div>
             </div>
         );

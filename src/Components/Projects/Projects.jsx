@@ -24,24 +24,24 @@ class Projects extends Component {
             Funding: null
         };
     }
- 
+
     onSubmit = (evt) => {
         evt.preventDefault();
         this.props.history.push({
-            pathname:'/detail',
-            state:{
-                _id:this.props.programs._id
-            }      
+            pathname: '/detail',
+            state: {
+                _id: this.props.programs._id
+            }
         });
     }
 
     render() {
         const { programs } = this.props;
-        const date1 = new Date(); 
-        const date2 = new Date(programs.updatedAt); 
+        const date1 = new Date();
+        const date2 = new Date(programs.updatedAt);
         const lastUpdatedAt = parseInt(new DateDiff(date1, date2).days());
         const date3 = new Date(programs.endDate);
-        const daysLeft = parseInt(new DateDiff(date3,date1).days());
+        const daysLeft = parseInt(new DateDiff(date3, date1).days());
         return (
             <div className="row Projects">
 
