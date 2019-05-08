@@ -86,7 +86,7 @@ class ProjectResults extends Component {
                         </thead>
                         <tbody>
                             {this.data.map(dataObj =>
-                                <tr>
+                                <tr key={dataObj.name}>
                                     <td>{dataObj.name}</td>
                                     <td>{dataObj.date}</td>
                                     <td>{dataObj.totalDetail}</td>

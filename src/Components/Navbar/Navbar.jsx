@@ -25,13 +25,20 @@ class Navbar1 extends Component {
         this.setState({userName: this.props.auth && this.props.auth.userName ? this.props.auth.userName : "USER" });
     }
 
+    onSubmit = (evt) => {
+        evt.preventDefault();
+        this.props.history.push({
+            pathname:'/',
+        });
+    }
+
     render() {
         // console.log("state",this.state);
         return (
             <div className="row Navbar">
                 <div className="col-md-10 offset-md-1 mbtopbar">
                     <Navbar collapseOnSelect expand="lg">
-                        <Navbar.Brand href="/"><i className="fa  fa-circle"></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
+                        <Navbar.Brand onClick={this.onSubmit}><i className="fa  fa-circle"></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
