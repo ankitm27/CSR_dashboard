@@ -15,7 +15,6 @@ class ProjectResults extends Component {
         super(props, context);
         this.state = {
             show: false,
-            // Action: 'View  Details',
             selectedUser:null
         };
         
@@ -123,7 +122,6 @@ class ProjectResults extends Component {
 }
 
 function mapStateToProps(state) {
-    // console.log("state",state);
     return {
         project: state.Projects
     }

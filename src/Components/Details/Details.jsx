@@ -40,7 +40,6 @@ class Detail extends Component {
             });
         }
         if(this.props.location.state && this.props.location.state._id){
-            // console.log("checj");
             await this.props.projectDetails({_id:this.props.location.state._id});
             const project = this.props.project;
             const date1 = new Date(); 
@@ -257,7 +256,6 @@ class Detail extends Component {
 }
 
 function mapStateToProps(state) {
-    // console.log("state",state);
     return {
         project: state.Projects
     }

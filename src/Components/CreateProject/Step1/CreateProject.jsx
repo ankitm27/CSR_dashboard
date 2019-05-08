@@ -4,7 +4,6 @@ import Navbar from '../../Navbar/Navbar';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import {Link} from "react-router";
 
 
 class CreateProject extends Component {
@@ -35,8 +34,6 @@ class CreateProject extends Component {
 
     onSubmit = (evt) => {
         evt.preventDefault();
-        console.log("evt",evt);
-        console.log("this state",this.state);
         this.props.history.push({
             pathname:'/step2',
             state:{

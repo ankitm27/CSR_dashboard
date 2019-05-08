@@ -33,12 +33,11 @@ class Navbar1 extends Component {
     }
 
     render() {
-        // console.log("state",this.state);
         return (
             <div className="row Navbar">
                 <div className="col-md-10 offset-md-1 mbtopbar">
                     <Navbar collapseOnSelect expand="lg">
-                        <Navbar.Brand onClick={this.onSubmit}><i className="fa fa-circle mr-auto"></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
+                        <Navbar.Brand onClick={this.onSubmit}><i className="fa fa-circle mr-auto brandName" ></i> {this.state.Title}<span>{this.state.SubTitle}</span></Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">

@@ -44,7 +44,6 @@ class Dashboard extends Component {
     }
 
     onClick = () => {
-        // console.log("check");
         this.props.history.push({
             pathname:'/createproject',
         });
@@ -54,7 +53,6 @@ class Dashboard extends Component {
 
 
     render() {
-        // console.log("this props",this.props);
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">

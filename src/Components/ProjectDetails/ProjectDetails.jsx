@@ -18,7 +18,6 @@ class ProjectDetails extends Component {
     }
 
     componentDidMount() {
-        console.log("this props",this.props);
         if(!this.props.location.state || !this.props.location.state._id){
             this.props.history.push({
                 pathname:'/',

@@ -28,6 +28,11 @@
     color: #ffffff;
 }
 
+.navbar-brand:hover {
+    color:#ffffff
+}
+
+
 .navbar-light .navbar-nav .nav-link {
     opacity: 0.9;
     font-size: 18px;
