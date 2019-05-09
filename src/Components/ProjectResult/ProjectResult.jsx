@@ -48,7 +48,8 @@ class ProjectResults extends Component {
         if (this.props.location.state && this.props.location.state._id) {
             await this.props.projectDetails({ _id: this.props.location.state._id });
             this.data = this.props.project.beneficiaries;
-            console.log("this.data", this.data);
+            // console.log("this.data", this.data);
+            console.log("this props project",this.props.project);
             this.setState({
                 data: this.props.project.beneficiaries
             });
@@ -68,9 +69,7 @@ class ProjectResults extends Component {
                             <p className="chartheading">Beneficiary Details</p>
                         </div>
                         <div className="col-md-12 resultchart">
-
-                            <Pie />
-
+                            <Pie totalGood={this.props.project.usersGood} totalAverage={this.props.project.usersRevised} totalPoor={this.props.project.usersFraud} />
                         </div>
                     </div>
                 </div>
@@ -80,8 +79,7 @@ class ProjectResults extends Component {
                             <p className="chartheading">Rules</p>
                         </div>
                         <div className="col-md-12 resultchart">
-
-                        <Pie />
+                            <Pie totalGood={this.props.project.rulesGood} totalAverage={this.props.project.rulesRevised} totalPoor={this.props.project.rulesFraud} />
                         </div>
                     </div>
                 </div>
