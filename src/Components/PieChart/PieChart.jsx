@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import FusionCharts from "fusioncharts";
 import './PieChart.css';
+
 import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import ReactFC from 'react-fusioncharts';
 import Column2D from 'fusioncharts/fusioncharts.charts';
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.ocean';
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.zune';
+
+
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 // Resolves charts dependancy
 charts(FusionCharts);
@@ -13,29 +16,33 @@ charts(FusionCharts);
 const dataSource = {
     chart: {
         caption: "",
-        plottooltext: "",
-        showlegend: "",
-        showpercentvalues: "",
-        legendposition: "",
-        usedataplotcolorforlabels: "",
-        theme: "ocean"
+        subcaption: "",
+        showpercentvalues: "1",
+        defaultcenterlabel: "",
+        aligncaptionwithcanvas: "1",
+        captionpadding: "1",
+        decimals: "0",
+        plottooltext:
+            "",
+        centerlabel: "",
+        theme: "zune"
     },
     data: []
 };
 
-class Pie extends React.Component {
+class Pie1 extends React.Component {
     render() {
         // console.log("this props",this.props);
-        if(this.props.totalGood && this.props.totalAverage && this.props.totalPoor){
+        if (this.props.totalGood && this.props.totalAverage && this.props.totalPoor) {
             dataSource.data = [];
-            dataSource.data.push({lable:"TotalGood",value:this.props.totalGood});
-            dataSource.data.push({lable:"TotalAverage",value:this.props.totalAverage});
-            dataSource.data.push({lable:"TotalPoor",value:this.props.totalPoor});
+            dataSource.data.push({ lable: "TotalGood", value: this.props.totalGood, color: "#00a925" });
+            dataSource.data.push({ lable: "TotalAverage", value: this.props.totalAverage, color: "#ff0000" });
+            dataSource.data.push({ lable: "TotalPoor", value: this.props.totalPoor, color: "#ffe600" });
         }
         // console.log("data sources",dataSource);
         return (
             <ReactFusioncharts
-                type="pie2d"
+                type="doughnut2d"
                 width="100%"
                 dataFormat="JSON"
                 dataSource={dataSource}
@@ -45,4 +52,4 @@ class Pie extends React.Component {
 }
 
 
-export default Pie;
+export default Pie1;

@@ -43,14 +43,13 @@ class Dashboard extends Component {
         this.setState({ TotalPoor: this.props.projects.overallBad });
         this.setState({ TotalStatus: this.props.projects.overallStatus });
         this.setState({ Programs: this.props.projects.programs });
-        
+
     }
 
     onClick = () => {
         this.props.history.push({
             pathname: '/createproject',
         });
-
     }
 
 
@@ -95,7 +94,7 @@ class Dashboard extends Component {
                                 <div className="col-md-12 result">
                                     <h1>  <img src={require('../../assets/images/rank.png')} width="30" /> {this.state.TotalStatus}  </h1>
                                 </div>
-                                <div className="col-md-12 pie">
+                                <div className="col-md-12 pie1">
                                     <Pie totalGood={this.state.TotalGood} totalAverage={this.state.TotalAverage} totalPoor={this.state.TotalPoor} />
                                 </div>
                             </div>

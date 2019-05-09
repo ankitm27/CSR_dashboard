@@ -37,6 +37,7 @@
     line-height: normal;
     letter-spacing: normal;
     color: #42505c;
+    cursor: pointer;
 }
 
 .projectcard .left p {
