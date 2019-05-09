@@ -45,7 +45,6 @@ class Detail extends Component {
             const date1 = new Date(); 
             const date2 = new Date(project.endDate); 
             const daysLeft = parseInt(new DateDiff(date2, date1).days());
-            console.log("project supervisor",project.supervisors);
             this.setState({ ProjectName: project.title ? project.title : "" });
             this.setState({ProjectDescription:project.description ? project.description : ""})
             this.setState({ ProjectTarget: project.goal ? project.goal : "" });
@@ -63,8 +62,6 @@ class Detail extends Component {
             this.setState({ Daysleft: daysLeft ? daysLeft + "days left" : null });
             this.setState({ TotalFund: project.funding ? project.funding : null});
             this.setState({ ExecuterEmail: project.ngo && project.ngo.email ? project.ngo.email : null });
-            
-            console.log("this state",this.state);
         }else{
             this.props.history.push({
                 pathname:'/',
