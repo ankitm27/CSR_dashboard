@@ -20,7 +20,7 @@ class Detail extends Component {
             TotalFund: null,
             Villages: null,
             PerUnitFund: null,
-            ProjectManger: null,
+            ProjectManager: null,
             EmailID: null,
             Location: null,
             Phone: null,
@@ -45,22 +45,26 @@ class Detail extends Component {
             const date1 = new Date(); 
             const date2 = new Date(project.endDate); 
             const daysLeft = parseInt(new DateDiff(date2, date1).days());
+            console.log("project supervisor",project.supervisors);
             this.setState({ ProjectName: project.title ? project.title : "" });
             this.setState({ProjectDescription:project.description ? project.description : ""})
             this.setState({ ProjectTarget: project.goal ? project.goal : "" });
             this.setState({ ProjectSuccess: project.goalAchieved ? project.goalAchieved : "" });
             this.setState({ Villages: project.totalAreaCovered ? project.totalAreaCovered : ""});
             this.setState({ PerUnitFund: project.fundingPerBeneficiary ? project.fundingPerBeneficiary : "" });
-            this.setState({ ProjectManager: project.supervisor && project.supervisor.managerName ? project.supervisor.managerName : "" });
-            this.setState({ EmailID: project.supervisor && project.supervisor.email ? project.supervisor.email : "" });
-            this.setState({ Location: project.supervisor && project.supervisor.location ? project.supervisor.location : ""});
-            this.setState({ Phone: project.supervisor && project.supervisor.mobile ? project.supervisor.mobile : "" });
-            this.setState({ ExecuterManager: project.ngo && project.ngo.managerName ? project.ngo.managerName : null });
+            this.setState({ ProjectManager: project.supervisors && project.supervisors[0].name ? project.supervisors[0].name : "" });
+            this.setState({ EmailID: project.supervisors && project.supervisors[0].email ? project.supervisors[0].email : "" });
+            this.setState({ Location: project.supervisors && project.supervisors[0].city ? project.supervisors[0].city : ""});
+            this.setState({ Phone: project.supervisors && project.supervisors[0].mobile ? project.supervisors[0].mobile : "" });
+            this.setState({ ExecuterManager: project.ngo && project.ngo.managerFirstName ? project.ngo.managerFirstName : null });
             this.setState({ ExecuterCompany: project.ngo && project.ngo.ngoName ? project.ngo.ngoName : null });
-            this.setState({ ExecuterLocation: project.ngo && project.ngo.managerName ? project.ngo.managerName : null });
+            this.setState({ ExecuterLocation: project.ngo && project.ngo.location ? project.ngo.location : null });
             this.setState({ ExecuterNumber: project.ngo && project.ngo.mobile ? project.ngo.mobile : null });
             this.setState({ Daysleft: daysLeft ? daysLeft + "days left" : null });
             this.setState({ TotalFund: project.funding ? project.funding : null});
+            this.setState({ ExecuterEmail: project.ngo && project.ngo.email ? project.ngo.email : null });
+            
+            console.log("this state",this.state);
         }else{
             this.props.history.push({
                 pathname:'/',
@@ -217,7 +221,7 @@ class Detail extends Component {
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Location</p>
-                                            <h1>{this.state.Location}</h1>
+                                            <h1>{this.state.ExecuterLocation}</h1>
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +233,7 @@ class Detail extends Component {
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Email Id</p>
-                                            <h1>{this.state.EmailID}</h1>
+                                            <h1>{this.state.ExecuterEmail}</h1>
                                         </div>
                                     </div>
                                     <div className="row mb50">
