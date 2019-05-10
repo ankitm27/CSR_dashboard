@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './ModalContent.css';
 
 import { Tab, Tabs } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Tab1 from './Tab1content/Tab1content';
 import Tab2 from './Tab2content/Tab2content'
 

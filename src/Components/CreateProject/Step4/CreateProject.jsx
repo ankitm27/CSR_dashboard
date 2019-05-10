@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
-import { Form, Button, InputGroup } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
+import { Form, Button } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
 
 class CreateProject extends Component {
@@ -21,7 +20,6 @@ class CreateProject extends Component {
             lastName:"",
             email:"",
             phone:"",
-            location:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -72,7 +70,6 @@ class CreateProject extends Component {
                         lastName:this.state.lastName,
                         email:this.state.email,
                         phone:this.state.phone,
-                        location:this.state.location
                     } 
                 }      
             });

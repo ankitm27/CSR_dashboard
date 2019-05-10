@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './Navbar.css';
-import { Navbar, Brand, Collapse, Nav, NavDropdown, Item } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 
 import { connect } from "react-redux";
-import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
 

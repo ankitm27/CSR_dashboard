@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ProjectResult.css';
 import Table from 'react-bootstrap/Table';
 import ModalContent from '../ModalContent/ModalContent';
-import { Modal, Button, Header } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import Pie from '../PieChart/PieChart';
 
 import { connect } from "react-redux";

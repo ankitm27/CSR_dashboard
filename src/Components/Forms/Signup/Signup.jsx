@@ -22,7 +22,6 @@ class Signup extends Component {
         firstname: "",
         lastname: "",
         mobile: "",
-        password: '',
         organizationType: "",
         confirmPassword: ""
     }
@@ -30,15 +29,12 @@ class Signup extends Component {
 
     onSubmit = async (evt) => {
         evt.preventDefault();
-        // console.dir(this.state.email, this.state.password)
         if (this.state.firstname === "" || this.state.password === "" || this.state.confirmPassword === "" || this.state.lastname === "" || this.state.mobile === "" || this.state.organizationType === "") {
             document.getElementById("emailerror").innerHTML = "Enter All Values";
         }
         else {
             document.getElementById("emailerror").innerHTML = "";
             await this.props.registerUser({ email: this.state.email, password: this.state.password, confirmPassword: this.state.confirmPassword, firstname: this.state.firstname, lastname: this.state.lastname, mobile: this.state.mobile, organizationType: this.state.organizationType })
-            console.log("this.state",this.state);
-            console.log("this props",this.props);
             if(this.props.auth.success){
                 this.props.history.push({
                     pathname:'/login',

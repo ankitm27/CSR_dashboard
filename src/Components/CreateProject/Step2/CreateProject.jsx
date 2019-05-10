@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
-import { Form, Button, InputGroup } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
+import { Form, Button } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
 
 class CreateProject extends Component {

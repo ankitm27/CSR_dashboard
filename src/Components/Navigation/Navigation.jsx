@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Navigation.css';
-import { Navbar, Brand, Collapse, Nav, NavDropdown, Item } from 'react-bootstrap';
-import { Button, Form, InputGroup } from 'react-bootstrap';
+import { Navbar, Nav} from 'react-bootstrap';
+import { InputGroup } from 'react-bootstrap';
 
 
 class Navigation extends Component {

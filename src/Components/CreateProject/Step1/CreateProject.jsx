@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
 import { Form, Button, InputGroup } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Navigation from '../../Navigation/Navigation';
 
 
 class CreateProject extends Component {
@@ -16,13 +14,12 @@ class CreateProject extends Component {
             Step3: 'Add Project Owner Information',
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
-            startDate: new Date(),
+            startDate: "",
             projectName:"",
             about:"",
             target:"",
             totalFund:"",
             totalUnit:"",
-            startDate:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
