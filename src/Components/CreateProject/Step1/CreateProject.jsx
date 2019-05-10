@@ -171,7 +171,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step1}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Please fill the basic details.</p>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step2}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Set up rules of the project. </p>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step3}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add project owner details</p>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +208,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step4}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add NGO details</p>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +220,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step5}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add questionair of project</p>
                                 </div>
                             </div>
                         </div>
