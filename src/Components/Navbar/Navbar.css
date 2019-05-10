@@ -15,6 +15,7 @@
     line-height: normal;
     letter-spacing: normal;
     color: #ffffff !important;
+    z-index:1px
 }
 
 .navbar-brand span {

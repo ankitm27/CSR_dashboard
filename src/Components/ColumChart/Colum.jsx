@@ -25,6 +25,7 @@ const dataSource = {
 
 class Main extends React.Component {
     render() {
+        dataSource.data = [];
         this.props.projects && this.props.projects.forEach((data) => {
             dataSource.data.push({label:data.title,value:data.goalAchieved});
         })
