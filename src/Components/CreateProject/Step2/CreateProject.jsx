@@ -43,7 +43,7 @@ class CreateProject extends Component {
             this.props.history.push({
                 pathname:'/createproject3',
                 state:{
-                    step1:this.props.location.state,
+                    step1:this.props.location.state.step1,
                     step2:{
                         componentName:this.state.componentName,
                         rule:this.state.rule

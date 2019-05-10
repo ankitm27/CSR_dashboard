@@ -112,7 +112,7 @@ class CreateProject extends Component {
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Product owner Name" value={this.state.productOwner} onChange={(evt) => {
+                                                    <Form.Control type="text" placeholder="First Name" value={this.state.productOwner} onChange={(evt) => {
                                                         this.setState({ productOwner: evt.target.value })
                                                     }}/>
                                                 </Form.Group>

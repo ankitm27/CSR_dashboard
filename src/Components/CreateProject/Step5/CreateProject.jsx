@@ -4,6 +4,11 @@ import Navbar from '../../Navbar/Navbar';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
 
+import { connect } from "react-redux";
+import actions from "../../../Store/Actions/Index";
+import { withRouter } from "react-router";
+
+
 class CreateProject extends Component {
     constructor() {
         super();
@@ -34,17 +39,32 @@ class CreateProject extends Component {
 
     isFormValid(){
         if(true){
-            return {status:false}
-        }else{
             return {status:true}
+        }else{
+            return {status:false}
         }
     }
 
-    onSubmit = (evt) => {
+    onSubmit = async(evt) => {
         evt.preventDefault();
         const isValid = this.isFormValid();
         if(isValid.status){
-            
+            // console.log("this props location",this.props.location.state.step1);     
+            // console.log("this props location",this.props.location.state.step2);     
+            // console.log("this props location",this.props.location.state.step3);     
+            // console.log("this props location",this.props.location.state.step4);     
+            await this.props.createProject({
+                step1:this.props.location.state.step1,
+                step2:this.props.location.state.step2,
+                step3:this.props.location.state.step3,
+                step4:this.props.location.state.step4
+            });
+            // console.log("this props",this.props);
+            if(this.props.projects.success){
+                this.props.history.push({
+                    pathname:"/"
+                });
+            }
         }else{
             alert("error");
         }
@@ -199,4 +219,17 @@ class CreateProject extends Component {
     }
 }
 
-export default CreateProject;
+// export default CreateProject;
+
+function mapStateToProps(state) {
+    return {
+        projects: state.Projects
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    createProject: (v) => dispatch(actions.createProject(v)),
+});
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateProject));
