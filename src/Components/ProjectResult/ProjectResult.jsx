@@ -99,7 +99,7 @@ class ProjectResults extends Component {
                         </thead>
                         <tbody>
                             {this.data.map(dataObj =>
-                                <tr key={dataObj._id}>
+                                <tr key={dataObj._id} className="tableContentText">
                                     <td>{dataObj.name.data}</td>
                                     <td>{dataObj.date}</td>
                                     <td>{dataObj.totalDetail}</td>
@@ -107,7 +107,7 @@ class ProjectResults extends Component {
                                     <td>{dataObj.totalRules}</td>
                                     <td>{dataObj.unfollowedRules}</td>
                                     <td><button className="btn btn-risk">{dataObj.risk}</button></td>
-                                    <td><a className="action" onClick={() => this.handleShow(dataObj._id)}>View Details</a></td>
+                                    <td><a href className="action" onClick={() => this.handleShow(dataObj._id)}>View Details</a></td>
                                 </tr>
                             )}
                         </tbody>

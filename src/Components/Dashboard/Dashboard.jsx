@@ -19,7 +19,7 @@ class Dashboard extends Component {
             TotalGood: null,
             TotalAverage: null,
             TotalPoor: null,
-            TotalStatus: null,
+            TotalStatus: "",
             Programs: null,
             Title: 'Projects',
             Button: 'Create New Project'
@@ -34,7 +34,6 @@ class Dashboard extends Component {
         }
 
         await this.props.dashboardData();
-        // console.log("this props projects",this.props.projects);
         this.setState({ TotalFunding: this.props.projects.totalFunding });
         this.setState({ TotalProjects: this.props.projects.totalProgram });
         this.setState({ GoalAchived: this.props.projects.goalAchievedAvg });
@@ -92,7 +91,7 @@ class Dashboard extends Component {
                                     <p>Result</p>
                                 </div>
                                 <div className="col-md-12 result">
-                                    <h1>  <img src={require('../../assets/images/rank.png')} width="30" /> {this.state.TotalStatus}  </h1>
+                                    <h1>  <img src={require('../../assets/images/rank.png')} alt="" width="30" /> {this.state.TotalStatus}  </h1>
                                 </div>
                                 <div className="col-md-12 pie1">
                                     <Pie totalGood={this.state.TotalGood} totalAverage={this.state.TotalAverage} totalPoor={this.state.TotalPoor} />
@@ -108,7 +107,7 @@ class Dashboard extends Component {
                             <p>{this.state.Title}</p>
                         </div>
                         <div className="col-md-6 text-right create">
-                            <p><a onClick={this.onClick}>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" /></button></a></p>
+                            <p><a onClick={this.onClick}>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" alt="" /></button></a></p>
                         </div>
 
                     </div>
