@@ -26,10 +26,30 @@ class CreateProject extends Component {
     }
 
     async componentDidMount(){
+        // console.log("this props. location state",this.props.location.state);
         if(!localStorage.getItem("token")){
             this.props.history.push({
                 pathname:'/login',
             });
+        }
+    }
+
+    isFormValid(){
+        if(true){
+            return {status:false}
+        }else{
+            return {status:true}
+        }
+    }
+
+    onSubmit = (evt) => {
+        // console.log("this state",this.state);
+        evt.preventDefault();
+        const isValid = this.isFormValid();
+        if(isValid.status){
+            
+        }else{
+            alert("error");
         }
     }
 
@@ -44,12 +64,12 @@ class CreateProject extends Component {
                         <div className="col-md-12 project">
                             <div className="row">
                                 <div className="col-md-12 projecttitle">
-                                    <h1>Configure your Project</h1>
+                                    <h1>Add Question</h1>
                                     <hr></hr>
                                 </div>
 
                                 <div className="col-md-12 projectform">
-                                    <Form>
+                                    <Form onSubmit={this.onSubmit}>
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <Form.Group controlId="formBasicName">

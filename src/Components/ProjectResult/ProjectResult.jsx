@@ -48,8 +48,6 @@ class ProjectResults extends Component {
         if (this.props.location.state && this.props.location.state._id) {
             await this.props.projectDetails({ _id: this.props.location.state._id });
             this.data = this.props.project.beneficiaries;
-            // console.log("this.data", this.data);
-            console.log("this props project",this.props.project);
             this.setState({
                 data: this.props.project.beneficiaries
             });

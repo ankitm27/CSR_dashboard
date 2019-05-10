@@ -14,7 +14,14 @@ class CreateProject extends Component {
             Step3: 'Add Project Owner Information',
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
-            startDate: new Date()
+            startDate: new Date(),
+            ngoName:"",
+            location:"",
+            managerName:"",
+            lastName:"",
+            email:"",
+            phone:"",
+            location:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -33,6 +40,55 @@ class CreateProject extends Component {
         }
     }
 
+    isFormValid(){
+        // console.log("this state",this.state.projectName);
+        // console.log("this state",this.state.about);
+        // console.log("this state",this.state.totalFund);
+        // console.log("this state",this.state.totalUnit);
+        // console.log("this state",this.state.startDate);
+        if(!this.state.ngoName || 
+            !this.state.location || 
+            !this.state.managerName || 
+            !this.state.lastName ||
+            !this.state.email || 
+            !this.state.phone || 
+            !this.state.location
+            ){
+                return {status:false}
+            }else{
+                return {status:true}
+            }
+    }
+
+    onSubmit = (evt) => {
+        // console.log("this state",this.state);
+        evt.preventDefault();
+        // console.log("this state location",this.props.location.state);
+        const isValid = this.isFormValid();
+        if(isValid.status){
+            this.props.history.push({
+                pathname:'/createproject5',
+                state:{
+                    step1:this.props.location.state.step1,
+                    step2:this.props.location.state.step2,
+                    step3:this.props.location.state.step3,
+                    step4:{
+                        ngoName:this.state.ngoName,
+                        location:this.state.location,
+                        managerName:this.state.managerName,
+                        lastName:this.state.lastName,
+                        email:this.state.email,
+                        phone:this.state.phone,
+                        location:this.state.location
+                    } 
+                }      
+            });
+        }else{
+            alert('error');
+        }
+    }
+
+
     render() {
         return (
             <div className="row Project">
@@ -44,37 +100,47 @@ class CreateProject extends Component {
                         <div className="col-md-12 project">
                             <div className="row">
                                 <div className="col-md-12 projecttitle">
-                                    <h1>Configure your Project</h1>
+                                    <h1>Set NGO Information</h1>
                                     <hr></hr>
                                 </div>
 
                                 <div className="col-md-12 projectform">
-                                    <Form>
+                                    <Form onSubmit={this.onSubmit}>
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicName">
-                                                    <Form.Control type="text" placeholder="NGO Name" />
+                                                    <Form.Control type="text" placeholder="NGO Name" value={this.state.ngoName} onChange={(evt) => {
+                                                        this.setState({ ngoName: evt.target.value })
+                                                    }}/>
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicName">
-                                                    <Form.Control type="text" placeholder="Location" />
+                                                    <Form.Control type="text" placeholder="Location" value={this.state.location} onChange={(evt) => {
+                                                        this.setState({ location: evt.target.value })
+                                                    }}/>
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicProject">
-                                                    <Form.Control type="text" placeholder="Manager Name" />
+                                                    <Form.Control type="text" placeholder="Manager Name" value={this.state.managerName} onChange={(evt) => {
+                                                        this.setState({ managerName: evt.target.value })
+                                                    }}/>
                                                 </Form.Group>
                                             </div>
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="email" placeholder="Email" />
+                                                    <Form.Control type="email" placeholder="Email" value={this.state.lastName} onChange={(evt) => {
+                                                        this.setState({ lastName: evt.target.value })
+                                                    }}/>
                                                 </Form.Group>
                                             </div>
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="number" placeholder="Mobile Number" />
+                                                    <Form.Control type="number" placeholder="Mobile Number" value={this.state.email} onChange={(evt) => {
+                                                        this.setState({ email: evt.target.value })
+                                                    }}/>
                                                 </Form.Group>
                                             </div>
 
@@ -82,16 +148,20 @@ class CreateProject extends Component {
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Add Total Unit" />
+                                                    <Form.Control type="text" placeholder="Phone Number" value={this.state.mobile} onChange={(evt) => {
+                                                        this.setState({ mobile: evt.target.value })
+                                                    }}/>
                                                 </Form.Group>
                                             </div>
 
 
 
                                             <div className="col-md-6">
-                                                <Form.Control as="select">
+                                                <Form.Control as="select" value={this.state.country} onChange={(evt) => {
+                                                        this.setState({ country: evt.target.value })
+                                                    }}>
                                                     <option>Country</option>
-                                                    <option>...</option>
+                                                    <option>India</option>
                                                 </Form.Control>
                                             </div>
 
@@ -100,10 +170,10 @@ class CreateProject extends Component {
 
                                             </div>
 
-                                            <div className="col-md-6 text-left back1">
+                                            {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
-                                            </div>
-                                            <div className="col-md-6 text-right">
+                                            </div> */}
+                                            <div className="col-md-12 text-right">
                                                 <Button variant="primary" type="submit" className="submit">
                                                     Next
                                                  </Button>

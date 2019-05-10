@@ -15,12 +15,12 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            code:null,
-            role:null,
-            productOwner:null,
-            lastName:null,
-            country:null,
-            city:null
+            code:'',
+            role:'',
+            productOwner:'',
+            lastName:'',
+            country:'',
+            city:''
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -31,25 +31,44 @@ class CreateProject extends Component {
         });
     }
 
+    isFormValid(){
+        if(!this.state.code || 
+            !this.state.role || 
+            !this.state.productOwner || 
+            !this.state.lastName ||
+            !this.state.country || 
+            !this.state.city
+            ){
+                return {status:false}
+            }else{
+                return {status:true}
+            }
+    }
+
     onSubmit = (evt) => {
         evt.preventDefault();
-        console.log("evt",evt);
-        console.log("this state",this.state);
-        this.props.history.push({
-            pathname:'/step4',
-            state:{
-                step1:this.props.location.state.step1,
-                step2:this.props.location.state.step2,
-                step3:{
-                    code:this.state.code,
-                    role:this.state.role,
-                    productOwner:this.state.productOwner,
-                    lastName:this.state.lastName,
-                    country:this.state.country,
-                    city:this.state.city
-                }
-            }      
-        });
+        // console.log("evt",evt);
+        // console.log("this state",this.state);
+        const isValid = this.isFormValid();
+        if(isValid.status){
+            this.props.history.push({
+                pathname:'/createproject4',
+                state:{
+                    step1:this.props.location.state.step1,
+                    step2:this.props.location.state.step2,
+                    step3:{
+                        code:this.state.code,
+                        role:this.state.role,
+                        productOwner:this.state.productOwner,
+                        lastName:this.state.lastName,
+                        country:this.state.country,
+                        city:this.state.city
+                    }
+                }      
+            });
+        }else{
+            alert('error');
+        }
     }
 
     async componentDidMount(){
@@ -146,7 +165,7 @@ class CreateProject extends Component {
                     </div>
                 </div>
 
-                <div className="col-md-5 right ">
+                {/* <div className="col-md-5 right ">
                     <div className="row section">
                         <div className="col-md-12 projectsection ">
                             <div className="row">
@@ -210,7 +229,7 @@ class CreateProject extends Component {
                         </div>
 
                     </div>
-                </div>
+                </div> */}
 
             </div>
         );

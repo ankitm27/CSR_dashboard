@@ -44,10 +44,10 @@ const routing = (
                 <Route path="/home" component={Dashboard} />
                 <Route path="/detail" component={ProjectDetail} />
                 <Route path="/createproject" component={CreateProject} />
-                <Route path="/step2" component={step2} />
-                <Route path="/step3" component={step3} />
-                <Route path="/step4" component={step4} />
-                <Route path="/step5" component={step5} />
+                <Route path="/createproject2" component={step2} />
+                <Route path="/createproject3" component={step3} />
+                <Route path="/createproject4" component={step4} />
+                <Route path="/createproject5" component={step5} />
             </div>
         </Router>
     </Provider>

@@ -15,8 +15,8 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            componentName:null,
-            rule:null
+            componentName:"",
+            rule:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -27,21 +27,36 @@ class CreateProject extends Component {
         });
     }
 
-    onSubmit = (evt) => {
-        evt.preventDefault();
-        console.log("evt",evt);
-        console.log("this state",this.state);
-        console.log("this props location state",this.props.location.state);
-        this.props.history.push({
-            pathname:"/step3",
-            state:{
-               step1:this.props.location.state.step1,
-               step2:{
-                   componentName:this.state.componentName,
-                   rule:this.state.rule
-                }
+    isFormValid(){
+        // console.log("this state",this.state.componentName);
+        // console.log("this state",this.state.rule);
+        if(!this.state.componentName || 
+            !this.state.rule  
+            ){
+                return {status:false}
+            }else{
+                return {status:true}
             }
-        });
+    }
+
+    onSubmit = (evt) => {
+        // console.log("this state",this.state);
+        evt.preventDefault();
+        const isValid = this.isFormValid();
+        if(isValid.status){
+            this.props.history.push({
+                pathname:'/createproject3',
+                state:{
+                    step1:this.props.location.state,
+                    step2:{
+                        componentName:this.state.componentName,
+                        rule:this.state.rule
+                    }
+                }      
+            });
+        }else{
+            alert("error");
+        }
     }
 
     async componentDidMount(){
@@ -51,7 +66,6 @@ class CreateProject extends Component {
             });
         }
     }
-
 
     render() {
         return (
@@ -76,8 +90,8 @@ class CreateProject extends Component {
                                                     <Form.Control as="select" value={this.state.componentName} onChange={(evt) => {
                                                         this.setState({ componentName: evt.target.value })
                                                     }}>
-                                                        <option>Select Component Name</option>
-                                                        <option>Image</option>
+                                                    <option>Select Component Name</option>
+                                                    <option>Image</option>
                                                     </Form.Control>
                                                 </Form.Group>
                                             </div>
@@ -97,9 +111,9 @@ class CreateProject extends Component {
                                                 <a>Back</a>
                                             </div> */}
                                             <div className="col-md-12 text-right">
-                                                <Button variant="primary" type="submit" className="submit">
-                                                    Next
-                                                 </Button>
+                                                <Button variant="primary" type="submit" className="submit" >
+                                                    NEXT
+                                                </Button>
                                             </div>
                                         </div>
                                     </Form>
@@ -109,12 +123,12 @@ class CreateProject extends Component {
                     </div>
                 </div>
 
-                <div className="col-md-5 right ">
+                {/* <div className="col-md-5 right ">
                     <div className="row section">
-                        <div className="col-md-12 projectsection">
+                        <div className="col-md-12 projectsection active">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber check"><i className="fa fa-check" /></h1>
+                                    <h1 className="stepnumber active">1</h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step1}</h1>
@@ -124,10 +138,10 @@ class CreateProject extends Component {
                         </div>
 
 
-                        <div className="col-md-12 projectsection active">
+                        <div className="col-md-12 projectsection">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber active">2</h1>
+                                    <h1 className="stepnumber">2</h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step2}</h1>
@@ -173,11 +187,11 @@ class CreateProject extends Component {
                         </div>
 
                     </div>
-                </div>
-
+                </div> */}
             </div>
         );
     }
 }
 
 export default CreateProject;
+

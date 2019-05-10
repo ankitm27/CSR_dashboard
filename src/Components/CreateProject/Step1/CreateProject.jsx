@@ -16,12 +16,12 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            projectName:null,
-            about:null,
-            target:null,
-            totalFund:null,
-            totalUnit:null,
-            startDate:null
+            projectName:"",
+            about:"",
+            target:"",
+            totalFund:"",
+            totalUnit:"",
+            startDate:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -31,22 +31,39 @@ class CreateProject extends Component {
             startDate: date
         });
     }
+    
+    isFormValid(){
+        if(!this.state.projectName || 
+            !this.state.about || 
+            !this.state.totalFund || 
+            !this.state.totalUnit
+            ){
+                return {status:false}
+            }else{
+                return {status:true}
+            }
+    }
 
     onSubmit = (evt) => {
         evt.preventDefault();
-        this.props.history.push({
-            pathname:'/step2',
-            state:{
-                step1:{
-                    projectName:this.state.projectName,
-                    about:this.state.about,
-                    target:this.state.target,
-                    totalFund:this.state.totalFund,
-                    totalUnit:this.state.totalUnit,
-                    startDate:this.state.startDate
-                }
-            }      
-        });
+        const isValid = this.isFormValid();
+        if(isValid.status){
+            this.props.history.push({
+                pathname:'/createproject2',
+                state:{
+                    step1:{
+                        projectName:this.state.projectName,
+                        about:this.state.about,
+                        target:this.state.target,
+                        totalFund:this.state.totalFund,
+                        totalUnit:this.state.totalUnit,
+                        startDate:this.state.startDate
+                    }
+                }      
+            });
+        }else{
+            alert("error");
+        }
     }
 
     async componentDidMount(){
