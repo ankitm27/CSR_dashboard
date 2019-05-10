@@ -15,7 +15,6 @@ const ProjectReducers = handleActions({
     },
 
     CREATE_PROJECT: (state, action) => {
-        // console.log("action",action);
         return { ...state, mailSent: true, ...action.payload };
     },
 

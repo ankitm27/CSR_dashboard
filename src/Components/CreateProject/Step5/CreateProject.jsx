@@ -49,17 +49,12 @@ class CreateProject extends Component {
         evt.preventDefault();
         const isValid = this.isFormValid();
         if(isValid.status){
-            // console.log("this props location",this.props.location.state.step1);     
-            // console.log("this props location",this.props.location.state.step2);     
-            // console.log("this props location",this.props.location.state.step3);     
-            // console.log("this props location",this.props.location.state.step4);     
             await this.props.createProject({
                 step1:this.props.location.state.step1,
                 step2:this.props.location.state.step2,
                 step3:this.props.location.state.step3,
                 step4:this.props.location.state.step4
             });
-            // console.log("this props",this.props);
             if(this.props.projects.success){
                 this.props.history.push({
                     pathname:"/"
@@ -218,8 +213,6 @@ class CreateProject extends Component {
         );
     }
 }
-
-// export default CreateProject;
 
 function mapStateToProps(state) {
     return {
