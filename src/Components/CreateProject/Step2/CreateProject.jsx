@@ -28,8 +28,6 @@ class CreateProject extends Component {
     }
 
     isFormValid(){
-        // console.log("this state",this.state.componentName);
-        // console.log("this state",this.state.rule);
         if(!this.state.componentName || 
             !this.state.rule  
             ){
@@ -40,7 +38,6 @@ class CreateProject extends Component {
     }
 
     onSubmit = (evt) => {
-        // console.log("this state",this.state);
         evt.preventDefault();
         const isValid = this.isFormValid();
         if(isValid.status){
@@ -110,7 +107,7 @@ class CreateProject extends Component {
                                             {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
                                             </div> */}
-                                            <div className="col-md-12 text-right">
+                                            <div className="col-md-10 text-right">
                                                 <Button variant="primary" type="submit" className="submit" >
                                                     NEXT
                                                 </Button>
@@ -123,7 +120,7 @@ class CreateProject extends Component {
                     </div>
                 </div>
 
-                {/* <div className="col-md-5 right ">
+                <div className="col-md-5 right ">
                     <div className="row section">
                         <div className="col-md-12 projectsection active">
                             <div className="row">
@@ -184,10 +181,10 @@ class CreateProject extends Component {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
 
                     </div>
-                </div> */}
+                </div>
             </div>
         );
     }

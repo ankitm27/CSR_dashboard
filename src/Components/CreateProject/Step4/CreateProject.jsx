@@ -41,11 +41,6 @@ class CreateProject extends Component {
     }
 
     isFormValid(){
-        // console.log("this state",this.state.projectName);
-        // console.log("this state",this.state.about);
-        // console.log("this state",this.state.totalFund);
-        // console.log("this state",this.state.totalUnit);
-        // console.log("this state",this.state.startDate);
         if(!this.state.ngoName || 
             !this.state.location || 
             !this.state.managerName || 
@@ -61,9 +56,7 @@ class CreateProject extends Component {
     }
 
     onSubmit = (evt) => {
-        // console.log("this state",this.state);
         evt.preventDefault();
-        // console.log("this state location",this.props.location.state);
         const isValid = this.isFormValid();
         if(isValid.status){
             this.props.history.push({
@@ -148,8 +141,8 @@ class CreateProject extends Component {
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Phone Number" value={this.state.mobile} onChange={(evt) => {
-                                                        this.setState({ mobile: evt.target.value })
+                                                    <Form.Control type="text" placeholder="Phone Number" value={this.state.phone} onChange={(evt) => {
+                                                        this.setState({ phone: evt.target.value })
                                                     }}/>
                                                 </Form.Group>
                                             </div>

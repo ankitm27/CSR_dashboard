@@ -47,8 +47,6 @@ class CreateProject extends Component {
 
     onSubmit = (evt) => {
         evt.preventDefault();
-        // console.log("evt",evt);
-        // console.log("this state",this.state);
         const isValid = this.isFormValid();
         if(isValid.status){
             this.props.history.push({
@@ -109,7 +107,7 @@ class CreateProject extends Component {
                                                         this.setState({ role: evt.target.value })
                                                     }}>
                                                     <option>Role</option>
-                                                    <option>...</option>
+                                                    <option>Product Manager</option>
                                                 </Form.Control>
                                             </div>
 
@@ -137,7 +135,7 @@ class CreateProject extends Component {
                                                         this.setState({ country: evt.target.value })
                                                     }}>
                                                     <option>Country</option>
-                                                    <option>...</option>
+                                                    <option>India</option>
                                                 </Form.Control>
                                             </div>
                                             <div className="col-md-6">
@@ -145,14 +143,14 @@ class CreateProject extends Component {
                                                         this.setState({ city: evt.target.value })
                                                     }}>
                                                     <option>City</option>
-                                                    <option>...</option>
+                                                    <option>Delhi</option>
                                                 </Form.Control>
                                             </div>
-
+                                            
                                             {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
                                             </div> */}
-                                            <div className="col-md-12 text-right">
+                                            <div className="col-md-10 text-right">
                                                 <Button variant="primary" type="submit" className="submit">
                                                     Next
                                                  </Button>
@@ -165,7 +163,7 @@ class CreateProject extends Component {
                     </div>
                 </div>
 
-                {/* <div className="col-md-5 right ">
+                <div className="col-md-5 right ">
                     <div className="row section">
                         <div className="col-md-12 projectsection ">
                             <div className="row">
@@ -229,7 +227,7 @@ class CreateProject extends Component {
                         </div>
 
                     </div>
-                </div> */}
+                </div>
 
             </div>
         );

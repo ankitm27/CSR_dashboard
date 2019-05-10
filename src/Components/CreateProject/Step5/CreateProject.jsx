@@ -26,7 +26,6 @@ class CreateProject extends Component {
     }
 
     async componentDidMount(){
-        // console.log("this props. location state",this.props.location.state);
         if(!localStorage.getItem("token")){
             this.props.history.push({
                 pathname:'/login',
@@ -43,7 +42,6 @@ class CreateProject extends Component {
     }
 
     onSubmit = (evt) => {
-        // console.log("this state",this.state);
         evt.preventDefault();
         const isValid = this.isFormValid();
         if(isValid.status){
