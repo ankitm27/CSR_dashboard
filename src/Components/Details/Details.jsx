@@ -93,7 +93,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-4.svg')} />
+                            <img src={require('../../assets/images/group-4.svg')} alt=""/>
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.ProjectSuccess}</h1>
@@ -106,7 +106,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-6.svg')} />
+                            <img src={require('../../assets/images/group-6.svg')} alt=""/>
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.TotalFund}</h1>
@@ -118,7 +118,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-13.svg')} />
+                            <img src={require('../../assets/images/group-13.svg')} alt=""/>
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.Villages}</h1>
@@ -130,7 +130,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-14.svg')} />
+                            <img src={require('../../assets/images/group-14.svg')} alt=""/>
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.PerUnitFund}</h1>
@@ -152,7 +152,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Project Manager</p>
@@ -162,7 +162,7 @@ class Detail extends Component {
 
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Location</p>
@@ -174,7 +174,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-16.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-16.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Email Id</p>
@@ -183,7 +183,7 @@ class Detail extends Component {
                                     </div>
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Mobile No.</p>
@@ -204,7 +204,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Project Manager</p>
@@ -214,7 +214,7 @@ class Detail extends Component {
 
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Location</p>
@@ -226,7 +226,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-16.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-16.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Email Id</p>
@@ -235,7 +235,7 @@ class Detail extends Component {
                                     </div>
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" />
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Mobile No.</p>

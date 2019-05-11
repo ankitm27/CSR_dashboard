@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
-import { Form, Button, InputGroup } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
+import { Form, Button } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
 
 class CreateProject extends Component {
@@ -15,8 +14,8 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            componentName:null,
-            rule:null
+            componentName:"",
+            rule:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -27,21 +26,33 @@ class CreateProject extends Component {
         });
     }
 
+    isFormValid(){
+        if(!this.state.componentName || 
+            !this.state.rule  
+            ){
+                return {status:false}
+            }else{
+                return {status:true}
+            }
+    }
+
     onSubmit = (evt) => {
         evt.preventDefault();
-        console.log("evt",evt);
-        console.log("this state",this.state);
-        console.log("this props location state",this.props.location.state);
-        this.props.history.push({
-            pathname:"/step3",
-            state:{
-               step1:this.props.location.state.step1,
-               step2:{
-                   componentName:this.state.componentName,
-                   rule:this.state.rule
-                }
-            }
-        });
+        const isValid = this.isFormValid();
+        if(isValid.status){
+            this.props.history.push({
+                pathname:'/createproject3',
+                state:{
+                    step1:this.props.location.state.step1,
+                    step2:{
+                        componentName:this.state.componentName,
+                        rule:this.state.rule
+                    }
+                }      
+            });
+        }else{
+            alert("error");
+        }
     }
 
     async componentDidMount(){
@@ -51,7 +62,6 @@ class CreateProject extends Component {
             });
         }
     }
-
 
     render() {
         return (
@@ -76,8 +86,8 @@ class CreateProject extends Component {
                                                     <Form.Control as="select" value={this.state.componentName} onChange={(evt) => {
                                                         this.setState({ componentName: evt.target.value })
                                                     }}>
-                                                        <option>Select Component Name</option>
-                                                        <option>Image</option>
+                                                    <option>Select Component Name</option>
+                                                    <option>Image</option>
                                                     </Form.Control>
                                                 </Form.Group>
                                             </div>
@@ -96,10 +106,10 @@ class CreateProject extends Component {
                                             {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
                                             </div> */}
-                                            <div className="col-md-12 text-right">
-                                                <Button variant="primary" type="submit" className="submit">
-                                                    Next
-                                                 </Button>
+                                            <div className="col-md-10 text-right">
+                                                <Button variant="primary" type="submit" className="submit" >
+                                                    NEXT
+                                                </Button>
                                             </div>
                                         </div>
                                     </Form>
@@ -111,27 +121,27 @@ class CreateProject extends Component {
 
                 <div className="col-md-5 right ">
                     <div className="row section">
-                        <div className="col-md-12 projectsection">
+                        <div className="col-md-12 projectsection active">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber check"><i className="fa fa-check" /></h1>
+                                    <h1 className="stepnumber active">1</h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step1}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Please fill the basic details.</p>
                                 </div>
                             </div>
                         </div>
 
 
-                        <div className="col-md-12 projectsection active">
+                        <div className="col-md-12 projectsection">
                             <div className="row">
                                 <div className="col-md-4 text-right stepparent">
-                                    <h1 className="stepnumber active">2</h1>
+                                    <h1 className="stepnumber">2</h1>
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step2}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Set up rules of the project. </p>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +153,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step3}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add project owner details</p>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +165,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step4}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add NGO details</p>
                                 </div>
                             </div>
                         </div>
@@ -167,17 +177,17 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step5}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add questionair of project</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
 
                     </div>
                 </div>
-
             </div>
         );
     }
 }
 
 export default CreateProject;
+

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './Projects.css';
 
-import { connect } from "react-redux";
-import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
 const DateDiff = require('date-diff');

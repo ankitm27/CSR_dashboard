@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FusionCharts from "fusioncharts";
 import './PieChart.css';
 
@@ -32,7 +32,7 @@ const dataSource = {
 
 class Pie1 extends React.Component {
     render() {
-        // console.log("this props",this.props);
+        console.log("this props",this.props);
         if (this.props.totalGood && this.props.totalAverage && this.props.totalPoor) {
             dataSource.data = [];
             dataSource.data.push({ lable: "TotalGood", value: this.props.totalGood, color: "#00a925" });

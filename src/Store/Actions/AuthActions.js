@@ -13,10 +13,7 @@ export const verifyUser = values => dispatch => {
             password: values.password
         }
     ).then((res) => {
-        console.log(res.data);
-        console.log(res.data.data.token);
         // if (localStorage.getItem("token") === null) {
-        console.log("local storage",localStorage.getItem("token"));
         localStorage.setItem("token", res.data.data.token);
         dispatch(VERIFY_USER(res.data.data))
         // }
@@ -47,8 +44,6 @@ export const registerUser = values => dispatch => {
             confirmPassword: values.confirmPassword
         }
     ).then((res) => {
-        console.log(res.data);
-        // console.log(res.data.data._id);
         dispatch(REGISTER_USER({success:true}))
     }).catch(error => {
             document.getElementById("emailerror").innerHTML = error.response.data.error;

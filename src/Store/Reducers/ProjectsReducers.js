@@ -13,6 +13,12 @@ const ProjectReducers = handleActions({
     PROJECT_DETAIL: (state, action) => {
         return { state:state, mailSent: true, ...action.payload };
     },
+
+    CREATE_PROJECT: (state, action) => {
+        return { ...state, mailSent: true, ...action.payload };
+    },
+
+
 }, INITIAL_STATE);
 
 export default ProjectReducers;

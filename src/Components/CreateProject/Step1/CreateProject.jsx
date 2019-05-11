@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
 import { Form, Button, InputGroup } from 'react-bootstrap';
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -15,13 +14,12 @@ class CreateProject extends Component {
             Step3: 'Add Project Owner Information',
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
-            startDate: new Date(),
-            projectName: null,
-            about: null,
-            target: null,
-            totalFund: null,
-            totalUnit: null,
-            startDate: null
+            startDate: "",
+            projectName: "",
+            about: "",
+            target: "",
+            totalFund: "",
+            totalUnit: "",
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -32,21 +30,38 @@ class CreateProject extends Component {
         });
     }
 
+    isFormValid() {
+        if (!this.state.projectName ||
+            !this.state.about ||
+            !this.state.totalFund ||
+            !this.state.totalUnit
+        ) {
+            return { status: false }
+        } else {
+            return { status: true }
+        }
+    }
+
     onSubmit = (evt) => {
         evt.preventDefault();
-        this.props.history.push({
-            pathname: '/step2',
-            state: {
-                step1: {
-                    projectName: this.state.projectName,
-                    about: this.state.about,
-                    target: this.state.target,
-                    totalFund: this.state.totalFund,
-                    totalUnit: this.state.totalUnit,
-                    startDate: this.state.startDate
+        const isValid = this.isFormValid();
+        if (isValid.status) {
+            this.props.history.push({
+                pathname: '/createproject2',
+                state: {
+                    step1: {
+                        projectName: this.state.projectName,
+                        about: this.state.about,
+                        target: this.state.target,
+                        totalFund: this.state.totalFund,
+                        totalUnit: this.state.totalUnit,
+                        startDate: this.state.startDate
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            alert("error");
+        }
     }
 
     async componentDidMount() {
@@ -154,7 +169,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step1}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Please fill the basic details.</p>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +182,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step2}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Set up rules of the project. </p>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +194,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step3}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add project owner details</p>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +206,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step4}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add NGO details</p>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +218,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step5}</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <p>Add questionair of project</p>
                                 </div>
                             </div>
                         </div>
