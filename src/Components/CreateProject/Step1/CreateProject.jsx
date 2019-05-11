@@ -16,12 +16,12 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            projectName:null,
-            about:null,
-            target:null,
-            totalFund:null,
-            totalUnit:null,
-            startDate:null
+            projectName: null,
+            about: null,
+            target: null,
+            totalFund: null,
+            totalUnit: null,
+            startDate: null
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -35,24 +35,24 @@ class CreateProject extends Component {
     onSubmit = (evt) => {
         evt.preventDefault();
         this.props.history.push({
-            pathname:'/step2',
-            state:{
-                step1:{
-                    projectName:this.state.projectName,
-                    about:this.state.about,
-                    target:this.state.target,
-                    totalFund:this.state.totalFund,
-                    totalUnit:this.state.totalUnit,
-                    startDate:this.state.startDate
+            pathname: '/step2',
+            state: {
+                step1: {
+                    projectName: this.state.projectName,
+                    about: this.state.about,
+                    target: this.state.target,
+                    totalFund: this.state.totalFund,
+                    totalUnit: this.state.totalUnit,
+                    startDate: this.state.startDate
                 }
-            }      
+            }
         });
     }
 
-    async componentDidMount(){
-        if(!localStorage.getItem("token")){
+    async componentDidMount() {
+        if (!localStorage.getItem("token")) {
             this.props.history.push({
-                pathname:'/login',
+                pathname: '/login',
             });
         }
     }
