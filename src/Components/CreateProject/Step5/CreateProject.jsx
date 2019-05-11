@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
 
-import Question from '../CreateQuestion/CreateQuestion';
+import Question from '../Question/Question';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
+import DoneQuestion from '../../CreateProject/DoneQuestion/DoneQuestion';
 
 import { connect } from "react-redux";
 import actions from "../../../Store/Actions/Index";
@@ -24,14 +25,8 @@ class CreateProject extends Component {
             ProjectName: "Utsaav"
 
         };
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(date) {
-        this.setState({
-            startDate: date
-        });
-    }
 
     async componentDidMount() {
         if (!localStorage.getItem("token")) {
@@ -41,30 +36,30 @@ class CreateProject extends Component {
         }
     }
 
-    isFormValid(){
-        if(true){
-            return {status:true}
-        }else{
-            return {status:false}
+    isFormValid() {
+        if (true) {
+            return { status: true }
+        } else {
+            return { status: false }
         }
     }
 
-    onSubmit = async(evt) => {
+    onSubmit = async (evt) => {
         evt.preventDefault();
         const isValid = this.isFormValid();
-        if(isValid.status){
+        if (isValid.status) {
             await this.props.createProject({
-                step1:this.props.location.state.step1,
-                step2:this.props.location.state.step2,
-                step3:this.props.location.state.step3,
-                step4:this.props.location.state.step4
+                step1: this.props.location.state.step1,
+                step2: this.props.location.state.step2,
+                step3: this.props.location.state.step3,
+                step4: this.props.location.state.step4
             });
-            if(this.props.projects.success){
+            if (this.props.projects.success) {
                 this.props.history.push({
-                    pathname:"/"
+                    pathname: "/"
                 });
             }
-        }else{
+        } else {
             alert("error");
         }
     }
@@ -80,77 +75,35 @@ class CreateProject extends Component {
                         <div className="col-md-12 project">
                             <div className="row">
                                 <div className="col-md-12 projecttitle">
-<<<<<<< HEAD
                                     <h1>Create Form</h1>
-=======
-                                    <h1>Add Question</h1>
->>>>>>> 4d125949e7ead95a161dcbf58c352665cd31352b
                                     <hr></hr>
                                     <br></br>
                                     <p><strong>Project Name: {this.state.ProjectName}</strong></p>
                                 </div>
 
                                 <div className="col-md-12 projectform">
-<<<<<<< HEAD
-                                    <Question />
-=======
-                                    <Form onSubmit={this.onSubmit}>
+
+                                    <Form>
+                                        <DoneQuestion />
+                                        <Question />
+
                                         <div className="row">
                                             <div className="col-md-12">
-                                                <Form.Group controlId="formBasicName">
-                                                    <Form.Control type="text" placeholder="Name" />
-                                                </Form.Group>
-                                            </div>
-                                            <div className="col-md-12">
-                                                <Form.Group controlId="formBasicProject">
-                                                    <Form.Control type="text" placeholder="About Project" />
-                                                </Form.Group>
+                                                <div className="row">
+                                                    <div className="col-md-6 text-left back1">
+                                                        <a>Back</a>
+                                                    </div>
+                                                    <div className="col-md-6 text-right">
+
+                                                        <Button variant="primary" type="submit" className="submit" >
+                                                            NEXT
+                                                    </Button>
+                                                    </div>
+                                                </div>
                                             </div>
 
-                                            <div className="col-md-6">
-                                                <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Project Target" />
-                                                </Form.Group>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <InputGroup>
-                                                    <InputGroup.Prepend>
-                                                        <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-                                                    </InputGroup.Prepend>
-                                                    <Form.Control
-                                                        type="text"
-                                                        placeholder="Total Fund" />
-                                                </InputGroup>
-                                            </div>
-
-
-
-                                            <div className="col-md-6">
-                                                <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Add Total Unit" />
-                                                </Form.Group>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <InputGroup>
-
-                                                    <Form.Control
-                                                        type="text"
-                                                        placeholder="Set Project Date" />
-                                                    <InputGroup.Prepend>
-                                                        <InputGroup.Text id="inputGroupPrepend" selected={this.state.startDate}
-                                                            onChange={this.handleChange} >  <i className="fa fa-calendar" aria-hidden="true"></i> </InputGroup.Text>
-                                                    </InputGroup.Prepend>
-                                                </InputGroup>
-                                            </div>
-
-                                            <div className="col-md-12 text-right">
-                                                <Button variant="primary" type="submit" className="submit">
-                                                    Next
-                                                 </Button>
-                                            </div>
                                         </div>
                                     </Form>
->>>>>>> 4d125949e7ead95a161dcbf58c352665cd31352b
                                 </div>
                             </div>
                         </div>

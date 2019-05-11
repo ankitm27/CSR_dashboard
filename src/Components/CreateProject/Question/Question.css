@@ -1,0 +1,120 @@
+.Question {
+    /* height: 152px; */
+    border-radius: 6px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.required {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #303030;
+}
+
+.Question .form-control {
+    margin-bottom: 10px !important;
+}
+
+.Question .back1 {
+    margin-top: 60px;
+}
+
+.preview {
+    width: 149px;
+    height: 42px;
+    border-radius: 2px;
+    border: solid 2px #2b7ed1;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    color: #2b7ed1;
+    background-color: transparent;
+    margin-right: 10px;
+    margin-top: 50px;
+}
+
+.preview:hover {
+    width: 149px;
+    height: 42px;
+    border-radius: 2px;
+    border: solid 2px #2b7ed1;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    color: #2b7ed1;
+    background-color: transparent;
+    margin-right: 10px;
+    margin-top: 50px;
+}
+
+.addnew {
+    width: 328px;
+    height: 36px;
+    border-radius: 4px;
+    border: solid 1px #2b7ed1;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2b7ed1;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+
+.addnew:hover {
+    width: 328px;
+    height: 36px;
+    border-radius: 4px;
+    border: solid 1px #2b7ed1;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #2b7ed1;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+.input-group-text {
+    border-bottom: none !important;
+}
+
+
+#addnew {
+    display: none;
+}
+
+.donequestion {
+    /* height: 110px; */
+    background-color: #f6f9fd;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: none;
+}
+
+
+.pencil {
+    float: right;
+    margin-right: -20px;
+    margin-top: -20px;
+}
