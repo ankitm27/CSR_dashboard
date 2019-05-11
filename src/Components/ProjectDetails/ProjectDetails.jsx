@@ -5,8 +5,8 @@ import Tab1 from '../Details/Details';
 import Tab2 from '../ProjectResult/ProjectResult';
 
 import { Tab, Tabs } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button'
-
+import Button from 'react-bootstrap/Button';
+import Navigation from '../Navigation/Navigation.jsx';
 
 class ProjectDetails extends Component {
     constructor() {
@@ -33,19 +33,19 @@ class ProjectDetails extends Component {
             <div className="row ProjectDetail">
                 <div className="col-md-12 topbar">
                     <Navbar />
+                    <Navigation />
                 </div>
 
                 <div className="col-md-12 tabs">
                     <div className="row">
                         <div className="col-md-10 offset-md-1">
                             <div className="row">
-                                <div className="col-md-1 ">
-                                    <Button variant="secondary" className="back"><i className="	fa fa-angle-left"></i> Back</Button>
-                                </div>
-                                <div className="col-md-11">
+                                <div className="col-md-12">
                                     <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                                         <Tab eventKey="home" title={this.state.tab1}>
-                                            <Tab1 />
+                                            <div className="col-md-12">
+                                                <Tab1 />
+                                            </div>
                                         </Tab>
                                         <Tab eventKey="profile" title={this.state.tab2}>
                                             <Tab2 />

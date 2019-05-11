@@ -3,7 +3,7 @@
 }
 
 .ProjectDetail .topbar {
-    height: 120px;
+    min-height: 165px;
     opacity: 0.92;
     background-image: linear-gradient(to bottom, #1f9cf8, #03045c);
 }

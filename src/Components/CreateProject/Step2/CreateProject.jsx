@@ -3,6 +3,7 @@ import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
 import { Form, Button } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
+import Navigation from '../../Navigation/Navigation.jsx';
 
 class CreateProject extends Component {
     constructor() {
@@ -68,6 +69,7 @@ class CreateProject extends Component {
             <div className="row Project">
                 <div className="col-md-12 topbar">
                     <Navbar />
+                    <Navigation />
                 </div>
                 <div className="col-md-7 left">
                     <div className="row">
@@ -106,7 +108,7 @@ class CreateProject extends Component {
                                             {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
                                             </div> */}
-                                            <div className="col-md-10 text-right">
+                                            <div className="col-md-12 text-right">
                                                 <Button variant="primary" type="submit" className="submit" >
                                                     NEXT
                                                 </Button>

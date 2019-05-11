@@ -38,9 +38,9 @@ class Navigation extends Component {
                                         <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-search" aria-hidden="true"></i></InputGroup.Text>
                                     </InputGroup.Prepend>
                                 </InputGroup>
-                                {/* <Nav.Link eventKey={2} href="#memes">
-                                    <img src={require('../../assets/images/filter.png')} />
-                                </Nav.Link> */}
+                                <Nav.Link eventKey={2}>
+                                    <img src={require('../../assets/images/filter.png') } alt=""/>
+                                </Nav.Link>
                             </Nav>
 
                         </Navbar.Collapse>

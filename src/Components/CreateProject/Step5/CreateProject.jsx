@@ -10,6 +10,7 @@ import DoneQuestion from '../../CreateProject/DoneQuestion/DoneQuestion';
 import { connect } from "react-redux";
 import actions from "../../../Store/Actions/Index";
 import { withRouter } from "react-router";
+import Navigation from '../../Navigation/Navigation.jsx';
 
 
 class CreateProject extends Component {
@@ -69,6 +70,7 @@ class CreateProject extends Component {
             <div className="row Project">
                 <div className="col-md-12 topbar">
                     <Navbar />
+                    <Navigation />
                 </div>
                 <div className="col-md-7 left">
                     <div className="row">
