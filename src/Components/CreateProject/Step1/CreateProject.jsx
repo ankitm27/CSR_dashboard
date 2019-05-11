@@ -169,7 +169,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step1}</h1>
-                                    <p>Please fill the basic details.</p>
+                                    <p> Please fill the basic details.</p>
                                 </div>
                             </div>
                         </div>

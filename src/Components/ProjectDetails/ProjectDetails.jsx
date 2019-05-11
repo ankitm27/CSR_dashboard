@@ -39,13 +39,15 @@ class ProjectDetails extends Component {
                     <div className="row">
                         <div className="col-md-10 offset-md-1">
                             <div className="row">
-                                <div className="col-md-1 ">
+                                <div className="col-md-1">
                                     <Button variant="secondary" className="back"><i className="	fa fa-angle-left"></i> Back</Button>
                                 </div>
                                 <div className="col-md-11">
                                     <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                                         <Tab eventKey="home" title={this.state.tab1}>
-                                            <Tab1 />
+                                            <div className="col-md-12">
+                                                <Tab1 />
+                                            </div>
                                         </Tab>
                                         <Tab eventKey="profile" title={this.state.tab2}>
                                             <Tab2 />

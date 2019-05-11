@@ -59,7 +59,7 @@ class Detail extends Component {
             this.setState({ ExecuterCompany: project.ngo && project.ngo.ngoName ? project.ngo.ngoName : null });
             this.setState({ ExecuterLocation: project.ngo && project.ngo.location ? project.ngo.location : null });
             this.setState({ ExecuterNumber: project.ngo && project.ngo.mobile ? project.ngo.mobile : null });
-            this.setState({ Daysleft: daysLeft ? daysLeft + "days left" : null });
+            this.setState({ Daysleft: daysLeft ? daysLeft + " days left" : null });
             this.setState({ TotalFund: project.funding ? project.funding : null});
             this.setState({ ExecuterEmail: project.ngo && project.ngo.email ? project.ngo.email : null });
         }else{
