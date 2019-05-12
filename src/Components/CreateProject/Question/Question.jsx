@@ -50,42 +50,38 @@ class CreateProject extends Component {
     }
 
     handleClick() {
+
         document.getElementById("addnew").style.display = "block";
-        alert("hy");
     }
 
     render() {
         return (
             < Form onSubmit={this.onSubmit} >
                 <div className="row ">
-
                     <div className="col-md-12 Question">
 
-
-                        <div className="row Project" onChange={this.onload}>
+                        {/* <div className="row Project" onChange={this.onload}>
                             <div className="col-md-12 donequestion" id="donequestion">
                                 <img src={require('../../../assets/images/group-8.svg')} alt="" className="pencil" />
                                 <p>{this.state.Question}  </p>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="row">
                             <div className="col-md-4 questionright">
                                 <Form.Group controlId="formBasicName">
                                     <Form.Control as="select" value={this.state.questionType} onChange={(evt) => {
                                         this.setState({ questionType: evt.target.value })
-                                    }} id="questiontype" >
-                                        <option >Question Type</option>
-                                        <option value="Single Choice" onSelect={() => this.handleClick()}>Single Choice</option>
-                                        <option value="Text">Text</option>
-                                        <option value="Number">Number</option>
-                                        <option value="Location">Location</option>
-                                        <option value="Image">Image</option>
+                                    }} id="questiontype" onChange={() => this.handleClick()} >
+                                        <option id="0">Question Type</option>
+                                        <option value="Single Choice" id="1">Single Choice</option>
+                                        <option value="Text" id="2"> Text</option>
+                                        <option value="Number" id="3">Number</option>
+                                        <option value="Location" id="4">Location</option>
+                                        <option value="Image" id="5">Image</option>
                                     </Form.Control>
                                 </Form.Group>
                             </div>
-
-
 
                             <div className="col-md-8 questionleft">
                                 <Form.Group controlId="formBasicName">
@@ -99,7 +95,6 @@ class CreateProject extends Component {
 
                             <div className="col-md-12 questionleft" id="addnew">
                                 <InputGroup>
-
                                     <Form.Control
                                         type="text"
                                         placeholder="Option 1" />
