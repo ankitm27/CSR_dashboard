@@ -24,10 +24,8 @@ class CreateProject extends Component {
             Step5: 'Create Questionnair',
             startDate: new Date(),
             ProjectName: "Utsaav"
-
         };
     }
-
 
     async componentDidMount() {
         if (!localStorage.getItem("token")) {
@@ -48,46 +46,46 @@ class CreateProject extends Component {
     onSubmit = async (evt) => {
         evt.preventDefault();
         const isValid = this.isFormValid();
-        
+
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         await this.props.createProject({
-            title:this.props.location.state.step1.projectName,
-            description:this.props.location.state.step1.about,
-            status:"open",
-            goal:this.props.location.state.step1.target,
-            startDate:this.props.location.state.step1.startDate,
-            endDate:this.props.location.state.step1.startDate,
-            funding:this.props.location.state.step1.totalFund,
-            targetBeneficiary:this.props.location.state.step1.totalUnit,
-            supervisors:[{
-                employee_code:this.props.location.state.step3.code,
-                role:this.props.location.state.step3.role,
-                name:this.props.location.state.step3.productOwner,
-                email:"check@gmail.com",
-                mobile:"8191818191",
-                country:this.props.location.state.step3.country,
-                city:this.props.location.state.step3.city
+            title: this.props.location.state.step1.projectName,
+            description: this.props.location.state.step1.about,
+            status: "open",
+            goal: this.props.location.state.step1.target,
+            startDate: this.props.location.state.step1.startDate,
+            endDate: this.props.location.state.step1.startDate,
+            funding: this.props.location.state.step1.totalFund,
+            targetBeneficiary: this.props.location.state.step1.totalUnit,
+            supervisors: [{
+                employee_code: this.props.location.state.step3.code,
+                role: this.props.location.state.step3.role,
+                name: this.props.location.state.step3.productOwner,
+                email: "check@gmail.com",
+                mobile: "8191818191",
+                country: this.props.location.state.step3.country,
+                city: this.props.location.state.step3.city
             }],
-            rules:[{
-                componentName:"Image",
-                rules:["not-marked"]
+            rules: [{
+                componentName: "Image",
+                rules: ["not-marked"]
             }],
-            ngo:{
-                ngoName:this.props.location.state.step4.ngoName,
-                managerFirstName:this.props.location.state.step4.managerName,
-                managerLastName:this.props.location.state.step4.lastName,
-                email:this.props.location.state.step4.email,
-                mobile:this.props.location.state.step4.phone,
-                country:"India",
-                city:"Noida"
+            ngo: {
+                ngoName: this.props.location.state.step4.ngoName,
+                managerFirstName: this.props.location.state.step4.managerName,
+                managerLastName: this.props.location.state.step4.lastName,
+                email: this.props.location.state.step4.email,
+                mobile: this.props.location.state.step4.phone,
+                country: "India",
+                city: "Noida"
             },
-            goalAchieved:0,
-            startDate:new Date(),
-            endDate:new Date()
+            goalAchieved: 0,
+            startDate: new Date(),
+            endDate: new Date()
         })
-        console.log("this state rpojects",this.state.projects);
+        console.log("this state rpojects", this.state.projects);
     }
 
     render() {

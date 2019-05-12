@@ -100,9 +100,17 @@
 }
 
 
-#addnew {
+#addnew,
+#questions {
     display: none;
 }
+
+
+#questions {
+    display: none;
+    margin-top: 20px;
+}
+
 
 .donequestion {
     /* height: 110px; */
