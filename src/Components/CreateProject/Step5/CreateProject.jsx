@@ -48,21 +48,46 @@ class CreateProject extends Component {
     onSubmit = async (evt) => {
         evt.preventDefault();
         const isValid = this.isFormValid();
-        if (isValid.status) {
-            await this.props.createProject({
-                step1: this.props.location.state.step1,
-                step2: this.props.location.state.step2,
-                step3: this.props.location.state.step3,
-                step4: this.props.location.state.step4
-            });
-            if (this.props.projects.success) {
-                this.props.history.push({
-                    pathname: "/"
-                });
-            }
-        } else {
-            alert("error");
-        }
+        
+    }
+
+    async componentDidMount(){
+        await this.props.createProject({
+            title:this.props.location.state.step1.projectName,
+            description:this.props.location.state.step1.about,
+            status:"open",
+            goal:this.props.location.state.step1.target,
+            startDate:this.props.location.state.step1.startDate,
+            endDate:this.props.location.state.step1.startDate,
+            funding:this.props.location.state.step1.totalFund,
+            targetBeneficiary:this.props.location.state.step1.totalUnit,
+            supervisors:[{
+                employee_code:this.props.location.state.step3.code,
+                role:this.props.location.state.step3.role,
+                name:this.props.location.state.step3.productOwner,
+                email:"check@gmail.com",
+                mobile:"8191818191",
+                country:this.props.location.state.step3.country,
+                city:this.props.location.state.step3.city
+            }],
+            rules:[{
+                componentName:"Image",
+                rules:["not-marked"]
+            }],
+            ngo:{
+                ngoName:this.props.location.state.step4.ngoName,
+                managerFirstName:this.props.location.state.step4.managerName,
+                managerLastName:this.props.location.state.step4.lastName,
+                email:this.props.location.state.step4.email,
+                mobile:this.props.location.state.step4.phone,
+                country:"India",
+                city:"Noida"
+            },
+            goalAchieved:0,
+            startDate:new Date(),
+            endDate:new Date()
+        })
+        console.log("this state rpojects",this.state.projects);
     }
 
     render() {
@@ -96,10 +121,9 @@ class CreateProject extends Component {
                                                         <a>Back</a>
                                                     </div>
                                                     <div className="col-md-6 text-right">
-
                                                         <Button variant="primary" type="submit" className="submit" >
                                                             NEXT
-                                                    </Button>
+                                                        </Button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -39,15 +39,16 @@ export const projectDetails = values => dispatch => {
 }
 
 export const createProject = values => dispatch => {
-    let data = Object.assign(values.step1,values.step2,values.step3,values.step4);
+    console.log("values",values);
     return axios.post(
-        backend_URL +  'api/program/', data,{
+        backend_URL +  'api/program/', values,{
             headers:{
                 Authorization:localStorage.getItem("token")
             }
         }
     ).then((res) => {
-        dispatch(CREATE_PROJECT({success:true}));
+        console.log("res",res);
+        dispatch(CREATE_PROJECT(res.data.data));
     }).catch(error => {
         return Promise.reject();
     });
