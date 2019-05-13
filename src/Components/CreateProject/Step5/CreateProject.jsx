@@ -3,9 +3,8 @@ import './CreateProject.css';
 import Navbar from '../../Navbar/Navbar';
 
 import Question from '../Question/Question';
-import { Form, Button, InputGroup } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import "react-datepicker/dist/react-datepicker.css";
-import DoneQuestion from '../../CreateProject/DoneQuestion/DoneQuestion';
 
 import { connect } from "react-redux";
 import actions from "../../../Store/Actions/Index";
@@ -44,10 +43,10 @@ class CreateProject extends Component {
         }
     }
 
-    onSubmit = async (evt) => {
-        evt.preventDefault();
-        const isValid = this.isFormValid();
-    }
+    // onSubmit = async (evt) => {
+    //     evt.preventDefault();
+    //     const isValid = this.isFormValid();
+    // }
 
     onClick = (evt) => {
         evt.preventDefault();
@@ -83,18 +82,19 @@ class CreateProject extends Component {
                     "city": this.props.location.state.step3.city
                 }],
                 "rules": [{
-                    "componentName": "image",
+                    "componentName": "file",
                     "rules": ["not-marked"]
                 }],
                 "ngo": {
                     "ngoName": this.props.location.state.step4.ngoName,
                     "managerFirstName": this.props.location.state.step4.managerName,
                     "managerLastName": "dummy",
-                    "email":"shubham.agrawal@gmail.com", 
-                    "mobile": "8765639897",
+                    "email":this.props.location.state.step4.email,
+                    "mobile": this.props.location.state.step4.phone,
                     "country": "India",
                     "location": "Noida"
-                }
+                },
+                mobiles:[this.props.location.state.step4.allowedUsers]
             })
             if(this.props.projects && this.props.projects._id){
                 // console.log("this state pojects", this.props.projects._id);
