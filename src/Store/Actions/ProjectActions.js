@@ -23,9 +23,10 @@ export const dashboardData = values => dispatch => {
 }
 
 export const projectDetails = values => dispatch => {
-    let values = {
-        _id:"5cd1cf5ce292e15fff263bdf",
-    }
+    // let values = {
+    //     _id:"5cd1cf5ce292e15fff263bdf",
+    // }
+    console.log("values",values);
     return axios.get(
         backend_URL +  'api/program/' + values._id, {
             headers:{

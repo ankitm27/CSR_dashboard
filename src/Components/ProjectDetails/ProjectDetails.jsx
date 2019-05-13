@@ -5,7 +5,6 @@ import Tab1 from '../Details/Details';
 import Tab2 from '../ProjectResult/ProjectResult';
 
 import { Tab, Tabs } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import Navigation from '../Navigation/Navigation.jsx';
 
 class ProjectDetails extends Component {

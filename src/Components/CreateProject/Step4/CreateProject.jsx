@@ -22,6 +22,7 @@ class CreateProject extends Component {
             lastName:"",
             email:"",
             phone:"",
+            allowedUsers:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -44,7 +45,6 @@ class CreateProject extends Component {
         if(!this.state.ngoName || 
             !this.state.location || 
             !this.state.managerName || 
-            !this.state.lastName ||
             !this.state.email || 
             !this.state.phone || 
             !this.state.location
@@ -69,10 +69,11 @@ class CreateProject extends Component {
                         ngoName:this.state.ngoName,
                         location:this.state.location,
                         managerName:this.state.managerName,
-                        lastName:this.state.lastName,
                         email:this.state.email,
                         phone:this.state.phone,
-                    } 
+                        allowedUsers:this.state.allowedUsers
+                    }
+
                 }      
             });
         }else{
@@ -124,25 +125,25 @@ class CreateProject extends Component {
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="email" placeholder="Email" value={this.state.lastName} onChange={(evt) => {
-                                                        this.setState({ lastName: evt.target.value })
-                                                    }}/>
-                                                </Form.Group>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="number" placeholder="Mobile Number" value={this.state.email} onChange={(evt) => {
+                                                    <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={(evt) => {
                                                         this.setState({ email: evt.target.value })
                                                     }}/>
                                                 </Form.Group>
                                             </div>
+                                            <div className="col-md-6">
+                                                <Form.Group controlId="formBasicTarget">
+                                                    <Form.Control type="number" placeholder="Mobile Number" value={this.state.phone} onChange={(evt) => {
+                                                        this.setState({ phone: evt.target.value })
+                                                    }}/>
+                                                </Form.Group>
+                                            </div>
 
 
 
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicTarget">
-                                                    <Form.Control type="text" placeholder="Phone Number" value={this.state.phone} onChange={(evt) => {
-                                                        this.setState({ phone: evt.target.value })
+                                                    <Form.Control type="text" placeholder="Allowed User" value={this.state.allowedUsers} onChange={(evt) => {
+                                                        this.setState({ allowedUsers: evt.target.value })
                                                     }}/>
                                                 </Form.Group>
                                             </div>
