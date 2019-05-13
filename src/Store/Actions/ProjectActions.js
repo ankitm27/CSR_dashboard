@@ -4,8 +4,9 @@ import axios from 'axios';
 const DASHBOARD_DATA = createAction("DASHBOARD_DATA");
 const PROJECT_DETAIL = createAction("PROJECT_DETAIL");
 const CREATE_PROJECT = createAction("CREATE_PROJECT");
+const SAVE_QUESTION = createAction("SAVE_QUESTION");
 
-const backend_URL = "http://13.232.210.179/";
+const backend_URL = "http://13.233.144.190/";
 
 export const dashboardData = values => dispatch => {
     return axios.get(
@@ -52,6 +53,23 @@ export const createProject = values => dispatch => {
     }).catch(error => {
         return Promise.reject();
     });
+}
+
+
+export const saveQuestion = values => dispatch => {
+    console.log("values",values);
+    return axios.post(
+        backend_URL + 'api/program/' + values._id + "/question", [values.data],{
+            headers:{
+                Authorization:localStorage.getItem("token")
+            }
+        }
+    ).then((res) => {
+        console.log("res",res);
+        dispatch(SAVE_QUESTION({success:true}));
+    }).catch(error => {
+        return Promise.reject();
+    })
 }
 
 

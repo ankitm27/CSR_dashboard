@@ -23,7 +23,8 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            ProjectName: "Utsaav"
+            ProjectName: "Utsaav",
+            _id:null
         };
     }
 
@@ -46,46 +47,63 @@ class CreateProject extends Component {
     onSubmit = async (evt) => {
         evt.preventDefault();
         const isValid = this.isFormValid();
+    }
 
+    onClick = (evt) => {
+        evt.preventDefault();
+        this.props.history.push({
+            pathname: '/',
+        });
     }
 
     async componentDidMount() {
-        await this.props.createProject({
-            title: this.props.location.state.step1.projectName,
-            description: this.props.location.state.step1.about,
-            status: "open",
-            goal: this.props.location.state.step1.target,
-            startDate: this.props.location.state.step1.startDate,
-            endDate: this.props.location.state.step1.startDate,
-            funding: this.props.location.state.step1.totalFund,
-            targetBeneficiary: this.props.location.state.step1.totalUnit,
-            supervisors: [{
-                employee_code: this.props.location.state.step3.code,
-                role: this.props.location.state.step3.role,
-                name: this.props.location.state.step3.productOwner,
-                email: "check@gmail.com",
-                mobile: "8191818191",
-                country: this.props.location.state.step3.country,
-                city: this.props.location.state.step3.city
-            }],
-            rules: [{
-                componentName: "Image",
-                rules: ["not-marked"]
-            }],
-            ngo: {
-                ngoName: this.props.location.state.step4.ngoName,
-                managerFirstName: this.props.location.state.step4.managerName,
-                managerLastName: this.props.location.state.step4.lastName,
-                email: this.props.location.state.step4.email,
-                mobile: this.props.location.state.step4.phone,
-                country: "India",
-                city: "Noida"
-            },
-            goalAchieved: 0,
-            startDate: new Date(),
-            endDate: new Date()
-        })
-        console.log("this state rpojects", this.state.projects);
+        if(!this.props || !this.props.location || 
+            !this.props.location.state || !this.props.location.state.step1){
+            this.props.history.push({
+                pathname:"/"
+            });
+        }else{
+            await this.props.createProject({
+                "title": this.props.location.state.step1.projectName,
+                "description": this.props.location.state.step1.about,
+                "status": "open",
+                "goal": this.props.location.state.step1.target,
+                "goalAchieved": "77",
+                "startDate": "2019-06-25T12:00:00Z",
+                "endDate": "2019-12-25T12:00:00Z",
+                "funding": this.props.location.state.step1.totalFund,
+                "targetBeneficiary": this.props.location.state.step1.totalUnit,
+                "supervisors": [{
+                    "employee_code": "192191",
+                    "role": "Product Manager",
+                    "name": this.props.location.state.step3.productOwner,
+                    "email": "shubham.agrawal@gmail.com",
+                    "mobile": "8765630897",
+                    "country": "India",
+                    "city": this.props.location.state.step3.city
+                }],
+                "rules": [{
+                    "componentName": "image",
+                    "rules": ["not-marked"]
+                }],
+                "ngo": {
+                    "ngoName": this.props.location.state.step4.ngoName,
+                    "managerFirstName": this.props.location.state.step4.managerName,
+                    "managerLastName": "dummy",
+                    "email":"shubham.agrawal@gmail.com", 
+                    "mobile": "8765639897",
+                    "country": "India",
+                    "location": "Noida"
+                }
+            })
+            if(this.props.projects && this.props.projects._id){
+                // console.log("this state pojects", this.props.projects._id);
+                this.setState({
+                    _id:this.props.projects._id
+                }); 
+                // console.log("this.state",this.state._id);
+            } 
+        } 
     }
 
     render() {
@@ -109,18 +127,18 @@ class CreateProject extends Component {
                                 <div className="col-md-12 projectform">
 
                                     <Form>
-                                        <DoneQuestion />
-                                        <Question />
+                                        {/* <DoneQuestion /> */}
+                                        <Question projectId={this.state._id} />
 
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="row">
-                                                    <div className="col-md-6 text-left back1">
+                                                    {/* <div className="col-md-6 text-left back1">
                                                         <a>Back</a>
-                                                    </div>
-                                                    <div className="col-md-6 text-right">
-                                                        <Button variant="primary" type="submit" className="submit" >
-                                                            NEXT
+                                                    </div> */}
+                                                    <div className="col-md-10 text-right">
+                                                        <Button variant="primary" type="submit" className="submit" onClick={this.onClick}>
+                                                            Submit
                                                         </Button>
                                                     </div>
                                                 </div>
