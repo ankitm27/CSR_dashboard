@@ -4,6 +4,10 @@ import { Navbar, Nav} from 'react-bootstrap';
 import { InputGroup } from 'react-bootstrap';
 
 
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+
+
 class Navigation extends Component {
     constructor() {
         super();
@@ -14,6 +18,14 @@ class Navigation extends Component {
             Menu4: 'Settings',
         };
     }
+
+    onSubmit = (evt) => {
+        evt.preventDefault();
+        this.props.history.push({
+            pathname:'/',
+        });
+    }
+
     render() {
         return (
             <div className="row Navigation">
@@ -22,7 +34,7 @@ class Navigation extends Component {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
-                                <Nav.Link>{this.state.Menu1}</Nav.Link>
+                                <Nav.Link onClick={this.onSubmit}>{this.state.Menu1}</Nav.Link>
                                 <Nav.Link>{this.state.Menu2}</Nav.Link>
                                 <Nav.Link>{this.state.Menu3}</Nav.Link>
                                 <Nav.Link>{this.state.Menu4}</Nav.Link>
@@ -51,4 +63,11 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+
+// export default Navigation;
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+})
+
+export default withRouter(connect(mapStateToProps)(Navigation));
