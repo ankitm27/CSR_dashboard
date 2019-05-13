@@ -125,8 +125,8 @@ class CreateProject extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
+
                                     </Form>
                                 </div>
                             </div>

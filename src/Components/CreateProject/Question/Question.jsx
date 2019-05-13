@@ -12,9 +12,11 @@ class CreateProject extends Component {
     constructor() {
         super();
         this.state = {
+            QUESTIIONS: [],
             Question: null,
             QuestionType: null,
-            Option: null
+            Option: null,
+
         };
     }
 
@@ -49,18 +51,10 @@ class CreateProject extends Component {
         }
     }
 
-    handleClick() {
-        document.getElementById("addnew").style.display = "block";
-    }
-    delete() {
-        document.getElementById("addnew").style.display = "none";
-    }
-
-    addnew() {
-        document.getElementById("questions").style.display = "block";
-    }
 
     render() {
+        var QUESTIIONS = [];
+
         return (
             < Form onSubmit={this.onSubmit} >
                 <div className="row ">
@@ -74,110 +68,36 @@ class CreateProject extends Component {
                         </div>
 
                         <div className="row" >
-                            <div className="col-md-4 questionright">
-                                <Form.Group controlId="formBasicName">
-                                    <Form.Control as="select" value={this.state.questionType} onChange={(evt) => {
-                                        this.setState({ questionType: evt.target.value })
-                                    }} id="questiontype" onChange={() => this.handleClick()} >
-                                        <option id="0">Question Type</option>
-                                        <option value="Single Choice" id="1">Single Choice</option>
-                                        <option value="Text" id="2"> Text</option>
-                                        <option value="Number" id="3">Number</option>
-                                        <option value="Location" id="4">Location</option>
-                                        <option value="Image" id="5">Image</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </div>
 
-                            <div className="col-md-8 questionleft">
-                                <Form.Group controlId="formBasicName">
-                                    <Form.Control type="text" placeholder="Enter Question" value={this.state.question} onChange={(evt) => {
-                                        this.setState({ question: evt.target.value })
-                                    }} required id="question" />
-                                </Form.Group>
-                            </div>
+                            {QUESTIIONS.map(q => (
+                                <>
+                                    <div className="col-md-4 questionright">
+                                        <Form.Group controlId="formBasicName">
+                                            <Form.Control as="select" value={this.state.questionType} onChange={(evt) => {
+                                                this.setState({ questionType: evt.target.value })
+                                            }} id="questiontype" onChange={() => this.handleClick()} >
+                                                <option id="0">Question Type</option>
+                                                <option value="Single Choice" id="1">Single Choice</option>
+                                                <option value="Text" id="2"> Text</option>
+                                                <option value="Number" id="3">Number</option>
+                                                <option value="Location" id="4">Location</option>
+                                                <option value="Image" id="5">Image</option>
+                                            </Form.Control>
+                                        </Form.Group>
+                                    </div>
 
-
-
-                            <div className="col-md-12 questionleft" id="addnew">
-                                <InputGroup>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Option 1" />
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroupPrepend" selected={this.state.option}
-                                            onChange={this.handleChange} >  <i className="fa fa-times" aria-hidden="true" onClick={() => this.delete()} ></i> </InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                </InputGroup>
-                            </div>
-
+                                    <div className="col-md-8 questionleft">
+                                        <Form.Group controlId="formBasicName">
+                                            <Form.Control type="text" placeholder="Enter Question" value={this.state.question} onChange={(evt) => {
+                                                this.setState({ question: evt.target.value })
+                                            }} required id="question" />
+                                        </Form.Group>
+                                    </div>
+                                </>
+                            ))
+                            }
                         </div>
-
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-                    <div className="col-md-12 Question" id="questions">
-
-                        <div className="row Project" onChange={this.onload}>
-                            <div className="col-md-12 donequestion" id="donequestion">
-                                <img src={require('../../../assets/images/group-8.svg')} alt="" className="pencil" />
-                                <p>{this.state.Question}  </p>
-                            </div>
-                        </div>
-
-                        <div className="row" >
-                            <div className="col-md-4 questionright">
-                                <Form.Group controlId="formBasicName">
-                                    <Form.Control as="select" value={this.state.questionType} onChange={(evt) => {
-                                        this.setState({ questionType: evt.target.value })
-                                    }} id="questiontype" onChange={() => this.handleClick()} >
-                                        <option id="0">Question Type</option>
-                                        <option value="Single Choice" id="1">Single Choice</option>
-                                        <option value="Text" id="2"> Text</option>
-                                        <option value="Number" id="3">Number</option>
-                                        <option value="Location" id="4">Location</option>
-                                        <option value="Image" id="5">Image</option>
-                                    </Form.Control>
-                                </Form.Group>
-                            </div>
-
-                            <div className="col-md-8 questionleft">
-                                <Form.Group controlId="formBasicName">
-                                    <Form.Control type="text" placeholder="Enter Question" value={this.state.question} onChange={(evt) => {
-                                        this.setState({ question: evt.target.value })
-                                    }} required id="question" />
-                                </Form.Group>
-                            </div>
-
-
-
-                            <div className="col-md-12 questionleft" id="addnew">
-                                <InputGroup>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Option 1" />
-                                    <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroupPrepend" selected={this.state.option}
-                                            onChange={this.handleChange} >  <i className="fa fa-times" aria-hidden="true" onClick={() => this.delete()} ></i> </InputGroup.Text>
-                                    </InputGroup.Prepend>
-                                </InputGroup>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
 
 
                     <div className="col-md-12 text-center">
