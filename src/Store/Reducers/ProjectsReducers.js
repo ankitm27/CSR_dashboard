@@ -18,6 +18,10 @@ const ProjectReducers = handleActions({
         return { ...state, mailSent: true, ...action.payload };
     },
 
+    SAVE_QUESTION: (state, action) => {
+        return { ...state, mailSent: true, ...action.payload };
+    },
+
 
 }, INITIAL_STATE);
 
