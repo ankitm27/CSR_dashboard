@@ -21,7 +21,9 @@ class CreateProject extends Component {
             productOwner:'',
             lastName:'',
             country:'',
-            city:''
+            city:'',
+            email:"",
+            phone:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -61,7 +63,9 @@ class CreateProject extends Component {
                         productOwner:this.state.productOwner,
                         lastName:this.state.lastName,
                         country:this.state.country,
-                        city:this.state.city
+                        city:this.state.city,
+                        email:this.state.email,
+                        phone:this.state.phone
                     }
                 }      
             });
@@ -128,6 +132,22 @@ class CreateProject extends Component {
                                                             this.setState({ lastName: evt.target.value })
                                                         }}/>
                                                 </InputGroup>
+                                            </div>
+
+                                            <div className="col-md-6">
+                                                <Form.Group controlId="formBasicName">
+                                                    <Form.Control type="text" placeholder="Email" value={this.state.email} onChange={(evt) => {
+                                                        this.setState({ email: evt.target.value })
+                                                    }}/>
+                                                </Form.Group>
+                                            </div>
+
+                                            <div className="col-md-6">
+                                                <Form.Group controlId="formBasicName">
+                                                    <Form.Control type="text" placeholder="Phone" value={this.state.phone} onChange={(evt) => {
+                                                        this.setState({ phone: evt.target.value })
+                                                    }}/>
+                                                </Form.Group>
                                             </div>
 
 

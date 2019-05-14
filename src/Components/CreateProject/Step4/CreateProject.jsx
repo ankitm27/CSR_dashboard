@@ -22,7 +22,8 @@ class CreateProject extends Component {
             lastName:"",
             email:"",
             phone:"",
-            allowedUsers:""
+            allowedUsers:"",
+            city:""
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -71,7 +72,8 @@ class CreateProject extends Component {
                         managerName:this.state.managerName,
                         email:this.state.email,
                         phone:this.state.phone,
-                        allowedUsers:this.state.allowedUsers
+                        allowedUsers:this.state.allowedUsers,
+                        city:this.state.city
                     }
 
                 }      
@@ -156,6 +158,16 @@ class CreateProject extends Component {
                                                     }}>
                                                     <option>Country</option>
                                                     <option>India</option>
+                                                </Form.Control>
+                                            </div>
+
+                                            <div className="col-md-6">
+                                                <Form.Control as="select" value={this.state.city} onChange={(evt) => {
+                                                        this.setState({ city: evt.target.value })
+                                                    }}>
+                                                    <option>City</option>
+                                                    <option>Delhi</option>
+                                                    <option>Noida</option>
                                                 </Form.Control>
                                             </div>
 

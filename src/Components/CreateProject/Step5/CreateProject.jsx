@@ -56,6 +56,7 @@ class CreateProject extends Component {
     }
 
     async componentDidMount() {
+        console.log("this props location state step3",this.props.location.state.step3);
         if(!this.props || !this.props.location || 
             !this.props.location.state || !this.props.location.state.step1){
             this.props.history.push({
@@ -73,11 +74,11 @@ class CreateProject extends Component {
                 "funding": this.props.location.state.step1.totalFund,
                 "targetBeneficiary": this.props.location.state.step1.totalUnit,
                 "supervisors": [{
-                    "employee_code": "192191",
+                    "employee_code": this.props.location.state.step3.code,
                     "role": "Product Manager",
                     "name": this.props.location.state.step3.productOwner,
-                    "email": "shubham.agrawal@gmail.com",
-                    "mobile": "8765630897",
+                    "email": this.props.location.state.step3.email,
+                    "mobile": this.props.location.state.step3.phone,
                     "country": "India",
                     "city": this.props.location.state.step3.city
                 }],
@@ -92,7 +93,7 @@ class CreateProject extends Component {
                     "email":this.props.location.state.step4.email,
                     "mobile": this.props.location.state.step4.phone,
                     "country": "India",
-                    "location": "Noida"
+                    "location": this.props.location.state.step4.city
                 },
                 mobiles:[this.props.location.state.step4.allowedUsers]
             })
