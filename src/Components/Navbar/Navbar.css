@@ -15,7 +15,12 @@
     line-height: normal;
     letter-spacing: normal;
     color: #ffffff !important;
-    z-index:1px
+    z-index: 1px
+}
+
+
+.input-group-text {
+    border: none !important;
 }
 
 .navbar-brand span {
@@ -30,7 +35,7 @@
 }
 
 .navbar-brand:hover {
-    color:#ffffff
+    color: #ffffff
 }
 
 

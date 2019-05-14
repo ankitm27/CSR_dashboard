@@ -63,6 +63,9 @@ class Question extends Component {
         const isValid = this.isFormValid();
         // console.log("this props location state id",this.props.projectId);
         // console.log("this props location",this.props);
+        console.log(this.state.people);
+        console.log("this.state question", this.state.question);
+        console.log("this state question type", this.state.questionType);
         if (isValid.status) {
             const questionId = this.mapTypeWithId(this.state.questionType)
             // console.log("question id",questionId);    
@@ -96,6 +99,9 @@ class Question extends Component {
     onChange() {
         if (document.getElementById("questiontype").value === "Single Choice") {
             document.getElementById("options").style.display = "block"
+        }
+        else {
+            document.getElementById("options").style.display = "none"
         }
     }
 

@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-
-
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-
-
-
 
 class Navbar1 extends Component {
     constructor() {
@@ -15,19 +10,28 @@ class Navbar1 extends Component {
         this.state = {
             Title: 'Impact',
             SubTitle: 'Scout',
-            userName:null
+            userName: null
         };
     }
 
-    componentDidMount () {
+    componentDidMount() {
         // console.log("this props",this.props);
-        this.setState({userName: this.props.auth && this.props.auth.userName ? this.props.auth.userName : "USER" });
+        this.setState({ userName: this.props.auth && this.props.auth.userName ? this.props.auth.userName : "USER" });
     }
 
     onSubmit = (evt) => {
         evt.preventDefault();
         this.props.history.push({
-            pathname:'/',
+            pathname: '/',
+        });
+    }
+
+    onClick = (evt) => {
+        evt.preventDefault();
+        localStorage.removeItem("id");
+        localStorage.removeItem("token");
+        this.props.history.push({
+            pathname: '/login',
         });
     }
 
@@ -53,11 +57,8 @@ class Navbar1 extends Component {
                             <Nav>
                                 <Nav.Link><i className="fa fa-bell"></i></Nav.Link>
                                 <NavDropdown title={this.state.userName} id="collasible-nav-dropdown">
-                                    <NavDropdown.Item>Action</NavDropdown.Item>
-                                    <NavDropdown.Item>Another action</NavDropdown.Item>
-                                    <NavDropdown.Item>Something</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item>Separated link</NavDropdown.Item>
+                                    <NavDropdown.Item><a href="/login" onClick={this.onClick}>Logout</a></NavDropdown.Item>
+
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>
