@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
 import './Question.css';
-
+import Multiselect from 'react-widgets/lib/Multiselect';
 import { Form, Button } from 'react-bootstrap';
-
 import { connect } from "react-redux";
 import actions from "../../../Store/Actions/Index";
 import { withRouter } from "react-router";
+import 'react-widgets/dist/css/react-widgets.css';
 
-const questionsMap = [];
+
 class Question extends Component {
-    constructor() {
-        super();
+    constructor(...args) {
+        super(...args);
         this.state = {
+            value: [],
+            people: [],
             question: null,
             questionType: null,
-            option: null
+            option: null,
+            // people: listOfPeople(),
         };
+    }
+
+    handleCreate(name) {
+        let { people, value } = this.state;
+        let newOption = {
+            name,
+            id: people.length + 1
+        }
+        this.setState({
+            value: [...value, newOption],  // select new option
+            people: [...people, newOption] // add new option to our dataset
+        })
     }
 
     isFormValid() {
@@ -78,37 +93,18 @@ class Question extends Component {
         }
     }
 
-
-    ondelete() {
-        document.getElementById("questionleft").style.display = "none";
-    }
-
-
     onChange() {
         if (document.getElementById("questiontype").value === "Single Choice") {
-            var myDiv = document.getElementById("clonequestion");
-            var divClone = myDiv.cloneNode(true);
-            document.getElementById("questionss").appendChild(divClone);
-            // document.getElementById("questionleft").style.display = "block";
-        }
-        else {
-
+            document.getElementById("options").style.display = "block"
         }
     }
 
-
     render() {
+        let { value, people } = this.state;
         return (
             < Form onSubmit={this.onSubmit} >
                 <div className="row ">
                     <div className="col-md-12 Question">
-
-                        <div className="row Project">
-                            <div className="col-md-12 donequestion" id="donequestion">
-                                <img src={require('../../../assets/images/group-8.svg')} alt="" className="pencil" />
-                                <p>{this.state.Question}  </p>
-                            </div>
-                        </div>
 
                         <div className="row" id="questionss">
                             <div className="col-md-4 questionright">
@@ -133,8 +129,20 @@ class Question extends Component {
                                 </Form.Group>
                             </div>
 
+                            <div className="col-md-12" id="options">
+                                <Multiselect
+                                    value={value}
+                                    allowCreate="onFilter"
+                                    onCreate={name => this.handleCreate(name)}
+                                    onChange={value => this.setState({ value })}
+                                    textField="name"
+                                    placeholder="Add options"
+                                />
+                            </div>
+
                         </div>
                     </div>
+
 
 
                     <div className="col-md-12 text-center">
