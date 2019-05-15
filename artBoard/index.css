@@ -1,0 +1,265 @@
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+
+
+.box{
+  border: 1px solid red;
+}
+
+.heightToRows{
+  height: 100vh;
+}
+
+/* firstbox */
+.bgImage{
+  background-image:url(./img/group-20.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgColorOfNav{
+  background-color: #141f673d;
+}
+.navLineHeight{
+  font-size: 18px
+}
+
+.spaceBetweenLi li{
+  margin-left: 22px;
+  margin-right: 24px
+}
+
+.workPoseful{
+  font-size: 24px;
+  font-weight: bold;
+}
+.signUpStyle{
+  border-radius: 22px;
+  background-color: #ffffff3d;
+  font-size: 20px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.spacingOfSys{
+  display: flex;
+  align-items: flex-end;
+  padding: 8rem 4rem;
+}
+.heightTo1Row2{
+  height:92vh;
+}
+.widthOfTheSys{
+  width: 80%;
+}
+.heightof2row1{
+  height:44vh;
+}
+
+.heightof2row2{
+  height:30vh ;
+}
+.halfTextColor{
+  font-weight: bold;
+  color: #96fced;
+}
+.fontToSystemText{
+  font-size: 51px;
+  font-weight: 600;
+}
+.demoBtn{
+  font-weight: bold !important;
+  font-size: 24px !important;
+}
+.heightof2row3{
+  height: 18vh;
+}
+
+
+
+
+
+/* secondBox */
+.heightTo2Row1{
+  height: 20vh;
+
+}
+.styleForHappen{
+  font-size: 31px;
+  font-weight: bold;
+  color: #010a23;
+}
+.halfColorForTheText{
+  width: 319px;
+  height: 24px;
+  background-color: #96fced;
+}
+
+
+
+.heightTo2Row2{
+  height: 65vh;
+}
+.cardpera{
+  padding-left: 50px;
+  padding-right: 50px;
+  line-height: 1.75;
+  font-weight: 500;
+  color: #010a23;
+}
+.cardheading{
+  font-weight: bold;
+  padding-top: 38px;
+  padding-bottom: 38px;
+  margin: 0;
+}
+.Group-8-Copy{
+  object-fit: contain;
+}
+
+.heightOfimgBox{
+  height: 20vh;
+}
+.bgColorOfProblemText{
+  background-color: #171e57;
+}
+
+
+.heightOfTextBox{
+  height: 36vh;
+}
+
+.heightTo2Row3{
+  height: 15vh;
+}
+
+.fontToProblemText{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.styleOfSentence{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+
+
+/* thirdBox */
+
+.heightTo3Row1{
+  height: 20vh;
+}
+.heightTo3Row2{
+  height: 35vh;
+}
+
+.styleOfNumbering{
+  font-size: 86px;
+  color: #d5dbff;
+  font-weight: bold;
+}
+
+.heightTo3Row3{
+  height: 35vh;
+}
+
+.heightTo3Row4{
+  height: 50vh;
+}
+
+
+/* forthBox */
+.heightTo4Row1{
+  height: 15vh;
+}
+.bgColorOfSolutionText{
+  background-color:#e2e7ff;
+}
+
+.heightTo4Row2{
+  height: 85vh;
+}
+
+
+/* fifthBox */
+
+.heightTo5Row1{
+  height: 15vh;
+}
+.heightTo5Row2{
+  height: 20vh;
+}
+.heightTo5Row3{
+  height: 65vh;
+}
+.sizeOfTheCards{
+  width: 94%;
+  height: 55vh !important;
+  border: 0px !important;
+}
+
+.cardMemberName{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.bgColorFor1Card{
+  background-image: linear-gradient(to top, #00187b61, #00013c96) !important;
+}
+.cardTextStyleWithOutBg{
+  top:auto !important;
+}
+.cardTextStyle{
+  top:auto !important;
+  height: 13vh;
+  background: #3030309c;
+}
+.cardImg{
+  height: 100% !important;
+}
+
+.carouselRight{
+  right: auto !important;
+  margin-bottom: 4rem !important;
+  margin-left: 9% !important;
+}
+
+.carouselControlPosition{
+  top:auto !important;
+  margin-bottom: 4rem;
+}
+
+.carousel-control-prev{
+  margin-left: 70%;
+}
+.carousel-control-next{
+  margin-right: 6rem;
+}
+
+.carousel-caption{
+  top: 0 !important;
+  bottom: auto !important;
+  right: auto !important;
+  left: 9% !important;
+  width: 50%;
+  text-align: left !important;
+  margin-top: 4rem;
+}
+
+.sliderHeading{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.sliderPera{
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6rem;
+}
+.sliderInfo{
+  font-size: 24px;
+  font-weight: bold;
+}
