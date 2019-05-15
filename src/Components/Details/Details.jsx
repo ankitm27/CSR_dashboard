@@ -50,7 +50,7 @@ class Detail extends Component {
             this.setState({ ProjectTarget: project.goal ? project.goal : "" });
             this.setState({ ProjectSuccess: project.goalAchieved ? project.goalAchieved : "" });
             this.setState({ Villages: project.totalAreaCovered ? project.totalAreaCovered : ""});
-            this.setState({ PerUnitFund: project.fundingPerBeneficiary ? project.fundingPerBeneficiary : "" });
+            this.setState({ PerUnitFund: project.fundingPerBeneficiary ? parseFloat(project.fundingPerBeneficiary).toFixed(2) : "" });
             this.setState({ ProjectManager: project.supervisors && project.supervisors[0].name ? project.supervisors[0].name : "" });
             this.setState({ EmailID: project.supervisors && project.supervisors[0].email ? project.supervisors[0].email : "" });
             this.setState({ Location: project.supervisors && project.supervisors[0].city ? project.supervisors[0].city : ""});
