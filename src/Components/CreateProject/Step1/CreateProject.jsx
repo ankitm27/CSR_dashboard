@@ -136,7 +136,7 @@ class CreateProject extends Component {
                                                     }} />
                                                 </Form.Group>
                                             </div>
-                                            <div className="col-md-6">
+                                            {/* <div className="col-md-6">
                                                 <InputGroup>
 
                                                     <Form.Control
@@ -147,7 +147,7 @@ class CreateProject extends Component {
                                                             onChange={this.handleChange} >  <i className="fa fa-calendar" aria-hidden="true"></i> </InputGroup.Text>
                                                     </InputGroup.Prepend>
                                                 </InputGroup>
-                                            </div>
+                                            </div> */}
 
                                             <div className="col-md-12 text-right">
                                                 <Button variant="primary" type="submit" className="submit" >

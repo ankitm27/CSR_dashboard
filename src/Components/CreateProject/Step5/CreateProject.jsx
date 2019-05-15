@@ -22,7 +22,7 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            ProjectName: "Utsaav",
+            // ProjectName: "Utsaav",
             _id:null
         };
     }
@@ -56,7 +56,7 @@ class CreateProject extends Component {
     }
 
     async componentDidMount() {
-        console.log("this props location state step3",this.props.location.state.step3);
+        //console.log("this props location state step3",this.props.location.state.step3);
         if(!this.props || !this.props.location || 
             !this.props.location.state || !this.props.location.state.step1){
             this.props.history.push({
@@ -84,7 +84,7 @@ class CreateProject extends Component {
                 }],
                 "rules": [{
                     "componentName": "file",
-                    "rules": ["not-marked"]
+                    "rules": ["non-duplicate"]
                 }],
                 "ngo": {
                     "ngoName": this.props.location.state.step4.ngoName,
@@ -119,10 +119,10 @@ class CreateProject extends Component {
                         <div className="col-md-12 project">
                             <div className="row">
                                 <div className="col-md-12 projecttitle">
-                                    <h1>Create Form</h1>
+                                    <h1>Add Questions</h1>
                                     <hr></hr>
                                     <br></br>
-                                    <p><strong>Project Name: {this.state.ProjectName}</strong></p>
+                                    {/* <p><strong>Project Name: {this.state.ProjectName}</strong></p> */}
                                 </div>
 
                                 <div className="col-md-12 projectform">

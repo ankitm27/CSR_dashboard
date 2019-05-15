@@ -34,11 +34,11 @@ class Question extends Component {
         if(type == "Single Choice"){
             return "5ccdce7e5d29ddd1ed91083e"
         }else if(type == "Text"){
-            return "5ccdce7e5d29ddd1ed91083d"
+            return "5cdb10909873e634a851b179"
         }else if(type == "Location"){
-            return "5ccdce7e5d29ddd1ed91083f"
+            return "5cdb10909873e634a851b17d"
         }else if(type == "Image"){
-            return "5ccdce7e5d29ddd1ed910845"
+            return "5cdb10909873e634a851b18a"
         }
     }
 
