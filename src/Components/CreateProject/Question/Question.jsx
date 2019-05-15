@@ -60,14 +60,21 @@ class Question extends Component {
         evt.preventDefault();
         const isValid = this.isFormValid();
         let options = _.map(this.state.people,'name');
+        let optionObj = {};
+        options.forEach((option) => {
+            optionObj[option] = option
+        });
+        // console.log("options",options);
         if (isValid.status) {
             const questionId = this.mapTypeWithId(this.state.questionType)
             const data = {
                 question: questionId,
                 title: this.state.question,
                 max: 100,
-                options:options
+                optionValue:options,
+                multiple:false
             }
+            // console.log("this props projectId",this.props.projectId);
             await this.props.saveQuestion({ _id: this.props.projectId, data: data });
             if (this.props.projects.success) {
                 document.getElementById("question").innerHTML = "";

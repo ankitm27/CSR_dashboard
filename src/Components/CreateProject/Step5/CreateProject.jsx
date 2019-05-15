@@ -22,7 +22,6 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            // ProjectName: "Utsaav",
             _id:null
         };
     }
@@ -43,11 +42,6 @@ class CreateProject extends Component {
         }
     }
 
-    // onSubmit = async (evt) => {
-    //     evt.preventDefault();
-    //     const isValid = this.isFormValid();
-    // }
-
     onClick = (evt) => {
         evt.preventDefault();
         this.props.history.push({
@@ -56,7 +50,6 @@ class CreateProject extends Component {
     }
 
     async componentDidMount() {
-        //console.log("this props location state step3",this.props.location.state.step3);
         if(!this.props || !this.props.location || 
             !this.props.location.state || !this.props.location.state.step1){
             this.props.history.push({
@@ -97,16 +90,15 @@ class CreateProject extends Component {
                 },
                 mobiles:[this.props.location.state.step4.allowedUsers]
             });
-            await this.props.createVolunteerUser({
-                phone:this.props.location.state.step4.allowedUsers
-            })
             if(this.props.projects && this.props.projects._id){
-                // console.log("this state pojects", this.props.projects._id);
                 this.setState({
                     _id:this.props.projects._id
                 }); 
-                // console.log("this.state",this.state._id);
-            } 
+            }
+            await this.props.createVolunteerUser({
+                phone:this.props.location.state.step4.allowedUsers
+            })
+             
         } 
     }
 
