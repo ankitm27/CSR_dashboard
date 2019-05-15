@@ -41,7 +41,7 @@ export const projectDetails = values => dispatch => {
 }
 
 export const createProject = values => dispatch => {
-    console.log("values",values);
+    // console.log("values",values);
     return axios.post(
         backend_URL +  'api/program/', values,{
             headers:{
@@ -49,7 +49,7 @@ export const createProject = values => dispatch => {
             }
         }
     ).then((res) => {
-        console.log("res",res);
+        // console.log("res",res);
         dispatch(CREATE_PROJECT(res.data.data));
     }).catch(error => {
         return Promise.reject();

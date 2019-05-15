@@ -16,6 +16,9 @@
 
 }
 
+#inputGroupPrepend {
+    border: none !important;
+}
 
 input:focus {
     box-shadow: none !important;
