@@ -58,7 +58,7 @@ export const createProject = values => dispatch => {
 
 
 export const saveQuestion = values => dispatch => {
-    console.log("values",values);
+    // console.log("values",values);
     return axios.post(
         backend_URL + 'api/program/' + values._id + "/question", [values.data],{
             headers:{
@@ -66,12 +66,34 @@ export const saveQuestion = values => dispatch => {
             }
         }
     ).then((res) => {
-        console.log("res",res);
+        // console.log("res",res);
         dispatch(SAVE_QUESTION({success:true}));
     }).catch(error => {
         return Promise.reject();
     })
 }
+
+export const createVolunteerUser = values => dispatch => {
+    // console.log("values",values);
+    // console.log("new Date().getTime()",new Date().getTime());
+    return axios.post(
+        backend_URL + 'api/volunteer/register/', {
+            firstName: "check",
+            lastName: "check",
+            email: new Date().getTime() + "@gmail.com",
+            mobile: values.phone,
+            password: "123",
+            organizationType: "goverment",
+            confirmPassword: "123"
+        }
+    ).then((res) => {
+        // dispatch(DASHBOARD_DATA(res.data.data));
+        // console.log("res",res.data.data);
+    }).catch(error => {
+        return Promise.reject();
+    });
+}
+
 
 
 

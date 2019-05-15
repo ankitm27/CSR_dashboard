@@ -96,6 +96,9 @@ class CreateProject extends Component {
                     "location": this.props.location.state.step4.city
                 },
                 mobiles:[this.props.location.state.step4.allowedUsers]
+            });
+            await this.props.createVolunteerUser({
+                phone:this.props.location.state.step4.allowedUsers
             })
             if(this.props.projects && this.props.projects._id){
                 // console.log("this state pojects", this.props.projects._id);
@@ -232,6 +235,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => ({
     createProject: (v) => dispatch(actions.createProject(v)),
+    createVolunteerUser: (v) => dispatch(actions.createVolunteerUser(v)),
 });
 
 
