@@ -70,7 +70,7 @@ class CreateProject extends Component {
                 }      
             });
         }else{
-            alert('error');
+            alert('Please provide all the required fields');
         }
     }
 
@@ -172,7 +172,7 @@ class CreateProject extends Component {
                                             {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
                                             </div> */}
-                                            <div className="col-md-10 text-right">
+                                            <div className="col-md-11 text-right">
                                                 <Button variant="primary" type="submit" className="submit">
                                                     Next
                                                  </Button>
@@ -243,7 +243,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step5}</h1>
-                                    <p>Add questionair of project</p>
+                                    <p>Add questionnaire of project</p>
                                 </div>
                             </div>
                         </div>

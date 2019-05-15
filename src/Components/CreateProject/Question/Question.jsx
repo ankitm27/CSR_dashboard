@@ -7,6 +7,7 @@ import actions from "../../../Store/Actions/Index";
 import { withRouter } from "react-router";
 import 'react-widgets/dist/css/react-widgets.css';
 
+const _  = require('lodash');
 
 class Question extends Component {
     constructor(...args) {
@@ -17,7 +18,6 @@ class Question extends Component {
             question: null,
             questionType: null,
             option: null,
-            // people: listOfPeople(),
         };
     }
 
@@ -25,7 +25,7 @@ class Question extends Component {
         let { people, value } = this.state;
         let newOption = {
             name,
-            id: people.length + 1
+            id: people ? people.length + 1 : 1
         }
         this.setState({
             value: [...value, newOption],  // select new option
@@ -34,7 +34,6 @@ class Question extends Component {
     }
 
     isFormValid() {
-        console.log("this state", this.state);
         if (!this.state.question ||
             !this.state.questionType
         ) {
@@ -45,15 +44,14 @@ class Question extends Component {
     }
 
     mapTypeWithId(type) {
-        console.log("type", type);
         if (type == "Single Choice") {
-            return "5ccdce7e5d29ddd1ed91083e"
-        } else if (type == "Text") {
-            return "5ccdce7e5d29ddd1ed91083d"
-        } else if (type == "Location") {
-            return "5ccdce7e5d29ddd1ed91083f"
-        } else if (type == "Image") {
-            return "5ccdce7e5d29ddd1ed910845"
+            return "5cdb10909873e634a851b178"
+        }else if(type == "Text"){
+            return "5cdb10909873e634a851b179"
+        }else if(type == "Location"){
+            return "5cdb10909873e634a851b17d"
+        }else if(type == "Image"){
+            return "5cdb10909873e634a851b18a"
         }
     }
 
@@ -61,48 +59,44 @@ class Question extends Component {
 
         evt.preventDefault();
         const isValid = this.isFormValid();
-        // console.log("this props location state id",this.props.projectId);
-        // console.log("this props location",this.props);
-        console.log(this.state.people);
-        console.log("this.state question", this.state.question);
-        console.log("this state question type", this.state.questionType);
+        let options = _.map(this.state.people,'name');
         if (isValid.status) {
             const questionId = this.mapTypeWithId(this.state.questionType)
-            // console.log("question id",questionId);    
             const data = {
                 question: questionId,
                 title: this.state.question,
-                max: 100
+                max: 100,
+                options:options
             }
-            // console.log("data",data);
             await this.props.saveQuestion({ _id: this.props.projectId, data: data });
-            console.log("this props projects", this.props.projects.success);
             if (this.props.projects.success) {
                 document.getElementById("question").innerHTML = "";
-                console.log("check");
-                console.log("this state", this.state);
-                // this.setState({question:null});
-                // this.setState({questionType:null});
-                // this.setState({option:null});
-                // console.log("this state",this.state);
                 this.props.history.push({
                     pathname: "/createproject5"
                 });
-                console.log("this props", this.state);
-
             }
         } else {
-            alert("error");
+            alert("Please provide all the required fields");
         }
     }
 
-    onChange() {
-        if (document.getElementById("questiontype").value === "Single Choice") {
+    onChange = async(evt) => {
+        evt.preventDefault()
+        let value;
+        if(evt.target.value === "Location"){
+            value = "Location"
+            document.getElementById("options").style.display = "none"
+        }else if(evt.target.value == "Image"){
+            value = "Image"
+            document.getElementById("options").style.display = "none"
+        }else if(evt.target.value == "Text"){
+            value = "Text"
+            document.getElementById("options").style.display = "none"
+        }else if(evt.target.value == "Single Choice"){
+            value = "Single Choice"
             document.getElementById("options").style.display = "block"
         }
-        else {
-            document.getElementById("options").style.display = "none"
-        }
+        this.setState({ questionType: value });
     }
 
     render() {
@@ -115,11 +109,10 @@ class Question extends Component {
                         <div className="row" id="questionss">
                             <div className="col-md-4 questionright">
                                 <Form.Group controlId="formBasicName">
-                                    <Form.Control as="select" value={this.state.questionType} onChange={(evt) => {
-                                        this.setState({ questionType: evt.target.value })
-                                    }} id="questiontype" onChange={this.onChange} >
+                                    <Form.Control as="select" value={this.state.questionType}  id="questiontype" 
+                                        onChange={this.onChange}>
                                         <option id="0">Question Type</option>
-                                        <option value="Single Choice" onClick={this.onChange}>Single Choice</option>
+                                        <option value="Single Choice">Single Choice</option>
                                         <option value="Text" id="2"> Text</option>
                                         <option value="Location" id="4">Location</option>
                                         <option value="Image" id="5">Image</option>

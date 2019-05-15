@@ -22,7 +22,7 @@ class CreateProject extends Component {
             Step4: 'Set NGO Information',
             Step5: 'Create Questionnair',
             startDate: new Date(),
-            ProjectName: "Utsaav",
+            // ProjectName: "Utsaav",
             _id:null
         };
     }
@@ -56,7 +56,7 @@ class CreateProject extends Component {
     }
 
     async componentDidMount() {
-        console.log("this props location state step3",this.props.location.state.step3);
+        //console.log("this props location state step3",this.props.location.state.step3);
         if(!this.props || !this.props.location || 
             !this.props.location.state || !this.props.location.state.step1){
             this.props.history.push({
@@ -84,7 +84,7 @@ class CreateProject extends Component {
                 }],
                 "rules": [{
                     "componentName": "file",
-                    "rules": ["not-marked"]
+                    "rules": ["non-duplicate"]
                 }],
                 "ngo": {
                     "ngoName": this.props.location.state.step4.ngoName,
@@ -96,6 +96,9 @@ class CreateProject extends Component {
                     "location": this.props.location.state.step4.city
                 },
                 mobiles:[this.props.location.state.step4.allowedUsers]
+            });
+            await this.props.createVolunteerUser({
+                phone:this.props.location.state.step4.allowedUsers
             })
             if(this.props.projects && this.props.projects._id){
                 // console.log("this state pojects", this.props.projects._id);
@@ -119,10 +122,10 @@ class CreateProject extends Component {
                         <div className="col-md-12 project">
                             <div className="row">
                                 <div className="col-md-12 projecttitle">
-                                    <h1>Create Form</h1>
+                                    <h1>Add Questions</h1>
                                     <hr></hr>
                                     <br></br>
-                                    <p><strong>Project Name: {this.state.ProjectName}</strong></p>
+                                    {/* <p><strong>Project Name: {this.state.ProjectName}</strong></p> */}
                                 </div>
 
                                 <div className="col-md-12 projectform">
@@ -211,7 +214,7 @@ class CreateProject extends Component {
                                 </div>
                                 <div className="col-md-7">
                                     <h1>{this.state.Step5}</h1>
-                                    <p>Add questionair of project</p>
+                                    <p>Add questionnaire of project</p>
                                 </div>
                             </div>
                         </div>
@@ -232,6 +235,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => ({
     createProject: (v) => dispatch(actions.createProject(v)),
+    createVolunteerUser: (v) => dispatch(actions.createVolunteerUser(v)),
 });
 
 
