@@ -13,6 +13,44 @@
     color: #303030;
 }
 
+
+.doneprojects {
+    height: 30px;
+    border-radius: 3.8px;
+    background-color: #2b7ed1;
+    font-size: 14.4px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #ffffff;
+    border: 1px solid #2b7ed1;
+    margin-left: 30px;
+}
+
+.doneprojects:hover {
+    width: 123px;
+    height: 30px;
+    border-radius: 3.8px;
+    background-color: #2b7ed1;
+    font-size: 14.4px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #ffffff;
+    border: 1px solid #2b7ed1;
+    margin-left: 30px;
+}
+
+
+.doneprojects:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+
 .daysleft {
     width: 123px;
     height: 30px;
@@ -119,7 +157,7 @@
     letter-spacing: normal;
     color: #2b7ed1;
     margin-top: 5px;
-    font-family:Avenir-Roman
+    font-family: Avenir-Roman
 }
 
 .exicute h1 {
@@ -136,4 +174,31 @@
 
 .mb50 {
     margin-top: 30px;
+}
+
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #303030;
+}
+
+.modal-body {
+    background-color: #f6f9fd;
+    height: 60vh;
+    overflow: scroll;
+}
+
+.modal-footer {
+    border-radius: 6px;
+    box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+}
+
+.questionmodal .submit {
+    margin-top: 0px !important
 }

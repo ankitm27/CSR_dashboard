@@ -1,0 +1,30 @@
+.Listofdone {
+    padding: 10px;
+}
+
+.Listofdone .question {
+    min-height: 80px;
+    border-bottom: 1px solid white;
+    padding: 10px 20px;
+}
+
+.Listofdone h2 {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #303030;
+}
+
+.Listofdone p {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #303030;
+    opacity: .8;
+}
