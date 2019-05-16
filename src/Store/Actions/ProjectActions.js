@@ -6,7 +6,7 @@ const PROJECT_DETAIL = createAction("PROJECT_DETAIL");
 const CREATE_PROJECT = createAction("CREATE_PROJECT");
 const SAVE_QUESTION = createAction("SAVE_QUESTION");
 
-const backend_URL = "http://127.0.0.1:3001/";
+const backend_URL = "http://13.233.144.190/";
 
 export const dashboardData = values => dispatch => {
     return axios.get(

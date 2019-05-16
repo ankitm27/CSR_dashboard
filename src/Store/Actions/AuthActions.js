@@ -4,7 +4,7 @@ import axios from 'axios';
 const VERIFY_USER = createAction("VERIFY_USER");
 const REGISTER_USER = createAction("REGISTER_USER");
 
-const backend_URL = "http://127.0.0.1:3001/";
+const backend_URL = "http://13.233.144.190/";
 
 export const verifyUser = values => dispatch => {
     return axios.post(
