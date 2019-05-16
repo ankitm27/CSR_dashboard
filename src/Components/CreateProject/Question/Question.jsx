@@ -6,7 +6,9 @@ import { connect } from "react-redux";
 import actions from "../../../Store/Actions/Index";
 import { withRouter } from "react-router";
 import 'react-widgets/dist/css/react-widgets.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
 
 
 const _  = require('lodash');
@@ -21,6 +23,8 @@ class Question extends Component {
             questionType: null,
             option: null,
         };
+        this.addNotification = this.addNotification.bind(this);
+        this.notificationDOMRef = React.createRef();
     }
 
     handleCreate(name) {
@@ -78,7 +82,8 @@ class Question extends Component {
             }
             // console.log("this props projectId",this.props.projectId);
             await this.props.saveQuestion({ _id: this.props.projectId, data: data });
-            this.createNotification("success");
+            this.addNotification();
+            console.log("this props projects",this.props.projects);
             if (this.props.projects.success) {
                 document.getElementById("question").innerHTML = "";
                 this.props.history.push({
@@ -88,6 +93,20 @@ class Question extends Component {
         } else {
             alert("Please provide all the required fields");
         }
+    }
+
+    addNotification() {
+        this.notificationDOMRef.current.addNotification({
+          title: "Success",
+          message: "You have successfully added the question",
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animated", "fadeIn"],
+          animationOut: ["animated", "fadeOut"],
+          dismiss: { duration: 3000 },
+          dismissable: { click: true }
+        });
     }
 
     onChange = async(evt) => {
@@ -113,32 +132,13 @@ class Question extends Component {
         document.getElementById("options").style.display = "none";
     }
 
-    createNotification = (type) => {
-        console.log("type",type);
-        return () => {
-            switch (type) {
-                case 'info':
-                    NotificationManager.info('Info message');
-                    break;
-                case 'success':
-                    NotificationManager.success('Success message', 'Title here');
-                    break;
-                case 'warning':
-                    NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-                    break;
-                case 'error':
-                    NotificationManager.error('Error message', 'Click me!', 5000, () => {
-                    alert('callback');
-                });
-                break;
-            }
-        };
-    };
-
+    
     render() {
         let { value, people } = this.state;
         return (
             <div>
+            <ReactNotification ref={this.notificationDOMRef} />
+        
             < Form onSubmit={this.onSubmit} >
                 
                 <div className="row ">
@@ -190,7 +190,7 @@ class Question extends Component {
                     <hr></hr>
                 </div>
             </Form >
-            <NotificationContainer />
+            
             </div>
         );
     }

@@ -19,6 +19,7 @@
     "react-fusioncharts": "^3.0.0",
     "react-minimal-pie-chart": "^4.0.0",
     "react-notifications": "^1.4.3",
+    "react-notifications-component": "^1.1.1",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
