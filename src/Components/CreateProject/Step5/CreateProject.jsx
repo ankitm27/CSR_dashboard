@@ -132,7 +132,7 @@ class CreateProject extends Component {
                                                     {/* <div className="col-md-6 text-left back1">
                                                         <a>Back</a>
                                                     </div> */}
-                                                    <div className="col-md-10 text-right">
+                                                    <div className="col-md-12 text-right">
                                                         <Button variant="primary" type="submit" className="submit" onClick={this.onClick}>
                                                             Submit
                                                         </Button>
