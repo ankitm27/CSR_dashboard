@@ -1,5 +1,6 @@
 import { createAction } from "redux-actions";
 import axios from 'axios';
+import { BACKEND_URL } from "../../config.js";
 
 const DASHBOARD_DATA = createAction("DASHBOARD_DATA");
 const PROJECT_DETAIL = createAction("PROJECT_DETAIL");
@@ -7,12 +8,9 @@ const CREATE_PROJECT = createAction("CREATE_PROJECT");
 const SAVE_QUESTION = createAction("SAVE_QUESTION");
 const GET_QUESTIONS_TYPE = createAction("GET_QUESTIONS_TYPE");
 
-
-const backend_URL = "http://13.233.144.190/";
-
 export const dashboardData = values => dispatch => {
     return axios.get(
-        backend_URL +  'api/dashboard/', {
+        BACKEND_URL +  'api/dashboard/', {
             headers:{
                 Authorization:localStorage.getItem("token")
             }
@@ -26,7 +24,7 @@ export const dashboardData = values => dispatch => {
 
 export const projectDetails = values => dispatch => {
     return axios.get(
-        backend_URL +  'api/program/' + values._id, {
+        BACKEND_URL +  'api/program/' + values._id, {
             headers:{
                 Authorization:localStorage.getItem("token")
             }
@@ -40,7 +38,7 @@ export const projectDetails = values => dispatch => {
 
 export const createProject = values => dispatch => {
     return axios.post(
-        backend_URL +  'api/program/', values,{
+        BACKEND_URL +  'api/program/', values,{
             headers:{
                 Authorization:localStorage.getItem("token")
             }
@@ -55,7 +53,7 @@ export const createProject = values => dispatch => {
 
 export const saveQuestion = values => dispatch => {
     return axios.post(
-        backend_URL + 'api/program/' + values._id + "/question", [values.data],{
+        BACKEND_URL + 'api/program/' + values._id + "/question", [values.data],{
             headers:{
                 Authorization:localStorage.getItem("token")
             }
@@ -69,7 +67,7 @@ export const saveQuestion = values => dispatch => {
 
 export const createVolunteerUser = values => dispatch => {
     return axios.post(
-        backend_URL + 'api/volunteer/register/', {
+        BACKEND_URL + 'api/volunteer/register/', {
             firstName: "check",
             lastName: "check",
             email: new Date().getTime() + "@gmail.com",
@@ -87,7 +85,7 @@ export const createVolunteerUser = values => dispatch => {
 
 export const getQuestionsTypes = values => dispatch => {
     return axios.get(
-        backend_URL +  'api/question',{
+        BACKEND_URL +  'api/question',{
             headers:{
                 Authorization:localStorage.getItem("token")
             }

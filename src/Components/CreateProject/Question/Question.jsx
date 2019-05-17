@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Question.css';
 import Multiselect from 'react-widgets/lib/Multiselect';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { connect } from "react-redux";
 import actions from "../../../Store/Actions/Index";
 import { withRouter } from "react-router";
@@ -22,8 +22,9 @@ class Question extends Component {
             question: null,
             questionType: null,
             option: null,
+            questionIds : null
         };
-        this.addNotification = this.addNotification.bind(this);
+        this.showNotification = this.showNotification.bind(this);
         this.notificationDOMRef = React.createRef();
     }
 
@@ -50,15 +51,8 @@ class Question extends Component {
     }
 
     mapTypeWithId(type) { 
-        if (type == "Single Choice") {
-            return "5cdb10909873e634a851b178"
-        }else if(type == "Text"){
-            return "5cdb10909873e634a851b179"
-        }else if(type == "Location"){
-            return "5cdb10909873e634a851b17d"
-        }else if(type == "Image"){
-            return "5cdb10909873e634a851b18a"
-        }
+        const questionId = _.find(this.state.questionId,{name:type});
+        return questionId._id;
     }
 
     onSubmit = async (evt) => {
@@ -79,23 +73,25 @@ class Question extends Component {
                 multiple:false
             }
             await this.props.saveQuestion({ _id: this.props.projectId, data: data });
-            this.addNotification();
             if (this.props.projects.success) {
+                this.showNotification("Success","You have successfullt added the question","success");
                 document.getElementById("question").innerHTML = "";
                 this.props.history.push({
                     pathname: "/createproject5"
                 });
+            }else{
+                this.showNotification("Error","There is some problem in adding the question","warning");
             }
         } else {
             alert("Please provide all the required fields");
         }
     }
 
-    addNotification() {
+    showNotification(title,message,type) {
         this.notificationDOMRef.current.addNotification({
-          title: "Success",
-          message: "You have successfully added the question",
-          type: "success",
+          title: title,
+          message: message,
+          type: type,
           insert: "top",
           container: "top-right",
           animationIn: ["animated", "fadeIn"],
@@ -124,15 +120,15 @@ class Question extends Component {
         this.setState({ questionType: value });
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         document.getElementById("options").style.display = "none";
+        await this.props.getQuestionsTypes();
+        this.setState({questionId : this.props.projects.results});
     }
 
     
     render() {
         let { value, people } = this.state;
-        console.log("this props questionId",this.props.questionId);
-        
         return (
             <div>
             <ReactNotification ref={this.notificationDOMRef} />
@@ -202,6 +198,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => ({
     saveQuestion: (v) => dispatch(actions.saveQuestion(v)),
+    getQuestionsTypes:(v) => dispatch(actions.getQuestionsTypes(v))
 });
 
 

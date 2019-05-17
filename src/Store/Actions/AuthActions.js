@@ -1,14 +1,14 @@
 import { createAction } from "redux-actions";
 import axios from 'axios';
+import { BACKEND_URL } from "../../config.js";
 
 const VERIFY_USER = createAction("VERIFY_USER");
 const REGISTER_USER = createAction("REGISTER_USER");
 
-const backend_URL = "http://13.233.144.190/";
 
 export const verifyUser = values => dispatch => {
     return axios.post(
-        backend_URL +  'api/admin/login/', {
+        BACKEND_URL +  'api/admin/login/', {
             email: values.email,
             password: values.password
         }
@@ -26,7 +26,7 @@ export const verifyUser = values => dispatch => {
 
 export const registerUser = values => dispatch => {
     return axios.post(
-        backend_URL + 'api/admin/register/', {
+        BACKEND_URL + 'api/admin/register/', {
             firstName: values.firstname,
             lastName: values.lastname,
             email: values.email,
