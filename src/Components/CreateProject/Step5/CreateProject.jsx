@@ -113,21 +113,16 @@ class CreateProject extends Component {
                                     <h1>Add Questions</h1>
                                     <hr></hr>
                                     <br></br>
-                                    {/* <p><strong>Project Name: {this.state.ProjectName}</strong></p> */}
                                 </div>
 
                                 <div className="col-md-12 projectform">
 
                                     <Form>
-                                        {/* <DoneQuestion /> */}
                                         <Question projectId={this.state._id}/>
 
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="row">
-                                                    {/* <div className="col-md-6 text-left back1">
-                                                        <a>Back</a>
-                                                    </div> */}
                                                     <div className="col-md-12 text-right">
                                                         <Button variant="primary" type="submit" className="submit" onClick={this.onClick}>
                                                             Submit

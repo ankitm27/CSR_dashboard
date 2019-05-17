@@ -3,7 +3,7 @@
 }
 
 .Dashboard .topbar {
-    height: 240px;
+    height: 200px;
     opacity: 0.92;
     background-image: linear-gradient(to bottom, #1f9cf8, #03045c);
 }
@@ -26,6 +26,8 @@
     letter-spacing: 0.3px;
     color: #42505c;
     padding-left: 30px;
+    padding-top: 0px;
+    margin-top:0px
 }
 
 .mbtitile .create p {
@@ -38,6 +40,8 @@
     text-align: right;
     color: #79828b;
     margin-top: 50px;
+    padding-top: 0px;
+    margin-top: 0px
 }
 
 .create .add {
@@ -46,6 +50,7 @@
 }
 
 .mbgraph,
+
 .mbgpie {
 
     border-radius: 8px;
@@ -53,6 +58,10 @@
     background-color: #ffffff;
     padding: 20px;
 }
+
+/* .mbgraph .funding {
+    border:2px solid black
+} */
 
 .mbgraph .funding p {
     font-size: 14px;
@@ -91,7 +100,7 @@
     line-height: normal;
     letter-spacing: normal;
     position: absolute;
-    bottom: 0;
+    bottom: 85px;
 }
 
 .goalachived1 p {
@@ -124,4 +133,8 @@
     line-height: normal;
     letter-spacing: normal;
     color: #42505c;
+}
+
+.upppad {
+    margin-top: -40px
 }

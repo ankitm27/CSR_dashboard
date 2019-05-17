@@ -67,8 +67,6 @@ class Navbar1 extends Component {
     }
 }
 
-// export default Navbar1;
-
 const mapStateToProps = state => ({
     auth: state.auth,
 })

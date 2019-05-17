@@ -75,7 +75,7 @@ class Dashboard extends Component {
                                             <p>Total Project</p>
                                             <h1>{this.state.TotalProjects}</h1>
                                         </div>
-                                        <div className="col-md-11  text-left goalachived1">
+                                        <div className="col-md-12  text-left goalachived1">
                                             <p> {this.state.GoalAchived}  Goal Achieved </p>
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@ class Dashboard extends Component {
                 </div>
 
                 <div className="col-md-10 offset-md-1 mbtitile">
-                    <div className="row">
+                    <div className="row upppad">
                         <div className="col-md-6 text-left heading">
                             <p>{this.state.Title}</p>
                         </div>
