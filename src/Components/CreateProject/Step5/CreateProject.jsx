@@ -11,8 +11,6 @@ import actions from "../../../Store/Actions/Index";
 import { withRouter } from "react-router";
 import Navigation from '../../Navigation/Navigation.jsx';
 
-const _ = require('lodash');
-
 class CreateProject extends Component {
     constructor() {
         super();

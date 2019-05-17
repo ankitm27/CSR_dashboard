@@ -15,7 +15,6 @@ class Navbar1 extends Component {
     }
 
     componentDidMount() {
-        // console.log("this props",this.props);
         this.setState({ userName: this.props.auth && this.props.auth.userName ? this.props.auth.userName : "USER" });
     }
 
@@ -57,8 +56,7 @@ class Navbar1 extends Component {
                             <Nav>
                                 <Nav.Link><i className="fa fa-bell"></i></Nav.Link>
                                 <NavDropdown title={this.state.userName} id="collasible-nav-dropdown">
-                                    <NavDropdown.Item><a href="/login" onClick={this.onClick}>Logout</a></NavDropdown.Item>
-
+                                    <NavDropdown.Item onClick={this.onClick}>Logout</NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
                         </Navbar.Collapse>

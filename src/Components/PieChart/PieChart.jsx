@@ -32,14 +32,12 @@ const dataSource = {
 
 class Pie1 extends React.Component {
     render() {
-        console.log("this props",this.props);
         if (this.props.totalGood && this.props.totalAverage && this.props.totalPoor) {
             dataSource.data = [];
             dataSource.data.push({ lable: "TotalGood", value: this.props.totalGood, color: "#00a925" });
             dataSource.data.push({ lable: "TotalAverage", value: this.props.totalAverage, color: "#ff0000" });
             dataSource.data.push({ lable: "TotalPoor", value: this.props.totalPoor, color: "#ffe600" });
         }
-        // console.log("data sources",dataSource);
         return (
             <ReactFusioncharts
                 type="doughnut2d"
