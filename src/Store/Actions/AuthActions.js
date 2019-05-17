@@ -13,16 +13,8 @@ export const verifyUser = values => dispatch => {
             password: values.password
         }
     ).then((res) => {
-        // if (localStorage.getItem("token") === null) {
         localStorage.setItem("token", res.data.data.token);
         dispatch(VERIFY_USER(res.data.data))
-        // }
-        // else {
-        //     window.localStorage.removeItem('token');
-        //     localStorage.setItem("token", res.data.token);
-        //     // dispatch(VERIFY_EMAIL({ id: res.data.data._id }))
-        //     dispatch(VERIFY_USER())
-        // }
     }).catch(error => {
             document.getElementById("emailerror").innerHTML = error.response.data.error;
             return Promise.reject();

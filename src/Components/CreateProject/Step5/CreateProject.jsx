@@ -11,6 +11,7 @@ import actions from "../../../Store/Actions/Index";
 import { withRouter } from "react-router";
 import Navigation from '../../Navigation/Navigation.jsx';
 
+const _ = require('lodash');
 
 class CreateProject extends Component {
     constructor() {
@@ -24,14 +25,6 @@ class CreateProject extends Component {
             startDate: new Date(),
             _id:null
         };
-    }
-
-    async componentDidMount() {
-        if (!localStorage.getItem("token")) {
-            this.props.history.push({
-                pathname: '/login',
-            });
-        }
     }
 
     isFormValid() {
@@ -50,56 +43,67 @@ class CreateProject extends Component {
     }
 
     async componentDidMount() {
-        if(!this.props || !this.props.location || 
-            !this.props.location.state || !this.props.location.state.step1){
+        if (!localStorage.getItem("token")) {
             this.props.history.push({
-                pathname:"/"
+                pathname: '/login',
             });
-        }else{
-            await this.props.createProject({
-                "title": this.props.location.state.step1.projectName,
-                "description": this.props.location.state.step1.about,
-                "status": "open",
-                "goal": this.props.location.state.step1.target,
-                "goalAchieved": "77",
-                "startDate": "2019-06-25T12:00:00Z",
-                "endDate": "2019-12-25T12:00:00Z",
-                "funding": this.props.location.state.step1.totalFund,
-                "targetBeneficiary": this.props.location.state.step1.totalUnit,
-                "supervisors": [{
-                    "employee_code": this.props.location.state.step3.code,
-                    "role": "Product Manager",
-                    "name": this.props.location.state.step3.productOwner,
-                    "email": this.props.location.state.step3.email,
-                    "mobile": this.props.location.state.step3.phone,
-                    "country": "India",
-                    "city": this.props.location.state.step3.city
-                }],
-                "rules": [{
-                    "componentName": "file",
-                    "rules": ["non-duplicate"]
-                }],
-                "ngo": {
-                    "ngoName": this.props.location.state.step4.ngoName,
-                    "managerFirstName": this.props.location.state.step4.managerName,
-                    "managerLastName": "dummy",
-                    "email":this.props.location.state.step4.email,
-                    "mobile": this.props.location.state.step4.phone,
-                    "country": "India",
-                    "location": this.props.location.state.step4.city
-                },
-                mobiles:[this.props.location.state.step4.allowedUsers]
-            });
-            if(this.props.projects && this.props.projects._id){
-                this.setState({
-                    _id:this.props.projects._id
-                }); 
-            }
-            await this.props.createVolunteerUser({
-                phone:this.props.location.state.step4.allowedUsers
-            })
-             
-        } 
+        }
+
+        // if(!this.props || !this.props.location || 
+        //     !this.props.location.state || !this.props.location.state.step1){
+        //     this.props.history.push({
+        //         pathname:"/"
+        //     });
+        // }else{
+        //     await this.props.createProject({
+        //         "title": this.props.location.state.step1.projectName,
+        //         "description": this.props.location.state.step1.about,
+        //         "status": "open",
+        //         "goal": this.props.location.state.step1.target,
+        //         "goalAchieved": "77",
+        //         "startDate": "2019-06-25T12:00:00Z",
+        //         "endDate": "2019-12-25T12:00:00Z",
+        //         "funding": this.props.location.state.step1.totalFund,
+        //         "targetBeneficiary": this.props.location.state.step1.totalUnit,
+        //         "supervisors": [{
+        //             "employee_code": this.props.location.state.step3.code,
+        //             "role": "Product Manager",
+        //             "name": this.props.location.state.step3.productOwner,
+        //             "email": this.props.location.state.step3.email,
+        //             "mobile": this.props.location.state.step3.phone,
+        //             "country": "India",
+        //             "city": this.props.location.state.step3.city
+        //         }],
+        //         "rules": [{
+        //             "componentName": "file",
+        //             "rules": ["non-duplicate"]
+        //         }],
+        //         "ngo": {
+        //             "ngoName": this.props.location.state.step4.ngoName,
+        //             "managerFirstName": this.props.location.state.step4.managerName,
+        //             "managerLastName": "dummy",
+        //             "email":this.props.location.state.step4.email,
+        //             "mobile": this.props.location.state.step4.phone,
+        //             "country": "India",
+        //             "location": this.props.location.state.step4.city
+        //         },
+        //         mobiles:[this.props.location.state.step4.allowedUsers]
+        //     });
+        //     if(this.props.projects && this.props.projects._id){
+        //         this.setState({
+        //             _id:this.props.projects._id
+        //         }); 
+        //     }
+        //     await this.props.createVolunteerUser({
+        //         phone:this.props.location.state.step4.allowedUsers
+        //     })
+
+            await this.props.getQuestionsTypes();
+            console.log("this props projects",this.props.projects);
+            console.log("this props state",this.props.projects.results); 
+            this.setState({questionId : this.props.projects.results});
+            console.log("this state",this.state.questionId);
+        // } 
     }
 
     render() {
@@ -124,7 +128,7 @@ class CreateProject extends Component {
 
                                     <Form>
                                         {/* <DoneQuestion /> */}
-                                        <Question projectId={this.state._id} />
+                                        <Question projectId={this.state._id} questionId={this.state.questionId} />
 
                                         <div className="row">
                                             <div className="col-md-12">
@@ -228,6 +232,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = dispatch => ({
     createProject: (v) => dispatch(actions.createProject(v)),
     createVolunteerUser: (v) => dispatch(actions.createVolunteerUser(v)),
+    getQuestionsTypes:(v) => dispatch(actions.getQuestionsTypes(v))
 });
 
 

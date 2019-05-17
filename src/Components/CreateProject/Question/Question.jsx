@@ -34,8 +34,8 @@ class Question extends Component {
             id: people ? people.length + 1 : 1
         }
         this.setState({
-            value: [...value, newOption],  // select new option
-            people: [...people, newOption] // add new option to our dataset
+            value: [...value, newOption],  
+            people: [...people, newOption] 
         })
     }
 
@@ -62,7 +62,6 @@ class Question extends Component {
     }
 
     onSubmit = async (evt) => {
-
         evt.preventDefault();
         const isValid = this.isFormValid();
         let options = _.map(this.state.people,'name');
@@ -70,7 +69,6 @@ class Question extends Component {
         options.forEach((option) => {
             optionObj[option] = option
         });
-        // console.log("options",options);
         if (isValid.status) {
             const questionId = this.mapTypeWithId(this.state.questionType)
             const data = {
@@ -80,10 +78,8 @@ class Question extends Component {
                 optionValue:options,
                 multiple:false
             }
-            // console.log("this props projectId",this.props.projectId);
             await this.props.saveQuestion({ _id: this.props.projectId, data: data });
             this.addNotification();
-            console.log("this props projects",this.props.projects);
             if (this.props.projects.success) {
                 document.getElementById("question").innerHTML = "";
                 this.props.history.push({
@@ -135,6 +131,8 @@ class Question extends Component {
     
     render() {
         let { value, people } = this.state;
+        console.log("this props questionId",this.props.questionId);
+        
         return (
             <div>
             <ReactNotification ref={this.notificationDOMRef} />

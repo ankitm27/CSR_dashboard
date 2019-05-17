@@ -22,6 +22,10 @@ const ProjectReducers = handleActions({
         return { ...state, mailSent: true, ...action.payload };
     },
 
+    GET_QUESTIONS_TYPE: (state, action) => {
+        return { ...state, mailSent: true, ...action.payload };
+    },
+
 
 }, INITIAL_STATE);
 
