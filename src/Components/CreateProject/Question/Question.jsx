@@ -107,13 +107,13 @@ class Question extends Component {
         if(evt.target.value === "Location"){
             value = "Location"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value == "Image"){
+        }else if(evt.target.value === "Image"){
             value = "Image"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value == "Text"){
+        }else if(evt.target.value === "Text"){
             value = "Text"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value == "Single Choice"){
+        }else if(evt.target.value === "Single Choice"){
             value = "Single Choice"
             document.getElementById("options").style.display = "block"
         }

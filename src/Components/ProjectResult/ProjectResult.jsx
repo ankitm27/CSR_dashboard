@@ -63,7 +63,7 @@ class ProjectResults extends Component {
     }
 
     render() {
-
+        // console.log(this.data)
         return (
             <div className="row ProjectResult">
                 <div className="col-md-5">
