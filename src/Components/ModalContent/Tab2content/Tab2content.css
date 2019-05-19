@@ -2,30 +2,11 @@
 .tabcontent1 table{
     margin-top: 1rem;
 }
-.tabcontent td span {
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #686868;
-}
 
-.tabcontent td {
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #686868;
-}
-
-.table-striped tbody div{
+.tabcontent1 tbody div{
     height: 96px;    
 }
-.table-striped tbody div:nth-of-type(even) {
+.tabcontent1 tbody div:nth-of-type(even) {
     background-color: #2b7ed114;
 }
 
@@ -40,3 +21,4 @@
     font-size: 14px;
     color: #303030;
 }
+
