@@ -1,0 +1,7 @@
+.question{
+    border:1px solid black
+}
+
+.questionWidth{
+    min-width: 25rem;
+}

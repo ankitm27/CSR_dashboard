@@ -35,7 +35,7 @@ class Detail extends Component {
             ExecuterLocation: null,
             ExecuterNumber: null,
             Daysleft: null,
-            TotalProjects: "25",
+            ButtonTitle: "Questions",
             show: false,
             Questions:null
         };
@@ -57,7 +57,6 @@ class Detail extends Component {
         }
         if (this.props.location.state && this.props.location.state._id) {
             await this.props.projectDetails({ _id: this.props.location.state._id });
-            console.log("this props project",this.props.project);
             const project = this.props.project;
             const date1 = new Date();
             const date2 = new Date(project.endDate);
@@ -80,7 +79,6 @@ class Detail extends Component {
             this.setState({ TotalFund: project.funding ? project.funding : null });
             this.setState({ ExecuterEmail: project.ngo && project.ngo.email ? project.ngo.email : null });
             this.setState({ Questions: project.questions ? project.questions : null});
-            console.log("this state Questions",this.state.Questions);
         } else {
             this.props.history.push({
                 pathname: '/',
@@ -99,7 +97,7 @@ class Detail extends Component {
                 <div className="col-md-6 text-right">
                     <Button variant="secondary" className="daysleft"><i className="fa fa-clock-o"></i> {this.state.Daysleft}</Button>
 
-                    <Button variant="secondary" className="doneprojects" onClick={this.handleShow}><i className="fa fa-tasks" aria-hidden="true"></i> {this.state.TotalProjects}</Button>
+                    <Button variant="secondary" className="doneprojects" onClick={this.handleShow}><i className="fa fa-tasks" aria-hidden="true"></i> {this.state.ButtonTitle}</Button>
                 </div>
 
                 <div className="col-md-12 text-left projectdescription">
@@ -283,8 +281,8 @@ class Detail extends Component {
                     <Modal.Footer>
 
                         <Button variant="primary" onClick={this.handleClose} className="submit">
-                            Save Project
-                    </Button>
+                            Close
+                        </Button>
                     </Modal.Footer>
                 </Modal>
 

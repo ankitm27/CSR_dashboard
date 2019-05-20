@@ -12,7 +12,7 @@ class CheckType extends Component {
 
     render() {
         return (
-            <div className="row Listofdone" >
+            <div className="row" >
                 <div className="col-md-12 question" >
                     <h2>{this.state.Question}</h2>
 

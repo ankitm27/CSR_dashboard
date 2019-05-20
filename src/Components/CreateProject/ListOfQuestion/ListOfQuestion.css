@@ -35,3 +35,7 @@
     width: 25%;
     display: inline-block;
 }
+
+.questionWidth{
+    min-width: 25rem;
+}

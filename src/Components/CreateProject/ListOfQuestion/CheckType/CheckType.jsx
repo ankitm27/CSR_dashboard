@@ -13,8 +13,8 @@ class CheckType extends Component {
 
     render() {
         return (
-            <div className="row Listofdone" >
-                <div className="col-md-12 question" >
+            <div className="row" >
+                <div className="col-md-12" >
                     <h2>{this.state.Question1}</h2>
 
                     <Form>
