@@ -14,9 +14,16 @@ class List extends Component {
     }
 
     render() {
+        console.log("this props quesrtions",this.props.questions);
         return (
             <div className="row Listofdone" >
-                <div className="col-md-12">
+                {this.props.questions.map((question, index) => (
+                    // <p>Hello, {question.title} </p>
+                    <div className="col-md-12 ">
+                        <TextType />
+                    </div>
+                ))}
+                {/* <div className="col-md-12 ">
                     <TextType />
                 </div>
                 <div className="col-md-12">
@@ -24,7 +31,7 @@ class List extends Component {
                 </div>
                 <div className="col-md-12">
                     <RadioType />
-                </div>
+                </div> */}
             </div>
         );
     }
