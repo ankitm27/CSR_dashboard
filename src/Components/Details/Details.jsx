@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import './Details.css';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
 
+import DoneQuestion from '../CreateProject/ListOfQuestion/ListOfQuestion';
 import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
-
+import Modal from 'react-bootstrap/Modal';
 const DateDiff = require('date-diff');
 
 
 class Detail extends Component {
-    constructor() {
-        super();
+    constructor(props, context) {
+        super(props, context);
+
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+
         this.state = {
             ProjectName: null,
             ProjectDescription: null,
@@ -29,48 +34,63 @@ class Detail extends Component {
             ExecuterEmail: null,
             ExecuterLocation: null,
             ExecuterNumber: null,
-            Daysleft: null
+            Daysleft: null,
+            TotalProjects: "25",
+            show: false,
+            Questions:null
         };
     }
 
+
+    handleClose() {
+        this.setState({ show: false });
+    }
+
+    handleShow() {
+        this.setState({ show: true });
+    }
     async componentDidMount() {
-        if(!localStorage.getItem("token")){
+        if (!localStorage.getItem("token")) {
             this.props.history.push({
-                pathname:'/login',
+                pathname: '/login',
             });
         }
-        if(this.props.location.state && this.props.location.state._id){
-            await this.props.projectDetails({_id:this.props.location.state._id});
+        if (this.props.location.state && this.props.location.state._id) {
+            await this.props.projectDetails({ _id: this.props.location.state._id });
+            console.log("this props project",this.props.project);
             const project = this.props.project;
-            const date1 = new Date(); 
-            const date2 = new Date(project.endDate); 
+            const date1 = new Date();
+            const date2 = new Date(project.endDate);
             const daysLeft = parseInt(new DateDiff(date2, date1).days());
             this.setState({ ProjectName: project.title ? project.title : "" });
-            this.setState({ProjectDescription:project.description ? project.description : ""})
+            this.setState({ ProjectDescription: project.description ? project.description : "" })
             this.setState({ ProjectTarget: project.goal ? project.goal : "" });
             this.setState({ ProjectSuccess: project.goalAchieved ? project.goalAchieved : "" });
-            this.setState({ Villages: project.totalAreaCovered ? project.totalAreaCovered : ""});
+            this.setState({ Villages: project.totalAreaCovered ? project.totalAreaCovered : "" });
             this.setState({ PerUnitFund: project.fundingPerBeneficiary ? parseFloat(project.fundingPerBeneficiary).toFixed(2) : "" });
             this.setState({ ProjectManager: project.supervisors && project.supervisors[0].name ? project.supervisors[0].name : "" });
             this.setState({ EmailID: project.supervisors && project.supervisors[0].email ? project.supervisors[0].email : "" });
-            this.setState({ Location: project.supervisors && project.supervisors[0].city ? project.supervisors[0].city : ""});
+            this.setState({ Location: project.supervisors && project.supervisors[0].city ? project.supervisors[0].city : "" });
             this.setState({ Phone: project.supervisors && project.supervisors[0].mobile ? project.supervisors[0].mobile : "" });
             this.setState({ ExecuterManager: project.ngo && project.ngo.managerFirstName ? project.ngo.managerFirstName : null });
             this.setState({ ExecuterCompany: project.ngo && project.ngo.ngoName ? project.ngo.ngoName : null });
             this.setState({ ExecuterLocation: project.ngo && project.ngo.location ? project.ngo.location : null });
             this.setState({ ExecuterNumber: project.ngo && project.ngo.mobile ? project.ngo.mobile : null });
             this.setState({ Daysleft: daysLeft ? daysLeft + " days left" : null });
-            this.setState({ TotalFund: project.funding ? project.funding : null});
+            this.setState({ TotalFund: project.funding ? project.funding : null });
             this.setState({ ExecuterEmail: project.ngo && project.ngo.email ? project.ngo.email : null });
-        }else{
+            this.setState({ Questions: project.questions ? project.questions : null});
+            console.log("this state Questions",this.state.Questions);
+        } else {
             this.props.history.push({
-                pathname:'/',
+                pathname: '/',
             });
         }
     }
 
 
     render() {
+        let smClose = () => this.setState({ smShow: false });
         return (
             <div className="row Details">
                 <div className="col-md-6 ProjectName">
@@ -78,6 +98,8 @@ class Detail extends Component {
                 </div>
                 <div className="col-md-6 text-right">
                     <Button variant="secondary" className="daysleft"><i className="fa fa-clock-o"></i> {this.state.Daysleft}</Button>
+
+                    <Button variant="secondary" className="doneprojects" onClick={this.handleShow}><i className="fa fa-tasks" aria-hidden="true"></i> {this.state.TotalProjects}</Button>
                 </div>
 
                 <div className="col-md-12 text-left projectdescription">
@@ -93,7 +115,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-4.svg')} alt=""/>
+                            <img src={require('../../assets/images/group-4.svg')} alt="" />
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.ProjectSuccess}</h1>
@@ -106,7 +128,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-6.svg')} alt=""/>
+                            <img src={require('../../assets/images/group-6.svg')} alt="" />
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.TotalFund}</h1>
@@ -118,7 +140,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-13.svg')} alt=""/>
+                            <img src={require('../../assets/images/group-13.svg')} alt="" />
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.Villages}</h1>
@@ -130,7 +152,7 @@ class Detail extends Component {
                 <div className="col-md-3 text-left projectsucess">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={require('../../assets/images/group-14.svg')} alt=""/>
+                            <img src={require('../../assets/images/group-14.svg')} alt="" />
                         </div>
                         <div className="col-md-8 successstory">
                             <h1>{this.state.PerUnitFund}</h1>
@@ -152,7 +174,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Project Manager</p>
@@ -162,7 +184,7 @@ class Detail extends Component {
 
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Location</p>
@@ -174,7 +196,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-16.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-16.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Email Id</p>
@@ -183,7 +205,7 @@ class Detail extends Component {
                                     </div>
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Mobile No.</p>
@@ -204,7 +226,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Project Manager</p>
@@ -214,7 +236,7 @@ class Detail extends Component {
 
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Location</p>
@@ -226,7 +248,7 @@ class Detail extends Component {
                                 <div className="col-md-6">
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-16.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-16.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Email Id</p>
@@ -235,7 +257,7 @@ class Detail extends Component {
                                     </div>
                                     <div className="row mb50">
                                         <div className="col-md-3">
-                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt=""/>
+                                            <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
                                         </div>
                                         <div className="col-md-9 exicute">
                                             <p>Mobile No.</p>
@@ -247,6 +269,28 @@ class Detail extends Component {
                         </div>
                     </div>
                 </div>
+
+
+
+
+                <Modal size="lg" show={this.state.show} onHide={this.handleClose} className="questionmodal">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Project Name: {this.state.ProjectName}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <DoneQuestion questions = {this.state.Questions} />
+                    </Modal.Body>
+                    <Modal.Footer>
+
+                        <Button variant="primary" onClick={this.handleClose} className="submit">
+                            Save Project
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
+
+
+
+
             </div>
         );
     }
