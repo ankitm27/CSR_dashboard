@@ -8,6 +8,7 @@ import Pie from '../PieChart/PieChart';
 import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
+import PreviousProject from '../PreviousProject/PreviousProject';
 
 class Dashboard extends Component {
     constructor() {
@@ -109,7 +110,6 @@ class Dashboard extends Component {
                         <div className="col-md-6 text-right create">
                             <p><a onClick={this.onClick}>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" alt="" /></button></a></p>
                         </div>
-
                     </div>
                 </div>
 
@@ -120,6 +120,7 @@ class Dashboard extends Component {
                                 <Projects programs={Program} />
                             </div>
                         ))}
+                        <PreviousProject/>
                     </div>
                 </div>
             </div>
