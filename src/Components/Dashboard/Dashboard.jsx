@@ -55,6 +55,7 @@ class Dashboard extends Component {
 
 
     render() {
+        const cards = [1,2,3,4,5,6]
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
@@ -120,7 +121,11 @@ class Dashboard extends Component {
                                 <Projects programs={Program} />
                             </div>
                         ))}
-                        <PreviousProject/>
+                        {cards.map((i) => (
+                            <div key={i} className="col-md-4">
+                                <PreviousProject/>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
