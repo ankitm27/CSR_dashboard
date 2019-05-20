@@ -3,6 +3,7 @@ import './PreviousProject.css';
 
 class PreviousProject extends React.Component{
     render(){
+        const { programs } = this.props;
         return (
             <div className="row Projects">
             <div className="col-md-4 projectlist">
@@ -15,15 +16,15 @@ class PreviousProject extends React.Component{
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     </div>
                     <div className="col-md-12  text-left goal">
-                        <p>Goal : <span>Clean water and sustainability</span></p>
+                        <p>Goal : <span>{programs.goal}</span></p>
                     </div>
                     <div className="col-md-11  text-left goalachived">
-                        <p>Goal Achieved <span className="text-right">70%</span></p>
+                        <p>Goal Achieved <span className="text-right">{programs.goalAchieved}</span></p>
                     </div>
                     <hr></hr>
 
                     <div className="col-md-12  text-left result">
-                        <p>Result <span className="text-right"> Good</span></p>
+                        <p>Result <span className="text-right">Good</span></p>
                     </div>
                     <div className="col-md-12">
                         <div className="progress">

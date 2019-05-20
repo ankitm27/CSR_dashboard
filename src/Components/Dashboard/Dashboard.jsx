@@ -55,7 +55,7 @@ class Dashboard extends Component {
 
 
     render() {
-        const cards = [1,2,3,4,5,6]
+        console.log(this.state.programs)
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
@@ -121,9 +121,9 @@ class Dashboard extends Component {
                                 <Projects programs={Program} />
                             </div>
                         ))}
-                        {cards.map((i) => (
+                        {this.state && this.state.Programs && this.state.Programs.map((Program, i) => (
                             <div key={i} className="col-md-4">
-                                <PreviousProject/>
+                                <PreviousProject programs={Program}/>
                             </div>
                         ))}
                     </div>
