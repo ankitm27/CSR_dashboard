@@ -14,6 +14,7 @@ export const verifyUser = values => dispatch => {
         }
     ).then((res) => {
         localStorage.setItem("token", res.data.data.token);
+        localStorage.setItem("userName",res.data.data.userName);
         dispatch(VERIFY_USER(res.data.data))
     }).catch(error => {
             document.getElementById("emailerror").innerHTML = error.response.data.error;

@@ -38,7 +38,7 @@ class ProjectDetails extends Component {
                 <div className="col-md-12 tabs">
                     <div className="row">
                         <div className="col-md-10 offset-md-1">
-                            <div className="row">
+                            <div className="row padhei">
                                 <div className="col-md-12">
                                     <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                                         <Tab eventKey="home" title={this.state.tab1}>

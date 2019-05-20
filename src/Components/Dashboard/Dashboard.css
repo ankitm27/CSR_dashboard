@@ -3,13 +3,14 @@
 }
 
 .Dashboard .topbar {
-    height: 200px;
+    height: 220px;
     opacity: 0.92;
     background-image: linear-gradient(to bottom, #1f9cf8, #03045c);
 }
 
 .mbtotal {
     margin-top: -100px;
+    
 }
 
 .graph,

@@ -9,6 +9,8 @@ import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
+const _ = require('lodash');
+
 class Dashboard extends Component {
     constructor() {
         super();
@@ -22,8 +24,10 @@ class Dashboard extends Component {
             TotalStatus: "",
             Programs: null,
             Title: 'Projects',
-            Button: 'Create New Project'
+            Button: 'Create New Project',
+            searchProject:null
         };
+        this.handleData = this.handleData.bind(this);
     }
 
     async componentDidMount() {
@@ -51,14 +55,30 @@ class Dashboard extends Component {
         });
     }
 
+    async handleData(data) {
+        console.log("data",data);
+        // await this.setState({ searchProject: data });
+        // console.log("secrch project",this.state.searchProject);
+        // console.log("this state prograns",this.state.Programs);
+        let programs = [];
+        this.state.Programs.forEach((program) => {
+            if(_.startsWith(program.title,data)){
+                programs.push(program);
+            }
+        });
+        console.log("programs",programs);
+        this.setState({Programs:programs});
+    }
+    
+
 
 
     render() {
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
-                    <Navbar />
-                    <Navigation />
+                    <Navbar userName={this.props.auth} />
+                    <Navigation projectFunction={this.handleData} />
                 </div>
 
                 <div className="col-md-10 offset-md-1 mbtotal">
