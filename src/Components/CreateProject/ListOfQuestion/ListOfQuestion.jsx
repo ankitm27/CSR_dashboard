@@ -3,6 +3,10 @@ import './ListOfQuestion.css';
 import TextType from "../ListOfQuestion/TextType/TextType";
 import CheckType from "./CheckType/CheckType";
 import RadioType from "./RadioType/RadioType";
+import ImageType from "./ImageType/ImageType.jsx";
+import LocationType from "./LocationType/LocationType.jsx";
+import FileType from "./FileType/FileType.jsx";
+
 
 class List extends Component {
     constructor() {
@@ -31,9 +35,23 @@ class List extends Component {
                 </div>
             )
         }else if(question.questionType === "location"){
-
+            return (
+                <div className="col-md-12 questp">
+                    <LocationType question={question.title} />
+                </div>
+            )
         }else if(question.questionType === "image"){
-
+            return (
+                <div className="col-md-12 questp">
+                    <ImageType question={question.title} />
+                </div>
+            )
+        }else if (question.questionType === "file"){
+            return (
+                <div className="col-md-12 questp">
+                    <FileType question={question.title} />
+                </div>
+            )
         } 
     }
 
