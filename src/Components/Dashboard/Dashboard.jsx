@@ -113,7 +113,6 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-
                 <div className="col-md-10 offset-md-1">
                     <div className="row">
                         {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (

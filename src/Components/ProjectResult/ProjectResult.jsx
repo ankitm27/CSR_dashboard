@@ -22,7 +22,7 @@ class ProjectResults extends Component {
         };
 
         this.data = [{
-            name: { data: null },
+            name: { data: null},
             date: null,
             totalDetail: null,
             unverifiedDetail: null,
@@ -33,6 +33,8 @@ class ProjectResults extends Component {
             _id: null
         }];    
         
+        this.users=["user1","user2","user3","user4","user5","user6","user7","user8"]
+
 
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -63,7 +65,7 @@ class ProjectResults extends Component {
     }
 
     render() {
-        // console.log(this.data)
+        console.log(this.data)
         return (
             <div className="row ProjectResult">
                 <div className="col-md-5">
@@ -103,9 +105,9 @@ class ProjectResults extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.data.map(dataObj =>
+                            {this.data.map((dataObj,i) =>
                                 <tr key={dataObj._id} className="tableContentText">
-                                    <td>{dataObj.name.data}</td>
+                                    <td>{this.users[i]}</td>
                                     <Moment format="D MMM YYYY"><td>{dataObj.date}</td></Moment>
                                     <td>{dataObj.totalDetail}</td>
                                     <td>{dataObj.unverifiedDetail}</td>
