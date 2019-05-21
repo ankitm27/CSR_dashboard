@@ -4,27 +4,22 @@ import Form from 'react-bootstrap/Form';
 class CheckType extends Component {
     constructor() {
         super();
-        this.state = {
-            Question: "Name of Beneficiary?",
-            Question1: "Lorem ipsum dolor sit amet, consectetur adipiscing ",
-            Options: ["Loram", "Loram", "Loram", "Loram", "Loram", "Loram"]
-        };
     }
 
     render() {
         return (
             <div className="row" >
                 <div className="col-md-12" >
-                    <h2>{this.state.Question1}</h2>
+                    <h2>{this.props.question}</h2>
 
                     <Form>
-                        {this.state.Options.map(type => (
+                        {this.props.options.map(type => (
                             <div key={`${type}`} className="mb-3">
                                 <Form.Check
                                     custom
                                     inline
                                     name="terms"
-                                    label={this.state.Options[0]}
+                                    label={this.props.options}
                                 />
                             </div>
                         ))}
