@@ -51,6 +51,8 @@ class Question extends Component {
     }
 
     mapTypeWithId(type) { 
+        console.log("this state questionId",this.state.questionId);
+        console.log("name",type);
         const questionId = _.find(this.state.questionId,{name:type});
         return questionId._id;
     }
@@ -113,8 +115,8 @@ class Question extends Component {
         }else if(evt.target.value == "Text"){
             value = "Text"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value == "Single Choice"){
-            value = "Single Choice"
+        }else if(evt.target.value == "Choice"){
+            value = "Choice"
             document.getElementById("options").style.display = "block"
         }
         this.setState({ questionType: value });
@@ -144,7 +146,7 @@ class Question extends Component {
                                     <Form.Control as="select" value={this.state.questionType}  id="questiontype" 
                                         onChange={this.onChange}>
                                         <option id="0">Question Type</option>
-                                        <option value="Single Choice">Single Choice</option>
+                                        <option value="Choice">Choice</option>
                                         <option value="Text" id="2"> Text</option>
                                         <option value="Location" id="4">Location</option>
                                         <option value="Image" id="5">Image</option>

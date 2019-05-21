@@ -44,11 +44,11 @@ class CreateProject extends Component {
 
     isFormValid(){
         if(!this.state.ngoName || 
-            !this.state.location || 
             !this.state.managerName || 
             !this.state.email || 
             !this.state.phone || 
-            !this.state.location
+            !this.state.city ||
+            !this.state.country
             ){
                 return {status:false}
             }else{
@@ -68,7 +68,6 @@ class CreateProject extends Component {
                     step3:this.props.location.state.step3,
                     step4:{
                         ngoName:this.state.ngoName,
-                        location:this.state.location,
                         managerName:this.state.managerName,
                         email:this.state.email,
                         phone:this.state.phone,
@@ -110,13 +109,13 @@ class CreateProject extends Component {
                                                     }}/>
                                                 </Form.Group>
                                             </div>
-                                            <div className="col-md-6">
+                                            {/* <div className="col-md-6">
                                                 <Form.Group controlId="formBasicName">
                                                     <Form.Control type="text" placeholder="Location" value={this.state.location} onChange={(evt) => {
                                                         this.setState({ location: evt.target.value })
                                                     }}/>
                                                 </Form.Group>
-                                            </div>
+                                            </div> */}
                                             <div className="col-md-6">
                                                 <Form.Group controlId="formBasicProject">
                                                     <Form.Control type="text" placeholder="Manager Name" value={this.state.managerName} onChange={(evt) => {

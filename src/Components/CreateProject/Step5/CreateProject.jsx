@@ -123,7 +123,7 @@ class CreateProject extends Component {
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="row">
-                                                    <div className="col-md-12 text-right">
+                                                    <div className="col-md-11 text-right">
                                                         <Button variant="primary" type="submit" className="submit" onClick={this.onClick}>
                                                             Submit
                                                         </Button>
