@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './ListOfQuestion.css';
-import Form from 'react-bootstrap/Form';
 import TextType from "../ListOfQuestion/TextType/TextType";
 import CheckType from "./CheckType/CheckType";
 import RadioType from "./RadioType/RadioType";

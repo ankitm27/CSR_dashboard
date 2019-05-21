@@ -51,8 +51,6 @@ class Question extends Component {
     }
 
     mapTypeWithId(type) { 
-        console.log("this state questionId",this.state.questionId);
-        console.log("name",type);
         const questionId = _.find(this.state.questionId,{name:type});
         return questionId._id;
     }
@@ -109,13 +107,13 @@ class Question extends Component {
         if(evt.target.value === "Location"){
             value = "Location"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value == "Image"){
+        }else if(evt.target.value === "Image"){
             value = "Image"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value == "Text"){
+        }else if(evt.target.value === "Text"){
             value = "Text"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value == "Choice"){
+        }else if(evt.target.value === "Choice"){
             value = "Choice"
             document.getElementById("options").style.display = "block"
         }
@@ -130,7 +128,7 @@ class Question extends Component {
 
     
     render() {
-        let { value, people } = this.state;
+        let { value } = this.state;
         return (
             <div>
             <ReactNotification ref={this.notificationDOMRef} />
