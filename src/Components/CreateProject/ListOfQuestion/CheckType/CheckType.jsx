@@ -19,7 +19,7 @@ class CheckType extends Component {
                                     custom
                                     inline
                                     name="terms"
-                                    label={this.props.options}
+                                    label={type}
                                 />
                             </div>
                         ))}
