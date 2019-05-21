@@ -29,7 +29,6 @@ class Navigation extends Component {
 
     searchProjects = (evt) => {
         evt.preventDefault();
-        console.log("evt target value",evt.target.value);
         this.props.projectFunction(evt.target.value);
     }
 

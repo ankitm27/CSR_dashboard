@@ -25,7 +25,8 @@ class Dashboard extends Component {
             Programs: null,
             Title: 'Projects',
             Button: 'Create New Project',
-            searchProject:null
+            searchProject:null,
+            filterPrograms:null
         };
         this.handleData = this.handleData.bind(this);
     }
@@ -46,7 +47,7 @@ class Dashboard extends Component {
         this.setState({ TotalPoor: this.props.projects.overallBad });
         this.setState({ TotalStatus: this.props.projects.overallStatus });
         this.setState({ Programs: this.props.projects.programs });
-
+        this.setState({ filterPrograms : this.props.projects.programs });
     }
 
     onClick = () => {
@@ -57,17 +58,22 @@ class Dashboard extends Component {
 
     async handleData(data) {
         console.log("data",data);
-        // await this.setState({ searchProject: data });
-        // console.log("secrch project",this.state.searchProject);
-        // console.log("this state prograns",this.state.Programs);
+        console.log("data length",data.length);
+        console.log("this state Programs",this.state.Programs);
+        console.log("this state filter programs",this.state.filterPrograms);
         let programs = [];
-        this.state.Programs.forEach((program) => {
-            if(_.startsWith(program.title,data)){
-                programs.push(program);
-            }
-        });
-        console.log("programs",programs);
-        this.setState({Programs:programs});
+        if(data && data.length > 0){
+            console.log("check");
+            this.state.Programs.forEach((program) => {
+                if(_.startsWith(program.title,data)){
+                    programs.push(program);
+                }
+            });
+            this.setState({filterPrograms:programs});
+        }else{
+            console.log("check1212");
+            this.setState({filterPrograms:this.state.Programs});
+        }
     }
     
 
@@ -135,7 +141,7 @@ class Dashboard extends Component {
 
                 <div className="col-md-10 offset-md-1">
                     <div className="row">
-                        {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (
+                        {this.state && this.state.filterPrograms && this.state.filterPrograms.map((Program, index) => (
                             <div key={Program._id} className="col-md-4 projectlist">
                                 <Projects programs={Program} />
                             </div>
