@@ -36,6 +36,10 @@
     display: inline-block;
 }
 
-.questionWidth{
+.questp{
     min-width: 25rem;
+    background-color: white;
+    padding-top:.5rem;
+    border:1px solid #cdd2d8;
+    min-height:2rem
 }

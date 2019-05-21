@@ -11,9 +11,10 @@ class TextType extends Component {
         // console.log("this state question",this.props.question);
         return (
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-12 question">
                     <h2>{this.props.question}</h2>
-                    <p>Text</p>
+                    {/* <p>Text</p> */}
+                    
                 </div>
             </div>
         );

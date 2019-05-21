@@ -13,23 +13,21 @@ class List extends Component {
     }
 
     checkQuestionComponent(question){
-        // console.log("question",question);
-        // console.log("question type",question.questionType);
         if(question.questionType === "text"){
             return (
-                <div className="col-md-12">
+                <div className="col-md-12 questp">
                     <TextType question={question.title} />
                 </div>
             )
         }else if(question.questionType === "number"){
             return (
-                <div className="col-md-12">
+                <div className="col-md-12 questp">
                     <TextType question={question.title} />
                 </div>
             )
         }else if(question.questionType === "choice"){
             return (
-                <div className="col-md-12">
+                <div className="col-md-12 questp">
                     <CheckType question={question.title} options={question.options } />
                 </div>
             )
@@ -41,12 +39,13 @@ class List extends Component {
     }
 
     render() {
-        // console.log("this props quesrtions",this.props.questions);
         return (
             <div className="row">
                 {this.props && this.props.questions && this.props.questions.map((question) => (
-                    <div className="col-md-12 questionWidth"> 
-                        {this.checkQuestionComponent.call(this, question)} 
+                    <div className="col-md-12">
+                        <div className="col-md-12"> 
+                            {this.checkQuestionComponent.call(this, question)} 
+                        </div>
                         <br />
                     </div>
                 ))}
