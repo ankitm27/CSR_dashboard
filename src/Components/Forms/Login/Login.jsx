@@ -103,7 +103,7 @@ class Login extends Component {
                                 {/* <div className="col-md-6 mb50">
                                     <p className="forgot"><a href>Forgot Password?</a></p>
                                 </div> */}
-                                <div className="col-md-6 text-right mb50">
+                                <div className="col-md-12 text-right mb50">
                                     <Button variant="primary" type="submit" className="loginbtn">
                                         Log In
                                     </Button>
