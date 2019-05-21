@@ -20,7 +20,7 @@ class Login extends Component {
         password: "",
     }
 
-    onSubmit = async(evt) => {
+    onSubmit = async (evt) => {
         evt.preventDefault();
         // console.dir(this.state.email, this.state.password)
         if (this.state.email === "" || this.state.password === "") {
@@ -30,20 +30,36 @@ class Login extends Component {
             document.getElementById("emailerror").innerHTML = "";
             await this.props.verifyUser({ email: this.state.email, password: this.state.password })
             // return;
-            console.log("this state",this.state);
-            console.log("this.props",this.props);
-            if(this.props.auth.token){
+            console.log("this state", this.state);
+            console.log("this.props", this.props);
+            if (this.props.auth.token) {
                 this.props.history.push({
-                    pathname:'/',
-                    state:{
-                        token:this.props.auth.token,
-                        userId:"1234",
-                        userName:"check"
-                    }      
+                    pathname: '/',
+                    state: {
+                        token: this.props.auth.token,
+                        userId: "1234",
+                        userName: "check"
+                    }
                 });
             }
         }
     }
+
+
+    eye = async (evt) => {
+        if (document.getElementById("password").type === "password") {
+            document.getElementById("password").type = "text";
+            document.getElementById("eye").className = "fa fa-eye-slash";
+        }
+        else if (document.getElementById("password").type === "text") {
+            document.getElementById("password").type = "password";
+            document.getElementById("eye").className = "fa fa-eye";
+        }
+        else {
+
+        }
+    }
+
     render() {
         return (
             <div className="col-md-12 loginform">
@@ -72,9 +88,9 @@ class Login extends Component {
                                             aria-describedby="inputGroupPrepend"
                                             required value={this.state.password} onChange={(evt) => {
                                                 this.setState({ password: evt.target.value })
-                                            }} />
+                                            }} id="password" />
                                         <InputGroup.Prepend>
-                                            <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-eye" aria-hidden="true"></i></InputGroup.Text>
+                                            <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-eye" aria-hidden="true" id="eye" onClick={this.eye}></i></InputGroup.Text>
                                         </InputGroup.Prepend>
                                     </InputGroup>
                                 </div>
@@ -83,7 +99,7 @@ class Login extends Component {
                                     <p id="emailerror" className="text-danger"></p>
                                 </div>
 
-                                
+
                                 {/* <div className="col-md-6 mb50">
                                     <p className="forgot"><a href>Forgot Password?</a></p>
                                 </div> */}

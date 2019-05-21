@@ -37,7 +37,7 @@ class Detail extends Component {
             Daysleft: null,
             ButtonTitle: "Questions",
             show: false,
-            Questions:null
+            Questions: null
         };
     }
 
@@ -78,7 +78,7 @@ class Detail extends Component {
             this.setState({ Daysleft: daysLeft ? daysLeft + " days left" : null });
             this.setState({ TotalFund: project.funding ? project.funding : null });
             this.setState({ ExecuterEmail: project.ngo && project.ngo.email ? project.ngo.email : null });
-            this.setState({ Questions: project.questions ? project.questions : null});
+            this.setState({ Questions: project.questions ? project.questions : null });
         } else {
             this.props.history.push({
                 pathname: '/',
@@ -169,7 +169,7 @@ class Detail extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-5">
                                     <div className="row mb50">
                                         <div className="col-md-3">
                                             <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
@@ -191,7 +191,7 @@ class Detail extends Component {
                                     </div>
                                 </div>
 
-                                <div className="col-md-6">
+                                <div className="col-md-7">
                                     <div className="row mb50">
                                         <div className="col-md-3">
                                             <img src={require('../../assets/images/group-16.svg')} width="40px" alt="" />
@@ -221,7 +221,7 @@ class Detail extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-5">
                                     <div className="row mb50">
                                         <div className="col-md-3">
                                             <img src={require('../../assets/images/group-15.svg')} width="40px" alt="" />
@@ -243,7 +243,7 @@ class Detail extends Component {
                                     </div>
                                 </div>
 
-                                <div className="col-md-6">
+                                <div className="col-md-7">
                                     <div className="row mb50">
                                         <div className="col-md-3">
                                             <img src={require('../../assets/images/group-16.svg')} width="40px" alt="" />
@@ -276,7 +276,7 @@ class Detail extends Component {
                         <Modal.Title>Project Name: {this.state.ProjectName}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <DoneQuestion questions = {this.state.Questions} />
+                        <DoneQuestion questions={this.state.Questions} />
                     </Modal.Body>
                     <Modal.Footer>
 
