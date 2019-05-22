@@ -51,13 +51,13 @@ class Navigation extends Component {
                                     <input
                                         type="serch"
                                         placeholder="Search Projects"
-                                        className="search" 
+                                        className="search searchText" 
                                         value={this.state.query}     
                                         onChange={this.searchProjects}
                                     />
-                                    <InputGroup.Prepend>
+                                    {/* <InputGroup.Prepend>
                                         <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-search" aria-hidden="true"></i></InputGroup.Text>
-                                    </InputGroup.Prepend>
+                                    </InputGroup.Prepend> */}
                                 </InputGroup>
                                 <Nav.Link eventKey={2}>
                                     <img src={require('../../assets/images/filter.png') } alt=""/>
