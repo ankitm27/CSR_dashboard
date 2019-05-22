@@ -10,7 +10,7 @@
 .table-striped tbody div:nth-of-type(odd) {
     background-color: #2b7ed114;
 }
-.tabcontent tbody div tr:nth-of-type(odd) {
+.table-striped tbody div tr:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0);
 }
 .tabcontent tbody div span{

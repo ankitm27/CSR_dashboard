@@ -18,7 +18,7 @@ import step3 from '../src/Components/CreateProject/Step3/CreateProject';
 import step4 from '../src/Components/CreateProject/Step4/CreateProject';
 import step5 from '../src/Components/CreateProject/Step5/CreateProject';
 import done from '../src/Components/CreateProject/DoneQuestion/DoneQuestion';
-
+import PreviousProject from '../src/Components/PreviousProject/PreviousProject';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
@@ -48,6 +48,7 @@ const routing = (
                 <Route path="/createproject3" component={step3} />
                 <Route path="/createproject4" component={step4} />
                 <Route path="/createproject5" component={step5} />
+                <Route path="/PreviousProject" component={PreviousProject}/>
                 <Route path="/done" component={done} />
             </div>
         </Router>

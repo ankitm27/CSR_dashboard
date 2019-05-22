@@ -10,8 +10,8 @@
     background-color: #2b7ed114;
 }
 
-.tabcontent1 tr {
-    border: solid 1px #97979733;
+.tabcontent1 h1 {
+    margin-left:1rem;
 }
 
 .headingRules{

@@ -120,11 +120,6 @@ class Dashboard extends Component {
                                 <Projects programs={Program} />
                             </div>
                         ))}
-                        {this.state && this.state.Programs && this.state.Programs.map((Program, i) => (
-                            <div key={i} className="col-md-4">
-                                <PreviousProject programs={Program}/>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </div>
