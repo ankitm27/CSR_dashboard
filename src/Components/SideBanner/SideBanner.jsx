@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './SideBanner.css';
 import Button from 'react-bootstrap/Button';
-import { exportDefaultSpecifier } from '@babel/types';
 import { connect } from "react-redux";
-import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 
 
