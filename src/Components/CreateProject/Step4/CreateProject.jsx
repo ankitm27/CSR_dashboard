@@ -179,7 +179,7 @@ class CreateProject extends Component {
                                                     <input 
                                                         type="file" 
                                                         onChange={(evt) => {this.setState({ file: evt.target.value })}} 
-                                                        accept=".css,.html"
+                                                        accept=".csv,.xls"
                                                         />
                                                 </form>
                                             </div>
