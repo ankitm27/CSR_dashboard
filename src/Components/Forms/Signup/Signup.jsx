@@ -35,11 +35,39 @@ class Signup extends Component {
         else {
             document.getElementById("emailerror").innerHTML = "";
             await this.props.registerUser({ email: this.state.email, password: this.state.password, confirmPassword: this.state.confirmPassword, firstname: this.state.firstname, lastname: this.state.lastname, mobile: this.state.mobile, organizationType: this.state.organizationType })
-            if(this.props.auth.success){
+            if (this.props.auth.success) {
                 this.props.history.push({
-                    pathname:'/login',
+                    pathname: '/login',
                 });
             }
+        }
+    }
+
+    eye = async (evt) => {
+        if (document.getElementById("password").type === "password") {
+            document.getElementById("password").type = "text";
+            document.getElementById("eye").className = "fa fa-eye-slash";
+        }
+        else if (document.getElementById("password").type === "text") {
+            document.getElementById("password").type = "password";
+            document.getElementById("eye").className = "fa fa-eye";
+        }
+        else {
+
+        }
+    }
+
+    eye2 = async (evt) => {
+        if (document.getElementById("password2").type === "password") {
+            document.getElementById("password2").type = "text";
+            document.getElementById("eye2").className = "fa fa-eye-slash";
+        }
+        else if (document.getElementById("password2").type === "text") {
+            document.getElementById("password2").type = "password";
+            document.getElementById("eye2").className = "fa fa-eye";
+        }
+        else {
+
         }
     }
 
@@ -106,9 +134,9 @@ class Signup extends Component {
                                             aria-describedby="inputGroupPrepend"
                                             required value={this.state.password} onChange={(evt) => {
                                                 this.setState({ password: evt.target.value })
-                                            }} />
+                                            }} id="password" />
                                         <InputGroup.Prepend>
-                                            <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-eye" aria-hidden="true"></i></InputGroup.Text>
+                                            <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-eye" aria-hidden="true" id="eye" onClick={this.eye}></i></InputGroup.Text>
                                         </InputGroup.Prepend>
                                     </InputGroup>
                                 </div>
@@ -120,9 +148,9 @@ class Signup extends Component {
                                             aria-describedby="inputGroupPrepend"
                                             required value={this.state.confirmPassword} onChange={(evt) => {
                                                 this.setState({ confirmPassword: evt.target.value })
-                                            }} />
+                                            }} id="password2" />
                                         <InputGroup.Prepend>
-                                            <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-eye" aria-hidden="true"></i></InputGroup.Text>
+                                            <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-eye" aria-hidden="true" id="eye2" onClick={this.eye2}> </i></InputGroup.Text>
                                         </InputGroup.Prepend>
                                     </InputGroup>
                                 </div>

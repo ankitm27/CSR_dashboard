@@ -10,6 +10,8 @@ import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
 import PreviousProject from '../PreviousProject/PreviousProject';
 
+const _ = require('lodash');
+
 class Dashboard extends Component {
     constructor() {
         super();
@@ -23,8 +25,11 @@ class Dashboard extends Component {
             TotalStatus: "",
             Programs: null,
             Title: 'Projects',
-            Button: 'Create New Project'
+            Button: 'Create New Project',
+            searchProject:null,
+            filterPrograms:null
         };
+        this.handleData = this.handleData.bind(this);
     }
 
     async componentDidMount() {
@@ -43,7 +48,7 @@ class Dashboard extends Component {
         this.setState({ TotalPoor: this.props.projects.overallBad });
         this.setState({ TotalStatus: this.props.projects.overallStatus });
         this.setState({ Programs: this.props.projects.programs });
-
+        this.setState({ filterPrograms : this.props.projects.programs });
     }
 
     onClick = () => {
@@ -52,6 +57,21 @@ class Dashboard extends Component {
         });
     }
 
+    async handleData(data) {
+        let programs = [];
+        if(data && data.length > 0){
+            this.state.Programs.forEach((program) => {
+                if(_.startsWith(program.title,data)){
+                    programs.push(program);
+                }
+            });
+            this.setState({filterPrograms:programs});
+        }else{
+            this.setState({filterPrograms:this.state.Programs});
+        }
+    }
+    
+
 
 
     render() {
@@ -59,8 +79,8 @@ class Dashboard extends Component {
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
-                    <Navbar />
-                    <Navigation />
+                    <Navbar userName={this.props.auth} />
+                    <Navigation projectFunction={this.handleData} />
                 </div>
 
                 <div className="col-md-10 offset-md-1 mbtotal">
@@ -115,7 +135,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="col-md-10 offset-md-1">
                     <div className="row">
-                        {this.state && this.state.Programs && this.state.Programs.map((Program, index) => (
+                        {this.state && this.state.filterPrograms && this.state.filterPrograms.map((Program, index) => (
                             <div key={Program._id} className="col-md-4 projectlist">
                                 <Projects programs={Program} />
                             </div>

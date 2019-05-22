@@ -1,0 +1,16 @@
+.questionWidth{
+    min-width: 25rem;
+}
+
+.question h2 {
+    width: 739px;
+    height: 27px;
+    font-family: Avenir;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #303030;
+}

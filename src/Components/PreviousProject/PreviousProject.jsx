@@ -1,7 +1,7 @@
 import React from 'react';
 import './PreviousProject.css';
-// import Navbar from '../Navbar/Navbar';
-// import Navigation from '../Navigation/Navigation';
+import Navbar from '../Navbar/Navbar';
+import Navigation from '../Navigation/Navigation';
 
 class PreviousProject extends React.Component{
     constructor() {
@@ -12,8 +12,12 @@ class PreviousProject extends React.Component{
     }
     render(){
         return (
-            <div className="row">
-            <div className="col-md-10 offset-md-1">
+            <div className="row PreviousProject">
+                <div className="col-md-12 topbar">
+                    <Navbar userName={this.props.auth} />
+                    <Navigation projectFunction={this.handleData} />
+                </div>
+            <div className="col-md-10 offset-md-1 mbtotal">
                 <div className="row">
                 {this.state.data.map(i => (
                     <div key={i} className="col-md-4">

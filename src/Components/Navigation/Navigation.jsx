@@ -16,6 +16,7 @@ class Navigation extends Component {
             Menu2: 'Previous Project',
             Menu3: 'Draft Project',
             Menu4: 'Settings',
+            searchProject:null
         };
     }
 
@@ -52,7 +53,10 @@ class Navigation extends Component {
                                     <input
                                         type="serch"
                                         placeholder="Search Projects"
-                                        className="search" />
+                                        className="search" 
+                                        value={this.state.query}     
+                                        onChange={this.searchProjects}
+                                    />
                                     <InputGroup.Prepend>
                                         <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-search" aria-hidden="true"></i></InputGroup.Text>
                                     </InputGroup.Prepend>

@@ -3,7 +3,7 @@
 }
 
 .Dashboard .topbar {
-    height: 200px;
+    height: 220px;
     opacity: 0.92;
     background-image: linear-gradient(to bottom, #1f9cf8, #03045c);
 }
@@ -27,7 +27,7 @@
     color: #42505c;
     padding-left: 30px;
     padding-top: 0px;
-    margin-top:0px
+    margin-top: 0px
 }
 
 .mbtitile .create p {
@@ -44,19 +44,24 @@
     margin-top: 0px
 }
 
+.pie1 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
 .create .add {
     background-color: transparent !important;
     border: none !important;
 }
 
 .mbgraph,
-
 .mbgpie {
-
     border-radius: 8px;
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
     background-color: #ffffff;
     padding: 20px;
+    min-height: 480.656px;
+    margin-bottom: 50px;
 }
 
 /* .mbgraph .funding {

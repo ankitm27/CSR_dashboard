@@ -113,8 +113,8 @@ class Question extends Component {
         }else if(evt.target.value === "Text"){
             value = "Text"
             document.getElementById("options").style.display = "none"
-        }else if(evt.target.value === "Single Choice"){
-            value = "Single Choice"
+        }else if(evt.target.value === "Choice"){
+            value = "Choice"
             document.getElementById("options").style.display = "block"
         }
         this.setState({ questionType: value });
@@ -128,7 +128,7 @@ class Question extends Component {
 
     
     render() {
-        let { value, people } = this.state;
+        let { value } = this.state;
         return (
             <div>
             <ReactNotification ref={this.notificationDOMRef} />
@@ -144,7 +144,7 @@ class Question extends Component {
                                     <Form.Control as="select" value={this.state.questionType}  id="questiontype" 
                                         onChange={this.onChange}>
                                         <option id="0">Question Type</option>
-                                        <option value="Single Choice">Single Choice</option>
+                                        <option value="Choice">Choice</option>
                                         <option value="Text" id="2"> Text</option>
                                         <option value="Location" id="4">Location</option>
                                         <option value="Image" id="5">Image</option>

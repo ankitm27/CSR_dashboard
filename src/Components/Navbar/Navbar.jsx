@@ -15,7 +15,8 @@ class Navbar1 extends Component {
     }
 
     componentDidMount() {
-        this.setState({ userName: this.props.auth && this.props.auth.userName ? this.props.auth.userName : "USER" });
+        console.log("this props auth username",this.props.auth.userName);
+        this.setState({ userName: localStorage.getItem("userName") ? localStorage.getItem("userName") : "USER" });
     }
 
     onSubmit = (evt) => {
@@ -26,9 +27,11 @@ class Navbar1 extends Component {
     }
 
     onClick = (evt) => {
+        console.log("check");
         evt.preventDefault();
         localStorage.removeItem("id");
         localStorage.removeItem("token");
+        localStorage.removeItem("userName");
         this.props.history.push({
             pathname: '/login',
         });
