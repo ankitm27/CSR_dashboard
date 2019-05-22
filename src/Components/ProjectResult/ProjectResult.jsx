@@ -33,7 +33,7 @@ class ProjectResults extends Component {
             _id: null
         }];    
         
-        this.users=["user1","user2","user3","user4","user5","user6","user7","user8"]
+        this.users=[]
 
 
         this.handleShow = this.handleShow.bind(this);
@@ -65,7 +65,10 @@ class ProjectResults extends Component {
     }
 
     render() {
-        console.log(this.data)
+        // console.log(this.data)
+        for (let i = 0; i < this.data.length; i++){
+            this.users.push("user")
+        }
         return (
             <div className="row ProjectResult">
                 <div className="col-md-5">
