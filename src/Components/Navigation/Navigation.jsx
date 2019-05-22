@@ -32,7 +32,34 @@ class Navigation extends Component {
         this.props.projectFunction(evt.target.value);
     }
 
+    renderSearch = () => {
+        return (
+            <Nav>
+                <InputGroup>
+                    <input
+                        type="serch"
+                        placeholder="Search Projects"
+                        className="search searchText" 
+                        value={this.state.query}     
+                        onChange={this.searchProjects}
+                    />
+                    {/* <InputGroup.Prepend>
+                        <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-search" aria-hidden="true"></i></InputGroup.Text>
+                    </InputGroup.Prepend> */}
+                </InputGroup>
+                <Nav.Link eventKey={2}>
+                    <img src={require('../../assets/images/filter.png') } alt=""/>
+                </Nav.Link>
+            </Nav>
+        )
+    }
+
     render() {
+        let searchBar;
+        const isSearchRequired = this.props && this.props.isSearchRequired ? true : false;
+        if(isSearchRequired){
+            searchBar = this.renderSearch();
+        }
         return (
             <div className="row Navigation">
                 <div className="col-md-10 offset-md-1 ">
@@ -45,25 +72,7 @@ class Navigation extends Component {
                                 <Nav.Link>{this.state.Menu3}</Nav.Link>
                                 <Nav.Link>{this.state.Menu4}</Nav.Link>
                             </Nav>
-
-                            <Nav>
-                                <InputGroup>
-                                    <input
-                                        type="serch"
-                                        placeholder="Search Projects"
-                                        className="search searchText" 
-                                        value={this.state.query}     
-                                        onChange={this.searchProjects}
-                                    />
-                                    {/* <InputGroup.Prepend>
-                                        <InputGroup.Text id="inputGroupPrepend"><i className="fa fa-search" aria-hidden="true"></i></InputGroup.Text>
-                                    </InputGroup.Prepend> */}
-                                </InputGroup>
-                                <Nav.Link eventKey={2}>
-                                    <img src={require('../../assets/images/filter.png') } alt=""/>
-                                </Nav.Link>
-                            </Nav>
-
+                            {searchBar}
                         </Navbar.Collapse>
                     </Navbar>
                 </div>

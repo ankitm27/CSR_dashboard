@@ -78,7 +78,7 @@ class Dashboard extends Component {
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
                     <Navbar userName={this.props.auth} />
-                    <Navigation projectFunction={this.handleData} />
+                    <Navigation projectFunction={this.handleData} isSearchRequired={true} />
                 </div>
 
                 <div className="col-md-10 offset-md-1 mbtotal">
