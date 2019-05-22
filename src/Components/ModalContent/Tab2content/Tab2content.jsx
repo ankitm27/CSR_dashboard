@@ -30,8 +30,8 @@ class Tab1content extends Component {
             <div className="row tabcontent1">
                 <div className="col-md-12">
                     <Table striped size="lg">
-                        <tbody>
-                        {this.props.userDetailes && this.props.userDetailes.rules && this.props.userDetailes.rules.map((rule, index) => (
+                        <tbody> 
+                         {this.props.userDetailes && this.props.userDetailes.rules && this.props.userDetailes.rules.map((rule, index) => (
                             <div key={rule.componentName}>
                                 <h1 className="headingRules">{rule.componentName}</h1>
                                 <tr>

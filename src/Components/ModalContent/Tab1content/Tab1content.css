@@ -1,23 +1,33 @@
-.tabcontent td span {
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #686868;
-}
 
 .tabcontent td {
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #686868;
+    width: 360px;
+    height: 22px;
+    font-family: Avenir;
+    font-size: 16px;
+    color: #303030;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
+.table-striped tbody div:nth-of-type(odd) {
     background-color: #2b7ed114;
+}
+.tabcontent tbody div tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0);
+}
+.tabcontent tbody div span{
+    width: 200px;
+    height: 12px;
+    font-family: Avenir;
+    line-height: 1.58;
+    color: #686868;
+    font-size: 12px;
+    padding-left: .75rem;
+}
+
+.tabcontent tbody div i{
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2154a6;
+    text-decoration: underline;
+    padding-left: 6px;
 }

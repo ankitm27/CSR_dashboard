@@ -96,9 +96,3 @@ export const getQuestionsTypes = values => dispatch => {
         return Promise.reject();
     });
 }
-
-
-
-
-
-

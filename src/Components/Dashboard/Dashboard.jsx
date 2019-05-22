@@ -8,6 +8,7 @@ import Pie from '../PieChart/PieChart';
 import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
+import PreviousProject from '../PreviousProject/PreviousProject';
 
 const _ = require('lodash');
 
@@ -74,6 +75,7 @@ class Dashboard extends Component {
 
 
     render() {
+        console.log(this.state.programs)
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
@@ -129,15 +131,18 @@ class Dashboard extends Component {
                         <div className="col-md-6 text-right create">
                             <p><a onClick={this.onClick}>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" alt="" /></button></a></p>
                         </div>
-
                     </div>
                 </div>
-
                 <div className="col-md-10 offset-md-1">
                     <div className="row">
                         {this.state && this.state.filterPrograms && this.state.filterPrograms.map((Program, index) => (
                             <div key={Program._id} className="col-md-4 projectlist">
                                 <Projects programs={Program} />
+                            </div>
+                        ))}
+                        {this.state && this.state.Programs && this.state.Programs.map((Program, i) => (
+                            <div key={i} className="col-md-4">
+                                <PreviousProject programs={Program}/>
                             </div>
                         ))}
                     </div>

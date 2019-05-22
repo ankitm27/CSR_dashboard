@@ -23,7 +23,8 @@ class CreateProject extends Component {
             email:"",
             phone:"",
             allowedUsers:"",
-            city:""
+            city:"",
+            file:null
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -72,7 +73,8 @@ class CreateProject extends Component {
                         email:this.state.email,
                         phone:this.state.phone,
                         allowedUsers:this.state.allowedUsers,
-                        city:this.state.city
+                        city:this.state.city,
+                        file: this.state.file
                     }
 
                 }      
@@ -172,7 +174,14 @@ class CreateProject extends Component {
 
 
                                             <div className="col-md-6">
-
+                                                <form onSubmit={this.onFileSubmit}>
+                                                    <h6>File Upload</h6>
+                                                    <input 
+                                                        type="file" 
+                                                        onChange={(evt) => {this.setState({ file: evt.target.value })}} 
+                                                        accept=".css,.html"
+                                                        />
+                                                </form>
                                             </div>
 
                                             {/* <div className="col-md-6 text-left back1">
