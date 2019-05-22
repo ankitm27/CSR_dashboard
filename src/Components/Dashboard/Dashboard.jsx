@@ -57,13 +57,8 @@ class Dashboard extends Component {
     }
 
     async handleData(data) {
-        console.log("data",data);
-        console.log("data length",data.length);
-        console.log("this state Programs",this.state.Programs);
-        console.log("this state filter programs",this.state.filterPrograms);
         let programs = [];
         if(data && data.length > 0){
-            console.log("check");
             this.state.Programs.forEach((program) => {
                 if(_.startsWith(program.title,data)){
                     programs.push(program);
@@ -71,7 +66,6 @@ class Dashboard extends Component {
             });
             this.setState({filterPrograms:programs});
         }else{
-            console.log("check1212");
             this.setState({filterPrograms:this.state.Programs});
         }
     }
