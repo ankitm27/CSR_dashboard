@@ -17,8 +17,8 @@
     padding: 50px;
 }
 
-.mbtitile .heading p {
-    font-size: 22px;
+.mbtitile .heading1 p {
+    font-size: 30px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -27,7 +27,7 @@
     color: #42505c;
     padding-left: 30px;
     padding-top: 0px;
-    margin-top: 0px
+    /* margin-top: 0px */
 }
 
 .mbtitile .create p {
@@ -39,7 +39,6 @@
     letter-spacing: normal;
     text-align: right;
     color: #79828b;
-    margin-top: 50px;
     padding-top: 0px;
     margin-top: 0px
 }
@@ -141,5 +140,5 @@
 }
 
 .upppad {
-    margin-top: -40px
+    margin-top: -50px
 }

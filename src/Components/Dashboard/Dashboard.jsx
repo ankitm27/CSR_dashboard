@@ -123,13 +123,12 @@ class Dashboard extends Component {
 
                 <div className="col-md-10 offset-md-1 mbtitile">
                     <div className="row upppad">
-                        <div className="col-md-6 text-left heading">
+                        <div className="col-md-6 text-left heading1">
                             <p>{this.state.Title}</p>
                         </div>
                         <div className="col-md-6 text-right create">
                             <p><a onClick={this.onClick}>{this.state.Button}  <button className="add"><img src={require('../../assets/images/group-5.png')} width="30" alt="" /></button></a></p>
                         </div>
-
                     </div>
                 </div>
 
