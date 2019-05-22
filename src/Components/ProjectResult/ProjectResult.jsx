@@ -110,7 +110,9 @@ class ProjectResults extends Component {
                         <tbody>
                             {this.data.map((dataObj,i) =>
                                 <tr key={dataObj._id} className="tableContentText">
-                                    <td>{this.users[i]}</td>
+                                {
+                                    dataObj.name.data === undefined? <td>{this.users[i]}</td> : <td>{dataObj.name.data}</td>
+                                }
                                     <td><Moment format="D MMM YYYY">{dataObj.date}</Moment></td>
                                     <td>{dataObj.totalDetail}</td>
                                     <td>{dataObj.unverifiedDetail}</td>
