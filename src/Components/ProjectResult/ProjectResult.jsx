@@ -108,7 +108,7 @@ class ProjectResults extends Component {
                             {this.data.map((dataObj,i) =>
                                 <tr key={dataObj._id} className="tableContentText">
                                     <td>{this.users[i]}</td>
-                                    <Moment format="D MMM YYYY"><td>{dataObj.date}</td></Moment>
+                                    <td><Moment format="D MMM YYYY">{dataObj.date}</Moment></td>
                                     <td>{dataObj.totalDetail}</td>
                                     <td>{dataObj.unverifiedDetail}</td>
                                     <td>{dataObj.totalRules}</td>
