@@ -1,0 +1,13 @@
+.projectlist .fund p {
+  text-align: left
+}
+
+.PreviousProject .topbar {
+  height: 220px;
+  opacity: 0.92;
+  background-image: linear-gradient(to bottom, #1f9cf8, #03045c);
+}
+
+.PreviousProject .mbtotal{
+  margin-top: -50px;
+}

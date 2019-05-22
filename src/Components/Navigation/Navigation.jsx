@@ -27,9 +27,11 @@ class Navigation extends Component {
         });
     }
 
-    searchProjects = (evt) => {
+    onClick = (evt)=>{
         evt.preventDefault();
-        this.props.projectFunction(evt.target.value);
+        this.props.history.push({
+            pathname:'/PreviousProject',
+        });
     }
 
     renderSearch = () => {
@@ -68,7 +70,7 @@ class Navigation extends Component {
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="mr-auto">
                                 <Nav.Link onClick={this.onSubmit}>{this.state.Menu1}</Nav.Link>
-                                <Nav.Link>{this.state.Menu2}</Nav.Link>
+                                <Nav.Link onClick={this.onClick}>{this.state.Menu2}</Nav.Link>
                                 <Nav.Link>{this.state.Menu3}</Nav.Link>
                                 <Nav.Link>{this.state.Menu4}</Nav.Link>
                             </Nav>

@@ -8,6 +8,7 @@ import Pie from '../PieChart/PieChart';
 import { connect } from "react-redux";
 import actions from "../../Store/Actions/Index";
 import { withRouter } from "react-router";
+import PreviousProject from '../PreviousProject/PreviousProject';
 
 const _ = require('lodash');
 
@@ -74,6 +75,7 @@ class Dashboard extends Component {
 
 
     render() {
+        console.log(this.state.programs)
         return (
             <div className="row Dashboard">
                 <div className="col-md-12 topbar">
@@ -131,7 +133,6 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-
                 <div className="col-md-10 offset-md-1">
                     <div className="row">
                         {this.state && this.state.filterPrograms && this.state.filterPrograms.map((Program, index) => (
