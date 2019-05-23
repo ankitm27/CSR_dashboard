@@ -7,7 +7,7 @@
     color: #303030;
 }
 
-.table-striped tbody div:nth-of-type(odd) {
+.tabcontent tbody div:nth-of-type(odd) {
     background-color: #2b7ed114;
 }
 .table-striped tbody div tr:nth-of-type(odd) {

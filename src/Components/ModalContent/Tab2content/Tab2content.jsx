@@ -36,7 +36,7 @@ class Tab1content extends Component {
                                 <h1 className="headingRules">{rule.componentName}</h1>
                                 <tr>
                                     {rule.rules.map((ruleName,index) => (
-                                        <td className="text-success">{ruleName}</td>
+                                        <td className="">{ruleName}</td>
                                     ))}
                                 </tr>
                             </div>
