@@ -65,10 +65,6 @@ class ProjectResults extends Component {
     }
 
     render() {
-        // console.log(this.data)
-        for (let i = 0; i < this.data.length; i++){
-            this.users.push("user")
-        }
         return (
             <div className="row ProjectResult">
                 <div className="col-md-5">
@@ -111,7 +107,7 @@ class ProjectResults extends Component {
                             {this.data.map((dataObj,i) =>
                                 <tr key={dataObj._id} className="tableContentText">
                                 {
-                                    dataObj.name.data === undefined? <td>{this.users[i]}</td> : <td>{dataObj.name.data}</td>
+                                    dataObj.name.data1 === undefined? <td>User {i+1}</td> : <td>{dataObj.name.data}</td>
                                 }
                                     <td><Moment format="D MMM YYYY">{dataObj.date}</Moment></td>
                                     <td>{dataObj.totalDetail}</td>
@@ -130,9 +126,11 @@ class ProjectResults extends Component {
 
                 <Modal show={this.state.show} onHide={this.handleClose} size="lg">
                     <Modal.Header closeButton>
-                        <ModalContent selectedUser={this.state.selectedUser} userDetailes={this.state.userDetailes} />
+                        {/* <ModalContent selectedUser={this.state.selectedUser} userDetailes={this.state.userDetailes} /> */}
                     </Modal.Header>
-                    <Modal.Body>  </Modal.Body>
+                    <Modal.Body>  
+                        <ModalContent selectedUser={this.state.selectedUser} userDetailes={this.state.userDetailes} />
+                    </Modal.Body>
 
                 </Modal>
 

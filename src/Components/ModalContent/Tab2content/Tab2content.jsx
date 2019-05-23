@@ -24,23 +24,26 @@ class Tab1content extends Component {
     }
 
     render() {
-        // console.log("this props",this.props);
-        // console.log("this props rules",this.props.userDetailes.rules);
+        console.log("this props",this.props);
+        console.log("this props rules",this.props.userDetailes.rules);
         return (
             <div className="row tabcontent1">
                 <div className="col-md-12">
-                    <Table striped size="lg">
+                    <Table>
+                        <thead>
+
+                        </thead>
                         <tbody> 
-                         {this.props.userDetailes && this.props.userDetailes.rules && this.props.userDetailes.rules.map((rule, index) => (
-                            <div key={rule.componentName}>
-                                <h1 className="headingRules">{rule.componentName}</h1>
-                                <tr>
-                                    {rule.rules.map((ruleName,index) => (
-                                        <td className="text-success">{ruleName}</td>
-                                    ))}
-                                </tr>
-                            </div>
-                        ))}  
+                            {this.props.userDetailes && this.props.userDetailes.rules && this.props.userDetailes.rules.map((rule, index) => (
+                                <div key={rule.componentName} class="border">
+                                    <h1 className="headingRules">{rule.componentName}</h1>
+                                    <tr>
+                                        {rule.rules.map((ruleName,index) => (
+                                            <td className="text-success">{ruleName}</td>
+                                        ))}
+                                    </tr>
+                                </div>
+                            ))}  
                         </tbody>
                     </Table>
                 </div>

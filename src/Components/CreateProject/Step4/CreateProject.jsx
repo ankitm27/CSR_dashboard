@@ -173,7 +173,7 @@ class CreateProject extends Component {
                                             </div>
 
 
-                                            <div className="col-md-6">
+                                            {/* <div className="col-md-6">
                                                 <form onSubmit={this.onFileSubmit}>
                                                     <h6>File Upload</h6>
                                                     <input 
@@ -182,7 +182,7 @@ class CreateProject extends Component {
                                                         accept=".csv,.xls"
                                                         />
                                                 </form>
-                                            </div>
+                                            </div> */}
 
                                             {/* <div className="col-md-6 text-left back1">
                                                 <a>Back</a>
