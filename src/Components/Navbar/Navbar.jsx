@@ -91,15 +91,15 @@ class Navbar1 extends Component {
                         <div className="row">
                             <div className="col-md-12 image"> 
                                 <div className="row">
-                                    <div className="col-md-4 image right-border left-padding">
+                                    <div className="col-md-3 image right-border left-padding">
                                         <img className="profile-image" src={require('../../assets/images/bitmap.png')} alt="" />
                                     </div>
-                                    <div className="col-md-8 image left-padding-right">
+                                    <div className="col-md-9 image left-padding-right">
                                         <div className="col-md-12 box-height">
                                             <p className="profile-heading">Employee Code: <span className="data">1234</span></p>
                                         </div>
-                                        <div className="col-md-8 box-height">
-                                        <p className="profile-heading">Name: <span className="data">check</span></p>
+                                        <div className="col-md-9 box-height">
+                                            <p className="profile-heading">Name: <span className="data">check</span></p>
                                         </div>
                                     </div>
                                 </div>

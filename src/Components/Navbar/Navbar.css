@@ -165,13 +165,14 @@
     line-height: normal;
     letter-spacing: normal;
     color: #686868;
-    padding-top: 10px
+    padding-top: 11px
 }
 
 .modal-body{
     padding-left:10px;
-    padding-top: 0px
-    
+    padding-top: 0px;
+    padding-bottom:0px !important;
+    height:53vh !important;
 }
 
 .left-padding{
