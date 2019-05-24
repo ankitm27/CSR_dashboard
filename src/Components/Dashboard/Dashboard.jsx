@@ -77,7 +77,7 @@ class Dashboard extends Component {
     render() {
         console.log(this.state.programs)
         return (
-            <div className="row Dashboard">
+            <div className="row Dashboard m-0">
                 <div className="col-md-12 topbar">
                     <Navbar userName={this.props.auth} />
                     <Navigation projectFunction={this.handleData} isSearchRequired={true} />
