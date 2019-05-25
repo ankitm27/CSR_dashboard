@@ -83,9 +83,6 @@ class Navigation extends Component {
     }
 }
 
-
-// export default Navigation;
-
 const mapStateToProps = state => ({
     auth: state.auth,
 })
