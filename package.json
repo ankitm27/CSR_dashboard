@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "apexcharts": "^3.6.10",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "date-diff": "^0.2.1",
     "fusioncharts": "^3.13.4",
